@@ -1,6 +1,18 @@
 package lmh.dao;
 
+import config.Factory;
+import lmh.mapper.TestMapper;
+import domain.Test;
+
 public class TestDaoImpl implements TestDao{
-	public void getTest(){}
+	TestMapper testMapper;
+	
+	public TestDaoImpl(){
+		testMapper = Factory.getMapper(TestMapper.class);
+	}
+	
+	public Test[] getTest(){
+		return testMapper.getTest();
+	}
 
 }

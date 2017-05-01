@@ -1,7 +1,7 @@
 package lmh.dao;
 
-public interface TestDao {
-	
-	public void getTest();
+import domain.Test;
 
+public interface TestDao {	
+	public Test[] getTest();
 }

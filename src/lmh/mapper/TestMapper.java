@@ -1,5 +1,7 @@
 package lmh.mapper;
 
+import domain.Test;
+
 public interface TestMapper {
-	public void getTest();
+	public Test[] getTest();
 }

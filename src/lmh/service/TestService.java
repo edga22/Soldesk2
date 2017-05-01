@@ -1,6 +1,7 @@
 package lmh.service;
 
 import lmh.mgr.TestMgr;
+import domain.Test;
 
 public class TestService {
 	TestMgr testMgr;
@@ -9,9 +10,8 @@ public class TestService {
 		testMgr = new TestMgr();
 	}
 	
-	public void getOne(){
-		testMgr.getTest();
-		
+	public Test[] getOne(){
+		return testMgr.getTest();	
 	}
 
 }

@@ -2,6 +2,7 @@ package lmh.mgr;
 
 import lmh.dao.TestDao;
 import lmh.dao.TestDaoImpl;
+import domain.Test;
 
 public class TestMgr {
 	TestDao testDao;
@@ -10,8 +11,8 @@ public class TestMgr {
 		testDao = new TestDaoImpl();
 	}
 	
-	public void getTest(){
-		testDao.getTest();
+	public Test[] getTest(){
+		return testDao.getTest();
 	}
 
 }
