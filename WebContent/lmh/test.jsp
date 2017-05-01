@@ -16,11 +16,16 @@
 <%
 TestService ts = new TestService();
 
-Test[] test = ts.getOne();
+Test[] tests = ts.getOne();
+
+for(Test test:tests){
 %>
 
-<%= test %>
+<%= test.getId() %>
+<%= test.getName() %>
+<%= test.getPw() %>
 
+<%} %>
 
 </body>
 </html>
