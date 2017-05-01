@@ -18,27 +18,35 @@ body {
 	max-width : 970px;
 }
 .navbar {
-	background-color : white;
-	
+	background-color : white;	
 }
 .navbar-brand{
 	padding : 10px;
 }
-
-.navbar li{
-	border-right: 1px solid #e5e5e5;	
-}
-
-.navbar li:first-child{
-	border-left: 1px solid #e5e5e5;
-}
-
-.navbar-nav li{
-	width : 10rem;
-}
 .navbar a{
 	font-weight: bold;	
 }
+
+/* 왼쪽 내용들 */
+.nav-normal li{
+	border-right: 1px solid #e5e5e5;	
+}
+
+.nav-normal li:first-child{
+	border-left: 1px solid #e5e5e5;
+}
+
+.nav-normal li{
+	width : 10rem;
+}
+
+/*  */
+.dropdown-menu {
+	padding : 1rem 3rem ;
+	width : 300px;
+}
+
+
 </style>
 </head>
 
@@ -50,7 +58,7 @@ body {
 			<a class="navbar-brand" href="#"><img alt="brand" src="/img/icon/logo_new.png"></a>			
 		</div>
 				
-		<ul class="nav navbar-nav text-center">
+		<ul class="nav navbar-nav text-center nav-normal">
 	      <li><a href="#">공연</a></li>
 	      <li><a href="#">극장</a></li>
 	      <li><a href="#">이벤트</a></li>
@@ -60,11 +68,21 @@ body {
 		<ul class="nav navbar-nav text-center">
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#">로그인</a>
-				<ul class="dropdown-menu">
-		          <li><a href="#">로그인</a></li>
-		          <li><a href="#">회원가입</a></li>
-		        </ul>
-			</li>			
+				<form action="" class="dropdown-menu">
+				    <div class="form-group" >
+				      <label for="email">Email:</label>
+				      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+				    </div>
+				    <div class="form-group">
+				      <label for="pwd">Password:</label>
+				      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+				    </div>
+				    <div class="checkbox">
+				      <label><input type="checkbox" name="remember">아이디 기억</label>
+				    </div>
+				    <button type="submit" class="btn btn-default">로그인</button>
+				  </form>
+			</li>
 		</ul>
 		</div>
 		
