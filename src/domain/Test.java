@@ -1,30 +1,20 @@
 package domain;
 
 public class Test {	
-	private int id;
-	private String name;
-	private String pw;
+	String id;
+	String pw;
 
 	public Test() {
-		id = id;
-		name = name;
-		pw = pw;
+		this.id = id;
+		this.pw = pw;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getPw() {
@@ -34,5 +24,6 @@ public class Test {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
+	
 	
 }
