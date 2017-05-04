@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-inline form-group-lg" id="searchlist" role="search" action="#">
+					<select class="form-control" id="sel" name="search">
+						<option value="all">통합검색</option>
+						<option value="date">날짜별</option>
+						<option value="cate">장르별</option>
+						<option value="local">지역벌</option>
+					</select>
+					<input type="text" class="form-control" id="search" name="searchDetail"/>
+					<button type="submit" id="search-btn" class="btn btn-default btn-lg">검색</button>
+				</form>	
+			</div>
+			<div class="col-xs-8" style="margin-top:10px">
+				<a href="#"><button type="button" class="btn btn-default btn-lg" id="rank">순위별</button></a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
