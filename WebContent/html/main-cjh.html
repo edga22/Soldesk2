@@ -1,0 +1,818 @@
+<!DOCTYPE html PUBLIC>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>울트라박스</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+* {box-sizing:border-box}
+
+body {
+    font-family: 'NotoSansKR', 'Nanum Gothic', "Times New Roman", Times, sans-serif;
+}
+
+#container, #topHeadAd {
+	margin: auto;
+	width: 1200px;
+}
+#topHeadAd {
+    text-align: center;
+    background-color: #ffd11a; 
+    height: 70px;
+}
+#topHeadAd h2 {
+    font-size:3.5rem;
+}
+#nav a{
+    text-decoration: none;
+}
+.topLogo {
+    display:inline-block; 
+    width:2rem;
+    padding:0.3rem 0.1rem;
+    margin:-0.1rem;
+    color: #fff;
+    font-size:2rem;
+    font-weight:bold;
+    text-decoration: none;
+    background-color: #555;
+}
+.topLogo:HOVER {
+    color: #fff;
+    text-decoration: none;
+}
+.frameDiv {
+	margin: 5px 0;
+	width: 100%;
+	height: 450px;
+}
+
+.frame {
+	float: left;
+	position: relative;
+	margin: 5px;
+	height: 450px;
+	width: 220px;
+	border: 1px solid #555;
+}
+
+#frame1 {
+	position: relative;
+	transform-style: preserve-3d;
+	transition: all 0.7s linear;
+	width: 220px;
+	height: 300px;
+	perspactive: 300px;
+}
+
+#frame2 {
+	position: relative;
+	transform-style: preserve-3d;
+	transition: all 0.7s linear;
+	width: 220px;
+	height: 300px;
+	perspactive: 300px;
+}
+
+#frame3 {
+	position: relative;
+	transform-style: preserve-3d;
+	transition: all 0.7s linear;
+	width: 220px;
+	height: 300px;
+	perspactive: 300px;
+}
+
+#frame4 {
+	position: relative;
+	transform-style: preserve-3d;
+	transition: all 0.7s linear;
+	width: 220px;
+	height: 300px;
+	perspactive: 300px;
+}
+
+#frame5 {
+	position: relative;
+	transform-style: preserve-3d;
+	transition: all 0.7s linear;
+	width: 220px;
+	height: 300px;
+	perspactive: 300px;
+}
+
+#frame1:hover {
+	transform: rotateY(180deg);
+}
+
+#frame2:hover {
+	transform: rotateY(180deg);
+}
+
+#frame3:hover {
+	transform: rotateY(180deg);
+}
+
+#frame4:hover {
+	transform: rotateY(180deg);
+}
+
+#frame5:hover {
+	transform: rotateY(180deg);
+}
+
+.card {
+	position: absolute;
+	backface-visibility: hidden;
+}
+
+.backPost {
+	opacity: 0.3;
+}
+
+.card img {
+	width: 220px;
+	height: 300px;
+}
+
+.card.back {
+	background-color: #333;
+	transform: rotateY(180deg);
+}
+
+#movieInfo {
+	position: absolute;
+	margin: auto;
+	width: 100%;
+	top: 70px;
+	color: #eee;
+	font-size: 15px;
+	text-align: center;
+}
+
+.moveInfoBtn {
+	width: 100%;
+	margin-top: 65px;
+	border-top: 1px solid #888;
+	font-size: 15px;
+}
+
+.moveInfoBtn span {
+	font-size: 25px;
+}
+
+.moveInfoBtn1 {
+	float: left;
+	width: 50%;
+	height: 78px;
+	padding-top: 13px;
+	background-color: #333;
+	border-right: 1px solid #222;
+}
+
+.moveInfoBtn1:HOVER {
+	background-color: #222;
+}
+
+.moveInfoBtn2 {
+	float: left;
+	width: 50%;
+	height: 78px;
+	padding-top: 13px;
+	background-color: #333;
+	border-left: 1px solid #888;
+}
+
+.moveInfoBtn2:HOVER {
+	background-color: #222;
+}
+
+.movieInfo2 {
+	text-align: center;
+	font-size: 17px;
+	padding: 10px;
+	border-bottom: 1px solid #555;
+}
+
+.movieInfo2 .dDay {
+	padding: 5px 25px;
+	margin-left: 10px;
+	color: white;
+	text-align: center;
+	font-size: 1.8rem;
+	background-color: #00ace6;
+	border-radius: 5px;
+}
+
+.movieInfo3 {
+	text-align: center;
+	font-size: 19px;
+	font-weight: bold;
+	padding: 10px;
+}
+
+.movieInfo3 .age {
+	padding: 3px 2px;
+	margin-right: 10px;
+	color: white;
+	text-align: center;
+	font-size: 1.4rem;
+	background-color: #00ace6;
+	border-radius: 5px;
+	font-weight: normal;
+}
+
+.movieInfo3Btn {
+	float: left;
+	width: 43%;
+	padding: 10px;
+	margin: 0 3.5% 0 3%;
+	font-size: 1.35rem;
+	color: #555;
+	background-color: #eee;
+	border: 1px solid #eee;
+}
+
+.movieInfo3Btn:HOVER {
+	color: #00ace6;
+	background-color: #fff;
+	border: 1px solid #00ace6;
+}
+
+#footer {
+    margin-top:2rem;
+    padding:2rem;
+    background-color: #555;
+}
+#footerDiv {
+    color:#fff;
+    padding: 1rem;
+}
+#footer2 {
+    padding:2rem;
+    background-color: #222;
+}
+#footer2 .footerDiv2 {
+    padding:0.8rem 1rem;
+    color:#ccc;
+}
+</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row" style="background-color: #ffd11a;">
+			<div id="topHeadAd" class="col-sm-12">
+				<h2>
+					<span class="glyphicon glyphicon-film"></span> 기가박스만의 울트라 기가찬 무비 이벤트
+				</h2>
+			</div>
+		</div>
+    </div>
+    <div class="container">
+		<div class="row">
+			<div class="btn-group btn-group-justified" id="nav">
+			    <a href="#" class="btn btn-link">
+			    <span class="topLogo">G</span>
+			    <span class="topLogo">I</span>
+			    <span class="topLogo">G</span>
+			    <span class="topLogo">A</span>
+			    <span class="topLogo">B</span>
+			    <span class="topLogo">O</span>
+			    <span class="topLogo">X</span>
+			    </a>
+				<a href="#" class="btn btn-default btn-lg">영화</a> 
+				<a href="#" class="btn btn-default btn-lg">공연</a> 
+				<a href="#" class="btn btn-default btn-lg">영화관</a>
+				<a href="#" class="btn btn-default btn-lg">공연장</a> 
+                <a href="#" class="btn btn-default btn-lg">이벤트</a> 
+                <a href="#" class="btn btn-default btn-lg">로그인</a>
+			</div>
+		</div>
+	</div>
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+
+			<div class="item active">
+				<img src="la.jpg" alt="Los Angeles" style="width: 100%;">
+				<div class="carousel-caption">
+					<h3>Los Angeles</h3>
+					<p>LA is always so much fun!</p>
+				</div>
+			</div>
+
+			<div class="item">
+				<img src="chicago.jpg" alt="Chicago" style="width: 100%;">
+				<div class="carousel-caption">
+					<h3>Chicago</h3>
+					<p>Thank you, Chicago!</p>
+				</div>
+			</div>
+
+			<div class="item">
+				<img src="ny.jpg" alt="New York" style="width: 100%;">
+				<div class="carousel-caption">
+					<h3>New York</h3>
+					<p>We love the Big Apple!</p>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Left and right controls -->
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span> <span
+			class="sr-only">Previous</span>
+		</a> <a class="right carousel-control" href="#myCarousel"
+			data-slide="next"> <span
+			class="glyphicon glyphicon-chevron-right"></span> <span
+			class="sr-only">Next</span>
+		</a>
+	</div>
+	
+	<div class="container" id="container">
+		<div class="row">
+			<div class="col-md-12 frameDiv">
+				<div class="frame">
+					<div id="frame1">
+						<div class="card">
+							<img src="../img/titanic.jpg" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg">
+							<article id="movieInfo">
+								<h2>
+									<span class="glyphicon glyphicon-star"></span> <span
+										class="glyphicon glyphicon-star"></span> <span
+										class="glyphicon glyphicon-star"></span> <span
+										class="glyphicon glyphicon-star"></span> <span
+										class="glyphicon glyphicon-star"></span>
+								</h2>
+								<p>평점을 입력해주세요</p>
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본영화
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.03 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 가디언즈 오브 갤....
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame2">
+						<div class="card">
+							<img src="../img/titanic.jpg" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg">
+							<article id="movieInfo">
+								<h2>
+									<span class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span>
+								</h2>
+								<p>평점을 입력해주세요</p>
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본영화
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.03 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 가디언즈 오브 갤....
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame3">
+						<div class="card">
+							<img src="../img/titanic.jpg" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg">
+							<article id="movieInfo">
+								<h2>
+									<span class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span>
+								</h2>
+								<p>평점을 입력해주세요</p>
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본영화
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.03 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 가디언즈 오브 갤....
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame4">
+						<div class="card">
+							<img src="../img/titanic.jpg" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg">
+							<article id="movieInfo">
+								<h2>
+									<span class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span>
+								</h2>
+								<p>평점을 입력해주세요</p>
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본영화
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.03 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 가디언즈 오브 갤....
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame5">
+						<div class="card">
+							<img src="../img/titanic.jpg" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg">
+							<article id="movieInfo">
+								<h2>
+									<span class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span>
+								</h2>
+								<p>평점을 입력해주세요</p>
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본영화
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.03 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 가디언즈 오브 갤....
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 frameDiv">
+				<div class="frame">
+					<div id="frame1">
+						<div class="card">
+							<img src="../img/titanic.jpg" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg">
+							<article id="movieInfo">
+								<h2>
+									<span class="glyphicon glyphicon-star"></span> <span
+										class="glyphicon glyphicon-star"></span> <span
+										class="glyphicon glyphicon-star"></span> <span
+										class="glyphicon glyphicon-star"></span> <span
+										class="glyphicon glyphicon-star"></span>
+								</h2>
+								<p>평점을 입력해주세요</p>
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본영화
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.03 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 가디언즈 오브 갤....
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame2">
+						<div class="card">
+							<img src="../img/titanic.jpg" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg">
+							<article id="movieInfo">
+								<h2>
+									<span class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span>
+								</h2>
+								<p>평점을 입력해주세요</p>
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본영화
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.03 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 가디언즈 오브 갤....
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame3">
+						<div class="card">
+							<img src="../img/titanic.jpg" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg">
+							<article id="movieInfo">
+								<h2>
+									<span class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span>
+								</h2>
+								<p>평점을 입력해주세요</p>
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본영화
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.03 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 가디언즈 오브 갤....
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame4">
+						<div class="card">
+							<img src="../img/titanic.jpg" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg">
+							<article id="movieInfo">
+								<h2>
+									<span class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span>
+								</h2>
+								<p>평점을 입력해주세요</p>
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본영화
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.03 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 가디언즈 오브 갤....
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame5">
+						<div class="card">
+							<img src="../img/titanic.jpg" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg">
+							<article id="movieInfo">
+								<h2>
+									<span class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span><span
+										class="glyphicon glyphicon-star"></span>
+								</h2>
+								<p>평점을 입력해주세요</p>
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본영화
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.03 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 가디언즈 오브 갤....
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid" id="footer">
+        <div class="row">
+            <div class="container">
+	            <div id="footerDiv" class="col-sm-2">
+	            경기
+	            </div>
+	            <div id="footerDiv" class="col-sm-10">
+	            김포 남양주 동탄 의정부민락 백석 별내 분당 수원 수원남문 안산중앙 양주 영통 오산 일산 일산벨라시타 킨텍스 파주금촌 파주운정 파주출판도시 평택 하남스타필드 DriveM(용인)
+	            </div>
+	            <div id="footerDiv" class="col-sm-2">
+	            인천
+	            </div>
+	            <div id="footerDiv" class="col-sm-10">
+	            검단 송도 연수 인천논현 청라
+	            </div>
+	            <div id="footerDiv" class="col-sm-2">
+	            대전 | 세종 | 충청
+	            </div>
+	            <div id="footerDiv" class="col-sm-10">
+	            공주 대전 보령 세종 진천 천안 제천 충주
+	            </div>
+	            <div id="footerDiv" class="col-sm-2">
+	            부산 | 경상
+	            </div>
+	            <div id="footerDiv" class="col-sm-10">
+	            거창 경남대 경산하양 경주 구미 구미강동 김천 대구(칠성로) 덕천 동대구 문경 부산극장 부산대 북대구(칠곡) 사천 서면 안동 양산 울산 진주 창원 해운대(장산)
+	            </div>
+	            <div id="footerDiv" class="col-sm-2">
+	            광주 | 전라
+	            </div>
+	            <div id="footerDiv" class="col-sm-10">
+	            광주(충장로) 광주상무 광주하남 남원 목포 목포하당(포르모) 송천 순천 신대 여수 전대(광주) 전주(객사) 첨단(광주)
+	            </div>
+	            <div id="footerDiv" class="col-sm-2">
+	            강원
+	            </div>
+	            <div id="footerDiv" class="col-sm-10">
+	            남춘천 속초 원주 원주센트럴
+	            </div>
+	            <div id="footerDiv" class="col-sm-2">
+	            제주
+	            </div>
+	            <div id="footerDiv" class="col-sm-10">
+	            제주 제주아라
+	            </div>
+	        </div>
+        </div>
+    </div>
+    <div class="container-fluid" id="footer2">
+        <div class="row">
+            <div class="container">
+                <div class="col-sm-8">
+                    <div class="row">
+		                <a href="#" class="btn btn-link">
+		                <span class="topLogo">G</span>
+		                <span class="topLogo">I</span>
+		                <span class="topLogo">G</span>
+		                <span class="topLogo">A</span>
+		                <span class="topLogo">B</span>
+		                <span class="topLogo">O</span>
+		                <span class="topLogo">X</span>
+		                </a>
+	                </div>
+	                <div class="row footerDiv2">
+	                   회사소개 | 채용정보 | 제휴/광고/부대사업 문의 | 이용약관 | 개인정보 처리방침 | 고객센터
+	                </div>
+	                <div class="row footerDiv2">
+		                서울특별시 강남구 도산대로 156, 2층 메가박스(주) (논현동, 중앙엠앤비사옥)<br>
+						대표자명 김진선 | 개인정보보호 책임자 경영지원실 실장 이재원<br>
+						사업자등록번호 211-86-59478 | 통신판매업신고번호 제 833호
+					</div>
+                </div>
+                <div id="footerDiv" class="col-sm-4">
+                    Copyright 2014 by MEGABOX. All rights reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
