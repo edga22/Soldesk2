@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<title>Insert title here</title>
+
+<style>
+.seat-row{
+	margin : 0.5rem;
+}
+
+.seat{
+	width : 4rem;
+	height : 4rem;
+	margin : 1px;
+	padding : 1px;	
+	font-size : 2rem;
+	border : 2px blue solid;
+	display : inline;
+	cursor : default;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+	var seatLayout = [
+			[1, 1, 1, 1, 1,],
+			[1, 1, 1, 1, 1,],
+			[1, 1, 1, 1, 1,]
+	];
+	
+	var row = '<div class="seat-row">	</div>';
+		
+	for(i = 0 ; i < seatLayout.length ; i++){
+		$(".layout").append( row );
+		for(j = 0 ; j < seatLayout[i].length ; j++){
+			var col = '<div class="seat" id="'+ i +'-'+ j +'">'+ i +'-'+ j +'</div>';
+			$(".seat-row:last").append ( col );			
+		}
+	};
+	
+	/* 이벤트부 */
+	$(".seat").mouseover(function(){
+		/* $( this ).css("border-color", "red"); */
+		var id = $(this).attr('id').split('-');
+				
+		$(".result p").text("행"+id[0] + "열"+id[1]);
+	});	
+	$(".seat").mouseleave(function(){
+		/* $( this ).css("border-color", "blue"); */
+		
+		$(".result p").text("나감");
+	});	
+	$(".seat").click(function(){
+		$( this ).css("border-color", "red");
+		
+		var id = $(this).attr('id').split('-');
+		if(seatLayout[id[0]][id[1]] == 1){
+			seatLayout[id[0]][id[1]] = 0;
+		}else{
+			if(confirm("이미 선택한 좌석입니다. 취소하시겠습니까?")){
+				seatLayout[id[0]][id[1]] = 1;
+				$( this ).css("border-color", "blue");
+			}
+		}
+	});
+	
+});
+</script>
+
+</head>
+<!-- HEAD 끝 -->
+
+<!-- BODY 시작 -->
+<body>
+<div class="container">
+<br>
+<div class="result">
+	<p>NO</p>
+</div>
+<div class="layout">
+
+</div>
+</div>
+</body>
+</html>
