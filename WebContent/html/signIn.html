@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
@@ -237,10 +238,81 @@ body {
     text-decoration: none;
     background-color: #555;
 }
+</style><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>영화 정보</title>
+<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+* {box-sizing:border-box}
+
+body {
+    font-family: 'NotoSansKR', 'Nanum Gothic', "Times New Roman", Times, sans-serif;
+}
+#container, #topHeadAd {
+	margin: auto;
+	width: 1200px;
+}
+#topHeadAd {
+    text-align: center;
+    background-color: #ffd11a; 
+    height: 70px;
+}
+#topHeadAd h2 {
+    font-size:3.5rem;
+}
+.topLogo {
+    display:inline-block; 
+    width:2rem;
+    padding:0.3rem 0.1rem;
+    margin:-0.1rem;
+    color: #fff;
+    font-size:2rem;
+    font-weight:bold;
+    text-decoration: none;
+    background-color: #555;
+}
+#nav a{
+    text-decoration: none;
+}
+#footer {
+    margin-top:2rem;
+    padding:2rem;
+    background-color: #555;
+}
+#footerDiv {
+    color:#fff;
+    padding: 1rem;
+}
+#footer2 {
+    padding:2rem;
+    background-color: #222;
+}
+#footer2 .footerDiv2 {
+    padding:0.8rem 1rem;
+    color:#ccc;
+}
+.topLogo1 {
+    display:inline-block; 
+    width:3rem;
+    padding:0.3rem 0;
+    margin:0 -0.15rem;
+    color: #fff;
+    font-size:2rem;
+    font-weight:bold;
+    text-decoration: none;
+    background-color: #555;
+}
 </style>
 </head>
 <body>
-	<div class="container">
+<div class="container">
 		<div class="row">
 			<div class="btn-group btn-group-justified" id="nav">
 			    <a href="#" class="btn btn-link">
@@ -260,169 +332,69 @@ body {
                 <a href="#" class="btn btn-default btn-lg">공연장</a>
                 <a href="#" class="btn btn-default btn-lg">로그인</a>
 			</div>
-		<!-- <div class="col-xs-12">
-				<form class="form-inline form-group-lg" id="searchlist" role="search" action="#">
-					<select class="form-control" id="sel" name="search">
-						<option value="all">통합검색</option>
-						<option value="date">날짜별</option>
-						<option value="cate">장르별</option>
-						<option value="local">지역벌</option>
-					</select>
-					<input type="text" class="form-control" id="search" name="searchDetail"/>
-					<button type="submit" id="search-btn" class="btn btn-default btn-lg">검색</button>
-				</form>	
-			</div>
-			<div class="col-xs-12" style="margin-top:10px">
-				<a href="#"><button type="button" class="btn btn-default btn-lg" id="rank">순위별</button></a>
-			</div> -->
-			<div class="frame">
-			<div id="frame1">
-				<div class="card">
-					<img src="../img/titanic.jpg" />
-				</div>
-				<div class="card back">
-					<img class="backPost" src="../img/titanic.jpg">
-					<article id="movieInfo">
-						<h2><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></h2>
-						<p>평점을 입력해주세요</p>
-						<div class="moveInfoBtn">
-		                    <div class="moveInfoBtn1">
-		                       <span class="glyphicon glyphicon-ok"></span><br>
-		                       본영화</div>
-		                    <div class="moveInfoBtn2">
-		                       <span class="glyphicon glyphicon-heart"></span><br>
-		                       보고싶어요
-		                    </div>
-		                </div>
-					</article>
+	<form action="#" method="post" style="margin-top:30px">
+			<div class="input-group">
+				<span class="input-group-addon">아이디:</span>
+				<input type="text" class="form-control" id="ID" name="ID" required/>
+				<div class="input-group-btn">
+				<button type="button" class="btn btn-default">중복확인</button>
 				</div>
 			</div>
-			<div class="movieInfo2"> 2017.05.03 <span class="dDay">D-1</span></div>
-			<div class="movieInfo3">
-				<p><span class="age">12</span> 가디언즈 오브 갤....</p>
-				<div class="movieInfo3Btn">상세정보</div>
-				<div class="movieInfo3Btn">예매하기</div>
+			<div class="input-group">
+				<span class="input-group-addon">비밀번호:</span>
+				<input class="form-control" id="psw" name="psw" maxlength="14" type="password" required>
 			</div>
-		</div>
-		<div class="frame">
-			<div id="frame2">
-		        <div class="card">
-		            <img src="../img/titanic.jpg" />
-		        </div>
-		        <div class="card back">
-                    <img class="backPost" src="../img/titanic.jpg">
-                    <article id="movieInfo">
-                        <h2><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></h2>
-                        <p>평점을 입력해주세요</p>
-                        <div class="moveInfoBtn">
-                            <div class="moveInfoBtn1">
-                               <span class="glyphicon glyphicon-ok"></span><br>
-                               본영화</div>
-                            <div class="moveInfoBtn2">
-                               <span class="glyphicon glyphicon-heart"></span><br>
-                               보고싶어요
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-            <div class="movieInfo2"> 2017.05.03 <span class="dDay">D-1</span></div>
-            <div class="movieInfo3">
-                <p><span class="age">12</span> 가디언즈 오브 갤....</p>
-                <div class="movieInfo3Btn">상세정보</div>
-                <div class="movieInfo3Btn">예매하기</div>
-            </div>
-        </div>
-		<div class="frame">
-		    <div id="frame3">
-		        <div class="card">
-		            <img src="../img/titanic.jpg" />
-		        </div>
-		        <div class="card back">
-                    <img class="backPost" src="../img/titanic.jpg">
-                    <article id="movieInfo">
-                        <h2><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></h2>
-                        <p>평점을 입력해주세요</p>
-                        <div class="moveInfoBtn">
-                            <div class="moveInfoBtn1">
-                               <span class="glyphicon glyphicon-ok"></span><br>
-                               본영화</div>
-                            <div class="moveInfoBtn2">
-                               <span class="glyphicon glyphicon-heart"></span><br>
-                               보고싶어요
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-            <div class="movieInfo2"> 2017.05.03 <span class="dDay">D-1</span></div>
-            <div class="movieInfo3">
-                <p><span class="age">12</span> 가디언즈 오브 갤....</p>
-                <div class="movieInfo3Btn">상세정보</div>
-                <div class="movieInfo3Btn">예매하기</div>
-            </div>
-        </div>
-        <div class="frame">
-		    <div id="frame4">
-		        <div class="card">
-		            <img src="../img/titanic.jpg" />
-		        </div>
-		        <div class="card back">
-                    <img class="backPost" src="../img/titanic.jpg">
-                    <article id="movieInfo">
-                        <h2><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></h2>
-                        <p>평점을 입력해주세요</p>
-                        <div class="moveInfoBtn">
-                            <div class="moveInfoBtn1">
-                               <span class="glyphicon glyphicon-ok"></span><br>
-                               본영화</div>
-                            <div class="moveInfoBtn2">
-                               <span class="glyphicon glyphicon-heart"></span><br>
-                               보고싶어요
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-            <div class="movieInfo2"> 2017.05.03 <span class="dDay">D-1</span></div>
-            <div class="movieInfo3">
-                <p><span class="age">12</span> 가디언즈 오브 갤....</p>
-                <div class="movieInfo3Btn">상세정보</div>
-                <div class="movieInfo3Btn">예매하기</div>
-            </div>
-        </div>
-        <div class="frame">
-		    <div id="frame5">
-		        <div class="card">
-		            <img src="../img/titanic.jpg" />
-		        </div>
-		        <div class="card back">
-                    <img class="backPost" src="../img/titanic.jpg">
-                    <article id="movieInfo">
-                        <h2><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></h2>
-                        <p>평점을 입력해주세요</p>
-                        <div class="moveInfoBtn">
-                            <div class="moveInfoBtn1">
-                               <span class="glyphicon glyphicon-ok"></span><br>
-                               본영화</div>
-                            <div class="moveInfoBtn2">
-                               <span class="glyphicon glyphicon-heart"></span><br>
-                               보고싶어요
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-            <div class="movieInfo2"> 2017.05.03 <span class="dDay">D-1</span></div>
-            <div class="movieInfo3">
-                <p><span class="age">12</span> 가디언즈 오브 갤....</p>
-                <div class="movieInfo3Btn">상세정보</div>
-                <div class="movieInfo3Btn">예매하기</div>
-            </div>	
-        </div>
+			<div class="input-group">
+				<span class="input-group-addon">비밀번호 확인:</span>
+				<input class="form-control" id="psw2" name="psw2" maxlength="14" type="password" required>
+			</div>
+			<font name="check" color="red"></font>
+			<div class="input-group">
+				<span class="input-group-addon">성명:</span>
+				<input class="form-control" id="name" name="name" type="text" required>
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">우편번호:</span>
+					<!-- 주소와 우편번호를 입력할 <input>들을 생성하고 적당한 name과 class를 부여한다 -->
+				<div class="input-group-btn">
+					<button type="button" id="postcodify_search_button" class="btn btn-default">우편번호찾기</button>
+				</div>
+					<input type="text" name="postCode" class="postcodify_postcode5 form-control" id="postNumber" value="" placeholder="우편번호 버튼을 누르세요." readonly/>
+					<input type="text" name="address1" class="postcodify_address form-control" value="" style="margin-left:20px" required readonly/>			
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">상세주소:</span>
+				<input type="text" name="address2" class="postcodify_details form-control" value="" placeholder="상세주소를 입력하세요." required />
+				<!-- jQuery와 Postcodify를 로딩한다 -->
+				<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+		
+				<!-- "우편번호찾기" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+				<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">전화번호:</span>
+				<input class="form-control" id="phone" name="phone" type="text" placeholder=" - 없이 입력" required>
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">이메일:&nbsp;</span>
+				<input type="text" id="str_email01" name="str_email01" class="form-control" required/>
+				<label>@</label>	 
+				<input type="text" id="str_email02" name="str_email02" class="form-control" value="" style="margin-left:20px" required/>
+				<select id="selectEmail" class="form-control">
+	  				<option value="1" selected>직접입력</option>
+	    			<option value="naver.com">naver.com</option>
+	    			<option value="hanmail.net">hanmail.net</option>
+	    			<option value="nate.com">nate.com</option>
+	    			<option value="gmail.com">gmail.com</option>
+	 			</select>
+	 		</div>
+			<div class="form-group">
+				<input type="submit" class="btn btn-default" style="margin-top:30px" value="회원가입"/>
+			</div>
+	</form>
 	</div>
-</div>
-	<div class="container-fluid" id="footer">
+</div>	
+<div class="container-fluid" id="footer">
         <div class="row">
             <div class="container">
 	            <div id="footerDiv" class="col-sm-2">
@@ -500,5 +472,39 @@ body {
             </div>
         </div>
     </div>
+    
+	<script type="text/javascript">
+		//이메일 입력방식 선택
+		$('#selectEmail').change(function(){
+			$("#selectEmail option:selected").each(function () {
+     
+ 				if($(this).val()== '1'){ //직접입력일 경우
+      				$("#str_email02").val('');                //값 초기화
+      				$("#str_email02").attr("readonly",false); //활성화
+ 				}else{ //직접입력이 아닐경우
+      				$("#str_email02").val($(this).text());    //선택값 입력
+      				$("#str_email02").attr("readonly",true);  //비활성화
+ 				}
+			});	
+		});	
+	
+		$(function(){
+			$('#psw').keyup(function(){
+				$('font[name=check]').text('');
+				if($('#psw').val().length < 6 || $('#psw').val().length > 14) { 
+					$('font[name=check]').html("Password가 잘못되었습니다.6~14자만 입력하세요.");			  
+				}
+			}); 
+			$('#psw2').keyup(function(){
+	 	  		if($('#psw').val()!=$('#psw2').val()){
+	 	   			$('font[name=check]').text('');
+	 	   			$('font[name=check]').html("두 글자가 다릅니다.");
+	 	  		}else{
+	 	   			$('font[name=check]').text('');
+	 	   			$('font[name=check]').html("암호 확인 되었습니다.");
+	 	  		}
+	 	 	});
+		});
+	</script>
 </body>
 </html>
