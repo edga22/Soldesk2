@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>울트라박스</title>
+<title>기가박스 메인</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,47 +11,156 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
+/* 웹폰트 */
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
-* {box-sizing:border-box}
-
+ * {
+    box-sizing: border-box;
+ }
 body {
     font-family: 'NotoSansKR', 'Nanum Gothic', "Times New Roman", Times, sans-serif;
 }
 
-#container, #topHeadAd {
-	margin: auto;
-	width: 1200px;
-}
+/* 최상단 광고창 */
 #topHeadAd {
     text-align: center;
-    background-color: #ffd11a; 
-    height: 70px;
+    background-color: #003919; 
+    height: 96px;
 }
-#topHeadAd h2 {
-    font-size:3.5rem;
+#topHeadAd img{
+    margin: auto;
+    display: block;
 }
+
+/* 상단 메뉴 */
 #nav a{
     text-decoration: none;
 }
+/* 상단로고 */
 .topLogo {
     display:inline-block; 
-    width:2rem;
+    width:1.95rem;
     padding:0.3rem 0.1rem;
-    margin:-0.1rem;
+    margin:0 -0.1rem;
     color: #fff;
     font-size:2rem;
     font-weight:bold;
     text-decoration: none;
     background-color: #555;
 }
-.topLogo:HOVER {
+.topLogo1 {
+    display:inline-block; 
+    width:3rem;
+    padding:0.3rem 0;
+    margin:0 -0.15rem;
     color: #fff;
+    font-size:2rem;
+    font-weight:bold;
     text-decoration: none;
+    background-color: #555;
 }
+/* 상단 중간 메뉴 */
+.header-btn-wrap {
+    width: 100%;
+    height: 61px;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    z-index: 20;
+}
+.btn_menu_all {
+    margin-top: 24px;
+    background-color: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    width: 82px;
+    height: 30px;
+    letter-spacing: -0.5px;
+}
+.btn_social {
+    position: absolute;
+    top: 28px;
+    left: 102px;
+}
+.btn_social a.film_society, .btn_social a.classic_society {
+    font-weight: bold;
+    font-size: 14px;
+    color: #000;
+    line-height: 13px;
+}
+.btn_social a {
+    height: 13px;
+}
+.btn_theater {
+    position: absolute;
+    top: 21px;
+    right: 0;
+}
+.btn_social .split {
+    margin: 0 12px;
+    border-right: 1px solid #000;
+    height: 13px;
+    vertical-align: middle;
+}
+.btn_theater .membership_link {
+    float: left;
+    margin: 12px 24px;
+}
+.btn_theater .membership_link .membership_txt {
+    font-weight: bold;
+    font-size: 14px;
+    color: #fff;
+    line-height: 13px;
+}
+.btn_theater .membership_link>* {
+    float: left;
+    height: 13px;
+}
+.btn_theater .membership_link .split {
+    margin: 0 12px;
+    border-left: 1px solid #fff;
+}
+.btn_theater button.btn_time.transparent {
+    background-position: -300px -100px;
+}
+.btn_theater button.btn_time {
+    background-position: 0 -100px;
+    margin-right: 10px;
+}
+.img_btn.header {
+    background-image: url(http://image2.megabox.co.kr/mop/home/btns/btn_header.png);
+}
+.btn_theater button {
+    float: left;
+    height: 39px;
+    width: 113px;
+    background-position: 0 0;
+}
+.img_btn {
+    display: block;
+    overflow: hidden;
+    text-indent: -9999px;
+    border: none;
+    background-repeat: no-repeat;
+    background: transparent;
+    vertical-align: middle;
+}
+
+
+/* 상단 고정메뉴 */
+.affix {
+      top: 0;
+      width: 100%;
+      z-index: 9999 !important;
+}
+.affix + .container-fluid {
+      padding-top: 124px;
+}
+
+/* 공연 포스트 */
 .frameDiv {
-	margin: 5px 0;
+	margin: 0.5rem 0;
 	width: 100%;
 	height: 450px;
 }
@@ -59,17 +168,17 @@ body {
 .frame {
 	float: left;
 	position: relative;
-	margin: 5px;
+	margin-right: 0.8rem;
 	height: 450px;
-	width: 220px;
-	border: 1px solid #555;
+	width: 19.13333%;
+	border: 1px solid #888;
 }
 
 #frame1 {
 	position: relative;
 	transform-style: preserve-3d;
 	transition: all 0.7s linear;
-	width: 220px;
+	width: 100%;
 	height: 300px;
 	perspactive: 300px;
 }
@@ -78,7 +187,7 @@ body {
 	position: relative;
 	transform-style: preserve-3d;
 	transition: all 0.7s linear;
-	width: 220px;
+	width: 100%;
 	height: 300px;
 	perspactive: 300px;
 }
@@ -87,7 +196,7 @@ body {
 	position: relative;
 	transform-style: preserve-3d;
 	transition: all 0.7s linear;
-	width: 220px;
+	width: 100%;
 	height: 300px;
 	perspactive: 300px;
 }
@@ -96,7 +205,7 @@ body {
 	position: relative;
 	transform-style: preserve-3d;
 	transition: all 0.7s linear;
-	width: 220px;
+	width: 100%;
 	height: 300px;
 	perspactive: 300px;
 }
@@ -105,7 +214,7 @@ body {
 	position: relative;
 	transform-style: preserve-3d;
 	transition: all 0.7s linear;
-	width: 220px;
+	width: 100%;
 	height: 300px;
 	perspactive: 300px;
 }
@@ -140,7 +249,7 @@ body {
 }
 
 .card img {
-	width: 220px;
+	width: 100%;
 	height: 300px;
 }
 
@@ -266,38 +375,69 @@ body {
     color:#ccc;
 }
 </style>
+<script type="text/javascript">
+function ImgError(source){
+    source.src = "../img/noImg.png";
+    source.onerror = "";
+    return true;
+}
+</script>
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row" style="background-color: #ffd11a;">
-			<div id="topHeadAd" class="col-sm-12">
-				<h2>
-					<span class="glyphicon glyphicon-film"></span> 기가박스만의 울트라 기가찬 무비 이벤트
-				</h2>
+	<div class="container-fluid" data-spy="affix" data-offset-top="1" style="border-bottom:1px solid #888;">
+		<div class="row" id="topHeadAd">
+		    <div class="container">
+                <div class="row">
+					<div class="col-sm-12 text-center">
+					    <a class="close" id="topAdClose">&times;</a>
+					    <img src="../img/topAd.jpg">
+					</div>
+				</div>
 			</div>
 		</div>
-    </div>
-    <div class="container">
-		<div class="row">
-			<div class="btn-group btn-group-justified" id="nav">
-			    <a href="#" class="btn btn-link">
-			    <span class="topLogo">G</span>
-			    <span class="topLogo">I</span>
-			    <span class="topLogo">G</span>
-			    <span class="topLogo">A</span>
-			    <span class="topLogo">B</span>
-			    <span class="topLogo">O</span>
-			    <span class="topLogo">X</span>
-			    </a>
-				<a href="#" class="btn btn-default btn-lg">영화</a> 
-				<a href="#" class="btn btn-default btn-lg">공연</a> 
-				<a href="#" class="btn btn-default btn-lg">영화관</a>
-				<a href="#" class="btn btn-default btn-lg">공연장</a> 
-                <a href="#" class="btn btn-default btn-lg">이벤트</a> 
-                <a href="#" class="btn btn-default btn-lg">로그인</a>
+		<div class="row" style="background-color: #fff;"> 
+		    <div class="container">
+				<div class="row">
+					<div class="btn-group btn-group-justified" id="nav">
+					    <a href="#" class="btn btn-link">
+					    <span class="topLogo1">TI</span>
+					    <span class="topLogo1">CK</span>
+					    <span class="topLogo1">ET</span>
+					    <span class="topLogo">B</span>
+					    <span class="topLogo">O</span>
+					    <span class="topLogo">X</span>
+					    </a>
+						<a href="#" class="btn btn-default btn-lg">뮤지컬</a> 
+						<a href="#" class="btn btn-default btn-lg">콘서트</a> 
+						<a href="#" class="btn btn-default btn-lg">연극</a>
+						<a href="#" class="btn btn-default btn-lg">전시/행사</a> 
+		                <a href="#" class="btn btn-default btn-lg">클래식/무용</a>
+		                <a href="#" class="btn btn-default btn-lg">아동/가족</a>
+		                <a href="#" class="btn btn-default btn-lg">공연장</a>
+		                <a href="#" class="btn btn-default btn-lg">로그인</a>
+					</div>
+				</div>
 			</div>
-		</div>
+		</div> 
 	</div>
+	<div class="header-btn-wrap">
+        <button type="button " class="btn_menu_all"><i class="fa fa-bars"></i>전체메뉴</button>
+        <div class="btn_social">
+            <a class="film_society" href="#" title="지역 바로가기">지역</a>
+            <i class="split"></i>
+            <a class="classic_society" href="#" title="공연장 바로가기">공연장</a>
+        </div>
+        <div class="btn_theater">
+            <span class="membership_link">
+                <a class="membership_txt" href="/?menuId=center" title="고객센터 바로가기">고객센터</a>
+                <i class="split"></i>
+                <a class="membership_txt" href="/?menuId=membership" title="멤버십 바로가기">멤버십</a>
+                <i class="split"></i>
+                <a class="membership_txt" href="/?menuId=membership#menu4" title="VIP 바로가기">VIP</a>
+            </span>
+            <button type="button" class="img_btn header btn_time  transparent " onclick="showMenu('timetable-movie')">빠른예매</button>
+        </div>
+    </div>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
@@ -346,16 +486,29 @@ body {
 		</a>
 	</div>
 	
+	<div class="container" style="background-color: #fff; margin:2rem;">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-3">
+	            <div class="btn-group btn-group-justified">
+	               <a href="#" class="btn btn-default btn-lg">영화</a> 
+                   <a href="#" class="btn btn-default btn-lg">공연</a> 
+                   <a href="#" class="btn btn-default btn-lg">영화관</a>
+                   <a href="#" class="btn btn-default btn-lg">공연장</a>
+	            </div>
+            </div>
+        </div>
+    </div>
+	
 	<div class="container" id="container">
 		<div class="row">
 			<div class="col-md-12 frameDiv">
 				<div class="frame">
 					<div id="frame1">
 						<div class="card">
-							<img src="../img/titanic.jpg" />
+							<img src="../img/에어리언.jpg" />
 						</div>
 						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg">
+							<img class="backPost" src="../img/에어리언.jpg">
 							<article id="movieInfo">
 								<h2>
 									<span class="glyphicon glyphicon-star"></span> <span
@@ -390,10 +543,10 @@ body {
 				<div class="frame">
 					<div id="frame2">
 						<div class="card">
-							<img src="../img/titanic.jpg" />
+							<img src="../img/titanic.jpg" onerror="ImgError(this)" />
 						</div>
 						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
 							<article id="movieInfo">
 								<h2>
 									<span class="glyphicon glyphicon-star"></span><span
@@ -428,10 +581,10 @@ body {
 				<div class="frame">
 					<div id="frame3">
 						<div class="card">
-							<img src="../img/titanic.jpg" />
+							<img src="../img/titanic.jpg" onerror="ImgError(this)" />
 						</div>
 						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
 							<article id="movieInfo">
 								<h2>
 									<span class="glyphicon glyphicon-star"></span><span
@@ -466,10 +619,10 @@ body {
 				<div class="frame">
 					<div id="frame4">
 						<div class="card">
-							<img src="../img/titanic.jpg" />
+							<img src="../img/titanic.jpg" onerror="ImgError(this)" />
 						</div>
 						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
 							<article id="movieInfo">
 								<h2>
 									<span class="glyphicon glyphicon-star"></span><span
@@ -504,10 +657,10 @@ body {
 				<div class="frame">
 					<div id="frame5">
 						<div class="card">
-							<img src="../img/titanic.jpg" />
+							<img src="../img/titanic.jpg" onerror="ImgError(this)" />
 						</div>
 						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
 							<article id="movieInfo">
 								<h2>
 									<span class="glyphicon glyphicon-star"></span><span
@@ -546,10 +699,10 @@ body {
 				<div class="frame">
 					<div id="frame1">
 						<div class="card">
-							<img src="../img/titanic.jpg" />
+							<img src="../img/titanic.jpg" onerror="ImgError(this)" />
 						</div>
 						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
 							<article id="movieInfo">
 								<h2>
 									<span class="glyphicon glyphicon-star"></span> <span
@@ -584,10 +737,10 @@ body {
 				<div class="frame">
 					<div id="frame2">
 						<div class="card">
-							<img src="../img/titanic.jpg" />
+							<img src="../img/titanic.jpg" onerror="ImgError(this)" />
 						</div>
 						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
 							<article id="movieInfo">
 								<h2>
 									<span class="glyphicon glyphicon-star"></span><span
@@ -622,10 +775,10 @@ body {
 				<div class="frame">
 					<div id="frame3">
 						<div class="card">
-							<img src="../img/titanic.jpg" />
+							<img src="../img/titanic.jpg" onerror="ImgError(this)" />
 						</div>
 						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
 							<article id="movieInfo">
 								<h2>
 									<span class="glyphicon glyphicon-star"></span><span
@@ -660,10 +813,10 @@ body {
 				<div class="frame">
 					<div id="frame4">
 						<div class="card">
-							<img src="../img/titanic.jpg" />
+							<img src="../img/titanic.jpg" onerror="ImgError(this)" />
 						</div>
 						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
 							<article id="movieInfo">
 								<h2>
 									<span class="glyphicon glyphicon-star"></span><span
@@ -698,10 +851,10 @@ body {
 				<div class="frame">
 					<div id="frame5">
 						<div class="card">
-							<img src="../img/titanic.jpg" />
+							<img src="../img/titanic.jpg" onerror="ImgError(this)" />
 						</div>
 						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
 							<article id="movieInfo">
 								<h2>
 									<span class="glyphicon glyphicon-star"></span><span
@@ -790,13 +943,12 @@ body {
                 <div class="col-sm-8">
                     <div class="row">
 		                <a href="#" class="btn btn-link">
-		                <span class="topLogo">G</span>
-		                <span class="topLogo">I</span>
-		                <span class="topLogo">G</span>
-		                <span class="topLogo">A</span>
-		                <span class="topLogo">B</span>
-		                <span class="topLogo">O</span>
-		                <span class="topLogo">X</span>
+		                <span class="topLogo1">TI</span>
+                        <span class="topLogo1">CK</span>
+                        <span class="topLogo1">ET</span>
+                        <span class="topLogo">B</span>
+                        <span class="topLogo">O</span>
+                        <span class="topLogo">X</span>
 		                </a>
 	                </div>
 	                <div class="row footerDiv2">
@@ -814,5 +966,13 @@ body {
             </div>
         </div>
     </div>
+    <script>
+$(document).ready(function(){
+   
+    $("#topAdClose").click(function(){
+        $("#topHeadAd").hide();
+    }); 
+});
+</script>
 </body>
 </html>
