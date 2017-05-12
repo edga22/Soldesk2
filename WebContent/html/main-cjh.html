@@ -29,18 +29,33 @@ body {
 }
 #topHeadAd img{
     margin: auto;
+    width:auto;
+    height:auto;
     display: block;
 }
-
+.btnTopAdClose {
+    position:absolute; 
+    color:white;
+    top:1rem;
+    right:2rem;
+    padding:0 0.5rem 0.1rem 0.5rem;
+    opacity: 1.0;
+    border:1px dashed white;
+    font-size:3.8rem;"
+}
 /* 상단 메뉴 */
+#top-btn-wrap{
+    background-color: #fff;
+    padding-top:0.2rem;
+}
 #nav a{
     text-decoration: none;
 }
 /* 상단로고 */
 .topLogo {
     display:inline-block; 
-    width:1.95rem;
-    padding:0.3rem 0.1rem;
+    width:2.8rem;
+    padding:0.3rem;
     margin:0 -0.1rem;
     color: #fff;
     font-size:2rem;
@@ -48,17 +63,7 @@ body {
     text-decoration: none;
     background-color: #555;
 }
-.topLogo1 {
-    display:inline-block; 
-    width:3rem;
-    padding:0.3rem 0;
-    margin:0 -0.15rem;
-    color: #fff;
-    font-size:2rem;
-    font-weight:bold;
-    text-decoration: none;
-    background-color: #555;
-}
+
 /* 상단 중간 메뉴 */
 .header-btn-wrap {
     width: 100%;
@@ -110,7 +115,7 @@ body {
 .btn_theater .membership_link .membership_txt {
     font-weight: bold;
     font-size: 14px;
-    color: #fff;
+    color: #000;
     line-height: 13px;
 }
 .btn_theater .membership_link>* {
@@ -119,34 +124,19 @@ body {
 }
 .btn_theater .membership_link .split {
     margin: 0 12px;
-    border-left: 1px solid #fff;
-}
-.btn_theater button.btn_time.transparent {
-    background-position: -300px -100px;
-}
-.btn_theater button.btn_time {
-    background-position: 0 -100px;
-    margin-right: 10px;
-}
-.img_btn.header {
-    background-image: url(http://image2.megabox.co.kr/mop/home/btns/btn_header.png);
+    border-left: 1px solid #000;
 }
 .btn_theater button {
-    float: left;
-    height: 39px;
-    width: 113px;
-    background-position: 0 0;
-}
-.img_btn {
     display: block;
-    overflow: hidden;
-    text-indent: -9999px;
-    border: none;
-    background-repeat: no-repeat;
-    background: transparent;
+    float: left;
+    height: 32px;
+    width: 113px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #000;
+    background-position: 0 0;
     vertical-align: middle;
 }
-
 
 /* 상단 고정메뉴 */
 .affix {
@@ -156,6 +146,11 @@ body {
 }
 .affix + .container-fluid {
       padding-top: 124px;
+}
+
+/* 메인 슬라이드 */
+#myCarousel {
+    margin-top:-8.7rem;
 }
 
 /* 공연 포스트 */
@@ -366,6 +361,18 @@ body {
     color:#fff;
     padding: 1rem;
 }
+#footerSocial {
+    text-decoration: none;
+    word-spacing: 20px;
+    color:#fff;
+    padding: 1rem;
+}
+#footerTheater {
+    text-decoration: none;
+    word-spacing: 20px;
+    color:#fff;
+    padding: 1rem;
+}
 #footer2 {
     padding:2rem;
     background-color: #222;
@@ -373,6 +380,17 @@ body {
 #footer2 .footerDiv2 {
     padding:0.8rem 1rem;
     color:#ccc;
+}
+/* 고정 탑 메뉴 */
+#MOVE_TOP_BTN{
+    color: #00ace6;
+    font-size: 5rem;
+    position: fixed; 
+    bottom: 10px; 
+    right: 10px; 
+    z-index: 100; 
+    cursor: pointer; 
+    display: block;
 }
 </style>
 <script type="text/javascript">
@@ -388,54 +406,61 @@ function ImgError(source){
 		<div class="row" id="topHeadAd">
 		    <div class="container">
                 <div class="row">
-					<div class="col-sm-12 text-center">
-					    <a class="close" id="topAdClose">&times;</a>
+					<div class="col-sm-12 text-center" style="position: relative">
+					   <button type="button" class="close" id="topAdClose"><span aria-hidden="true" class="btnTopAdClose">&times;</span><span class="sr-only">Close</span></button>
 					    <img src="../img/topAd.jpg">
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row" style="background-color: #fff;"> 
+		<div class="row" id="top-btn-wrap"> 
 		    <div class="container">
 				<div class="row">
-					<div class="btn-group btn-group-justified" id="nav">
-					    <a href="#" class="btn btn-link">
-					    <span class="topLogo1">TI</span>
-					    <span class="topLogo1">CK</span>
-					    <span class="topLogo1">ET</span>
+				    <div class="col-sm-3">
+					    <a href="#" class="btn btn-link" style="width:10%;">
+					    <span class="topLogo">T</span>
+					    <span class="topLogo">I</span>
+					    <span class="topLogo">C</span>
+					    <span class="topLogo">K</span>
+					    <span class="topLogo">E</span>
+					    <span class="topLogo">T</span>
 					    <span class="topLogo">B</span>
 					    <span class="topLogo">O</span>
 					    <span class="topLogo">X</span>
 					    </a>
+					</div>
+					<div class="col-sm-9">
+					<div class="btn-group btn-group-justified" id="nav">
 						<a href="#" class="btn btn-default btn-lg">뮤지컬</a> 
 						<a href="#" class="btn btn-default btn-lg">콘서트</a> 
 						<a href="#" class="btn btn-default btn-lg">연극</a>
-						<a href="#" class="btn btn-default btn-lg">전시/행사</a> 
-		                <a href="#" class="btn btn-default btn-lg">클래식/무용</a>
+						<a href="#" class="btn btn-default btn-lg">오페라</a> 
+		                <a href="#" class="btn btn-default btn-lg">클래식</a>
 		                <a href="#" class="btn btn-default btn-lg">아동/가족</a>
-		                <a href="#" class="btn btn-default btn-lg">공연장</a>
-		                <a href="#" class="btn btn-default btn-lg">로그인</a>
+					</div>
 					</div>
 				</div>
 			</div>
 		</div> 
 	</div>
-	<div class="header-btn-wrap">
-        <button type="button " class="btn_menu_all"><i class="fa fa-bars"></i>전체메뉴</button>
-        <div class="btn_social">
-            <a class="film_society" href="#" title="지역 바로가기">지역</a>
-            <i class="split"></i>
-            <a class="classic_society" href="#" title="공연장 바로가기">공연장</a>
-        </div>
-        <div class="btn_theater">
-            <span class="membership_link">
-                <a class="membership_txt" href="/?menuId=center" title="고객센터 바로가기">고객센터</a>
-                <i class="split"></i>
-                <a class="membership_txt" href="/?menuId=membership" title="멤버십 바로가기">멤버십</a>
-                <i class="split"></i>
-                <a class="membership_txt" href="/?menuId=membership#menu4" title="VIP 바로가기">VIP</a>
-            </span>
-            <button type="button" class="img_btn header btn_time  transparent " onclick="showMenu('timetable-movie')">빠른예매</button>
+	<div class="row" style="background-color: #fff;"> 
+        <div class="container">
+			<div class="header-btn-wrap">
+				<button type="button" class="btn_menu_all"><i class="fa fa-bars"></i>전체메뉴</button>
+				<div class="btn_social">
+				    <a class="film_society" href="#" title="지역 바로가기">지역</a>
+				    <i class="split"></i>
+				    <a class="classic_society" href="#" title="공연장 바로가기">공연장</a>
+				</div>
+				<div class="btn_theater">
+				    <span class="membership_link">
+				        <a class="membership_txt" href="#" title="로그인 바로가기">로그인</a>
+				        <i class="split"></i>
+				        <a class="membership_txt" href="#" title="고객센터 바로가기">고객센터</a>
+				    </span>
+				    <button type="button" class="btn btn-default btn-xs">빠른예매</button>
+				</div>
+            </div>
         </div>
     </div>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -893,46 +918,16 @@ function ImgError(source){
         <div class="row">
             <div class="container">
 	            <div id="footerDiv" class="col-sm-2">
-	            경기
+	            지역
 	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            김포 남양주 동탄 의정부민락 백석 별내 분당 수원 수원남문 안산중앙 양주 영통 오산 일산 일산벨라시타 킨텍스 파주금촌 파주운정 파주출판도시 평택 하남스타필드 DriveM(용인)
-	            </div>
-	            <div id="footerDiv" class="col-sm-2">
-	            인천
-	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            검단 송도 연수 인천논현 청라
+	            <div id="footerSocial"class="col-sm-10">
+	            강원 경기 경남 경북 광주 대구 대전 부산 서울 세종 울산 인천 전남 전북 제주 충남 충북
 	            </div>
 	            <div id="footerDiv" class="col-sm-2">
-	            대전 | 세종 | 충청
+	            공연장
 	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            공주 대전 보령 세종 진천 천안 제천 충주
-	            </div>
-	            <div id="footerDiv" class="col-sm-2">
-	            부산 | 경상
-	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            거창 경남대 경산하양 경주 구미 구미강동 김천 대구(칠성로) 덕천 동대구 문경 부산극장 부산대 북대구(칠곡) 사천 서면 안동 양산 울산 진주 창원 해운대(장산)
-	            </div>
-	            <div id="footerDiv" class="col-sm-2">
-	            광주 | 전라
-	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            광주(충장로) 광주상무 광주하남 남원 목포 목포하당(포르모) 송천 순천 신대 여수 전대(광주) 전주(객사) 첨단(광주)
-	            </div>
-	            <div id="footerDiv" class="col-sm-2">
-	            강원
-	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            남춘천 속초 원주 원주센트럴
-	            </div>
-	            <div id="footerDiv" class="col-sm-2">
-	            제주
-	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            제주 제주아라
+	            <div id="footerTheater" class="col-sm-10">
+	            세종문화회관 예술의전당 충무아트센터 성남아트센터 경기도문화의전당 안산문화예술의전당
 	            </div>
 	        </div>
         </div>
@@ -940,39 +935,65 @@ function ImgError(source){
     <div class="container-fluid" id="footer2">
         <div class="row">
             <div class="container">
-                <div class="col-sm-8">
+                <div class="col-sm-4">
+					<a href="#" class="btn btn-link">
+						<span class="topLogo">T</span>
+						<span class="topLogo">I</span>
+						<span class="topLogo">C</span>
+						<span class="topLogo">K</span>
+						<span class="topLogo">E</span>
+						<span class="topLogo">T</span>
+						<span class="topLogo">B</span>
+						<span class="topLogo">O</span>
+						<span class="topLogo">X</span>
+					</a>
+	            </div>
+	            <div class="col-sm-8">
                     <div class="row">
-		                <a href="#" class="btn btn-link">
-		                <span class="topLogo1">TI</span>
-                        <span class="topLogo1">CK</span>
-                        <span class="topLogo1">ET</span>
-                        <span class="topLogo">B</span>
-                        <span class="topLogo">O</span>
-                        <span class="topLogo">X</span>
-		                </a>
-	                </div>
-	                <div class="row footerDiv2">
-	                   회사소개 | 채용정보 | 제휴/광고/부대사업 문의 | 이용약관 | 개인정보 처리방침 | 고객센터
-	                </div>
-	                <div class="row footerDiv2">
-		                서울특별시 강남구 도산대로 156, 2층 메가박스(주) (논현동, 중앙엠앤비사옥)<br>
-						대표자명 김진선 | 개인정보보호 책임자 경영지원실 실장 이재원<br>
-						사업자등록번호 211-86-59478 | 통신판매업신고번호 제 833호
-					</div>
-                </div>
-                <div id="footerDiv" class="col-sm-4">
-                    Copyright 2014 by MEGABOX. All rights reserved
-                </div>
+		                <div class="row footerDiv2">
+		                   회사소개 | 채용정보 | 제휴/광고/부대사업 문의 | 이용약관 | 개인정보 처리방침 | 고객센터
+		                </div>
+		                <div class="row footerDiv2">
+			                서울특별시 강남구 도산대로 156, 2층 메가박스(주) (논현동, 중앙엠앤비사옥)<br>
+							대표자명 윤광재 | 개인정보보호 책임자 개발지원실 실장 유강현<br>
+							사업자등록번호 000-00-00000 | 통신판매업신고번호 제 000호
+						</div>
+		                <div class="row footerDiv2">
+		                    Copyright 2017 by TICKETBOX. All rights reserved
+		                </div>
+		            </div>
+	            </div>
             </div>
         </div>
     </div>
+    <div id="MOVE_TOP_BTN">
+    <span class="glyphicon glyphicon-circle-arrow-up" title="맨위로"></span>
+    </div>
+	<script>
+	$(function() {
+	    $(window).scroll(function() {
+	        if ($(this).scrollTop() > 500) {
+	            $('#MOVE_TOP_BTN').fadeIn();
+	        } else {
+	            $('#MOVE_TOP_BTN').fadeOut();
+	        }
+	    });
+	    
+	    $("#MOVE_TOP_BTN").click(function() {
+	        $('html, body').animate({
+	            scrollTop : 0
+	        }, 400);
+	        return false;
+	    });
+	});
+	</script>
     <script>
-$(document).ready(function(){
-   
-    $("#topAdClose").click(function(){
-        $("#topHeadAd").hide();
-    }); 
-});
-</script>
+	$(document).ready(function(){
+	   
+	    $("#topAdClose").click(function(){
+	        $("#topHeadAd").hide();
+	    }); 
+	});
+    </script>
 </body>
 </html>
