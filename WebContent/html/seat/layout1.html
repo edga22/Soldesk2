@@ -8,7 +8,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>Insert title here</title>
+<title>아작스 레이아웃 시험</title>
 
 <style>
 .seat-row{
@@ -30,9 +30,12 @@
 <script>
 $(document).ready(function(){
 	var seatLayout = [
-			[1, 1, 1, 1, 1,],
-			[1, 1, 1, 1, 1,],
-			[1, 1, 1, 1, 1,]
+			[9, 9, 1, 1, 1, 9, 1,],
+			[1, 9, 1, 1, 1, 9, 1,],
+			[1, 9, 1, 1, 1, 9, 1,],
+			[1, 9, 1, 1, 1, 9, 1,],
+			[1, 9, 1, 1, 1, 9, 1,],
+			[1, 9, 1, 1, 1, 9, 1,]
 	];
 	
 	var row = '<div class="seat-row">	</div>';
@@ -41,9 +44,13 @@ $(document).ready(function(){
 		$(".layout").append( row );
 		for(j = 0 ; j < seatLayout[i].length ; j++){
 			var col = '<div class="seat" id="'+ i +'-'+ j +'">'+ i +'-'+ j +'</div>';
-			$(".seat-row:last").append ( col );			
+			$(".seat-row:last").append ( col );
+			
+			if(seatLayout[i][j] == 9){
+				$("#"+i+"-"+j).css("border-color","#b3b3b3");
+			}
 		}
-	};
+	};	
 	
 	/* 이벤트부 */
 	$(".seat").mouseover(function(){
@@ -58,6 +65,9 @@ $(document).ready(function(){
 		$(".result p").text("나감");
 	});	
 	$(".seat").click(function(){
+		if($( this ).css("border-color") =='rgb(179, 179, 179)'){
+			return false;
+		}
 		$( this ).css("border-color", "red");
 		
 		var id = $(this).attr('id').split('-');
@@ -71,6 +81,47 @@ $(document).ready(function(){
 		}
 	});
 	
+	/* AJAX */
+	$("#submit").on('click',function(){
+
+		var seatString = [];
+		for(i = 0 ; i < seatLayout.length ; i++){
+			var seatRow = seatLayout[i];
+			seatString.push(seatRow.toString());
+		}
+				
+		var json = {
+			"seats[]": seatString,
+			"three":"3",	
+		};
+		
+		/* $.post(
+			"layout1.jsp" ,
+			json,
+			"json"
+			)
+			.done(function( data ){
+				console.log("data = " + data);
+				var x = data.number;
+				$("#output").text( x );
+				console.log("x = " + x)
+			}); */
+		
+		$.ajax({
+			type: "POST", /* 전송방식 */
+			url: "layout1.jsp", /* 전송주소 */
+			data: json, /* request 파라미터 */
+			success : function(data){
+				console.log("data = " + data);
+				var x = data.text;
+				$("#output").text( x );
+				
+			},
+			dataType: "json" /* 받아올 결과값의 Type */
+		});
+		
+	});
+	
 });
 </script>
 
@@ -80,13 +131,19 @@ $(document).ready(function(){
 <!-- BODY 시작 -->
 <body>
 <div class="container">
-<br>
-<div class="result">
-	<p>NO</p>
-</div>
-<div class="layout">
+	<br>
+	<div class="result">
+		<p>NO</p>
+	</div>
+	<div class="layout">
+	
+	</div>
+	
+	<button id="submit">아작스</button>
+	
+	
+	<p id="output">11</p>
 
-</div>
 </div>
 </body>
 </html>
