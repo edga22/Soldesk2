@@ -238,6 +238,13 @@ body {
     background-color: #555;
 }
 </style>
+<script type="text/javascript">
+function ImgError(source){
+    source.src = "../img/post1.png";
+    source.onerror = "";
+    return true;
+}
+</script>
 </head>
 <body>
 	<div class="container">
@@ -276,10 +283,10 @@ body {
 			<div class="frame">
 			<div id="frame1">
 				<div class="card">
-					<img src="../img/titanic.jpg" />
+					<img src="../img/titanic.jpg" onerror="ImgError(this)"/>
 				</div>
 				<div class="card back">
-					<img class="backPost" src="../img/titanic.jpg">
+					<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
 					<article id="movieInfo">
 						<h2><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></h2>
 						<p>평점을 입력해주세요</p>
@@ -305,10 +312,10 @@ body {
 		<div class="frame">
 			<div id="frame2">
 		        <div class="card">
-		            <img src="../img/titanic.jpg" />
+		            <img src="../img/titanic.jpg" onerror="ImgError(this)"/>
 		        </div>
 		        <div class="card back">
-                    <img class="backPost" src="../img/titanic.jpg">
+                    <img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
                     <article id="movieInfo">
                         <h2><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></h2>
                         <p>평점을 입력해주세요</p>
@@ -334,10 +341,10 @@ body {
 		<div class="frame">
 		    <div id="frame3">
 		        <div class="card">
-		            <img src="../img/titanic.jpg" />
+		            <img src="../img/titanic.jpg" onerror="ImgError(this)"/>
 		        </div>
 		        <div class="card back">
-                    <img class="backPost" src="../img/titanic.jpg">
+                    <img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
                     <article id="movieInfo">
                         <h2><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></h2>
                         <p>평점을 입력해주세요</p>
@@ -363,10 +370,10 @@ body {
         <div class="frame">
 		    <div id="frame4">
 		        <div class="card">
-		            <img src="../img/titanic.jpg" />
+		            <img src="../img/titanic.jpg" onerror="ImgError(this)"/>
 		        </div>
 		        <div class="card back">
-                    <img class="backPost" src="../img/titanic.jpg">
+                    <img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
                     <article id="movieInfo">
                         <h2><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></h2>
                         <p>평점을 입력해주세요</p>
