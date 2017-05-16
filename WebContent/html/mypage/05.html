@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>마이페이지</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<!-- jQuery와 Postcodify를 로딩한다 -->
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<!-- "우편번호찾기" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
+</head>
+<body>
+<div class="container">
+	<div class="btn-group btn-group-justified">
+  		<a href="#" class="btn btn-default">개인정보수정</a>
+  		<a href="#" class="btn btn-default">예매확인/취소</a>
+  		<a href="#" class="btn btn-default">관람내역</a>
+  		<a href="#" class="btn btn-default">회원탈퇴</a>
+	</div>
+	
+	<div class="page-header">
+  		<h1>개인 정보 수정</h1>
+	</div>
+
+	<form class="form-horizontal" action="#">
+	<table class="table">
+    <tbody>
+      <tr>
+        <td>아이디</td>
+        <td><p>soldesk</p></td>
+      </tr>
+      <tr>
+        <td>비밀번호</td>
+        <td><input type="password" name="#"/>
+        <button type="submit">비밀번호 변경</button>
+        </td>
+      </tr>
+      <tr>
+        <td>이름</td>
+        <td><input type="text" name="#"/></td>
+      </tr>
+      <tr>
+        <td>생년월일</td>
+        <td><input type="text" name="#"/>년
+        <input type="text" name="#"/>월
+        <input type="text" name="#"/>일</td>
+      </tr>
+      <tr>
+        <td>주소</td>
+        <td><input type="text" name="postCode" class="postcodify_postcode5" value="" placeholder="우편번호 버튼을 누르세요." readonly/>
+		<button type="button" id="postcodify_search_button" class="btn btn-default">우편번호찾기</button>
+		<input type="text" name="address1" class="postcodify_address" value="" required readonly/></td>
+      </tr>
+      <tr>
+      	<td>상세주소</td>
+		<td>
+			<input type="text" name="#" class="postcodify_details" value="" placeholder="상세주소를 입력하세요." style=""required />
+		</td>
+      </tr>
+      <tr>
+        <td>휴대폰</td>
+        <td><input type="text" name="#"/></td>
+      </tr>
+      <tr>
+        <td>이메일</td>
+        <td><input type="text" name="#"/>@
+        <input type="text" name="#" required/>
+		<select>
+	  		<option value="1" selected>직접입력</option>
+	    	<option value="naver.com">naver.com</option>
+	    	<option value="hanmail.net">hanmail.net</option>
+	    	<option value="nate.com">nate.com</option>
+	    	<option value="gmail.com">gmail.com</option>
+	 	</select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <a href="#" class="btn btn-default" role="submit">취소</a>
+  <a href="#" class="btn btn-primary" role="submit">수정</a>
+  </form>
+</div>
+</body>
+</html>
