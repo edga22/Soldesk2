@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Insert title here</title>
+
+<script src="zabuto_calendar.min.js"></script>
+<link rel="stylesheet" type="text/css" href="zabuto_calendar.min.css">
+<script type="application/javascript">
+    $(document).ready(function (){
+        $("#my-calendar").zabuto_calendar();
+        language: "nl"
+    });
+</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row col-sm-12">
+			<div class="btn-group btn-group-justified">
+ 				<a href="#" class="btn btn-default">01 관람일 회차선택</a>
+				<a href="#" class="btn btn-default">02 좌석 선택</a>
+				<a href="#" class="btn btn-default">03 가격/할인 선택</a>
+				<a href="#" class="btn btn-default">04 배송선택/주문자 확인</a>
+				<a href="#" class="btn btn-default">05 결제하기</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8">
+				<div id="my-calendar"></div>
+			</div>
+			<div class="col-sm-4">
+			
+			</div>
+		</div>
+	</div>
+</body>
+</html>
