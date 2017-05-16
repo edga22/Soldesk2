@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<style>
+#shell {
+	width: 50rem;
+	height: 50rem;
+	background-color:black;
+}
+.row-seat{
+	margin : 0.5rem;
+}
+.new-seat {
+	width : 4rem;
+	height : 4rem;
+	margin : 1px;
+	padding : 1px;	
+	font-size : 2rem;
+	color: white;
+	border : 2px blue solid;
+	background-color:black;
+	display : inline;
+}
+.new-seat:hover{
+	border:0.1rem solid red;
+	cursor: pointer; /* 커서를 댈경우 손모양으로 바뀜 */
+}
+
+</style>
+</head>
+<body>
+<script>
+$(document).ready(function(){
+	var row;
+	var col;
+	var seatRow='<div class="row-seat"> </div>';
+		
+	// 클릭시 반응(리셋)
+	$("#reset").click(function(){
+		$('.new-seat').remove();
+	});	
+	
+	// 클릭시 반응(좌석생성)
+	$("#check").click(function(){	
+		row = $("#row").val();
+		col = $("#col").val();
+		
+		for(i=0;i<row;i++){
+			$(".layout").append( seatRow );
+			
+			for(j=0;j<col;j++){						
+					seat = '<div class="new-seat" id="col-seat">'+i+j+ '<input type="hidden" class="seat-value" name="'+ i +j +'" value="1"></div>';
+					$(".row-seat:last").append( seat );																		
+			}			
+		}		
+		// 좌석선택시 값 변경
+		$(".new-seat").on("click", function(){			
+			 //없는 좌석 선택시 normal 상태로 변경
+			if( $(this).find(".seat-value").val()==0 ){
+				$(this).find(".seat-value").val(1);
+				$( this ).css({
+						"background-color": "black",
+						"color":"white"
+				});
+			//일반 좌석 선택시 s석으로 변경	
+			}else if($(this).find(".seat-value").val()==1 ){
+				$(this).find(".seat-value").val(2);
+				$( this ).css({
+						"background-color": "blue",
+						"color":"white"
+				});
+			//s석 선택시 좌석 삭제(선택 못하게 바뀜)
+			}else if($(this).find(".seat-value").val()==2 ){
+				$(this).find(".seat-value").val(0);
+				$( this ).css({
+						"background-color":"white",
+						"color":"rgba(0,0,0,0.0)",
+				});
+			} 		
+		});
+	});	
+});
+</script>
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+       	   </button>
+			<a class="navbar-brand" href="01.html">공연 티켓 판매자</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse"> <!-- nav 내용 시작 -->
+			<ul class="nav navbar-nav">
+                <li><a href="02.html">공연장등록</a></li>
+                <li><a href="03.html">공연등록</a></li>
+                <li><a href="06.html">기타1</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">로그아웃</a></li>
+				<li><a href="#">쇼핑몰</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container">
+	<form>
+	<div class="row">
+		<div class="col-lg-12" style="background-color:#77FF70;  height:5rem;">
+		<input type="text" name="title" placeholder="제목" required>
+		<input type="number" name="row" id="row" placeholder="가로" min="1" max="10" required>
+		<input type="number" name="col" id="col" placeholder="세로" min="1" max="10" required>
+		<button type="button" id="check" class="btn btn-info">입력</button>
+		<button type="reset" id="reset" class="btn btn-warning">리셋</button>
+		<button type="submit" formaction="seatResult(mh).jsp" class="btn btn-danger">좌석 선택완료</button>
+		</div>	
+	</div>
+	<hr style="border: solid 0.1rem;">
+	<div class="row">
+		<div class="col-sm-12" >
+			<div class="layout"></div>
+		</div>
+	</div>
+</form>	
+</div>
+
+</body>
+</html>
