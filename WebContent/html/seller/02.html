@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>판매자 전용페이지</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+       	   </button>
+			<a class="navbar-brand" href="#">공연 티켓 판매자</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse"> <!-- nav 내용 시작 -->
+			<ul class="nav navbar-nav">
+                <li><a href="02.html">공연장 등록</a></li>
+                <li><a href="03.html">공연내용 등록</a></li>
+                <li><a href="04.html">공연시간 등록</a></li>
+                <li><a href="05.html">좌석정보 등록</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">로그아웃</a></li>
+				<li><a href="#">쇼핑몰</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+<div class="container">
+<div class="row">
+	<div class="col-sm-12"><!-- style="background-color:green; height:100rem;" -->
+		<select id="selectLocation" class="form-control-col-sm-2">
+	  		<option value="1" selected>지역선택</option>
+	   		<option value="강원도">강원도</option>
+	    	<option value="경기도">경기도</option>
+	    	<option value="경상남도">경상남도</option>
+	    	<option value="경상북도">경상북도</option>
+	    	<option value="대구광역시">대구광역시</option>
+	    	<option value="대전광역시">대전광역시</option>
+	    	<option value="울산광역시">울산광역시</option>
+	    	<option value="광주광역시">광주광역시</option>
+	    	<option value="인천광역시">인천광역시</option>
+	    	<option value="전라남도">전라남도</option>
+	    	<option value="전라북도">전라북도</option>
+	    	<option value="제주도">제주도</option>
+	    	<option value="충청남도">충청남도</option>
+	    	<option value="충청북도">충청북도</option>
+	 	</select>
+	 	<button type="submit" class="form-control-col-sm-3">공연장 새로등록</button>
+	</div>
+</div>
+	<table class="table table-hover">
+		<tr>
+			<th>공연장명</th>
+			<th>주소</th>
+			<th></th>
+		</tr>
+		<tr>
+			<td>세종문화회관</td>
+			<td>서울시 서대문구</td>
+			<td><button type="button">선택</button></td>
+		</tr>
+		<tr>
+			<td>세종문화회관2</td>
+			<td>서울시 노원구</td>
+			<td><button type="button">선택</button></td>
+		</tr>
+	</table>	
+	<table class="table table-bordered">
+		<tr>
+			<th>공연장명</th>
+			<th>주소명</th>
+		</tr>
+		<tr>
+			<td>세종문화회관</td>
+			<td>서울시 서대문구</td>
+		</tr>
+	</table>
+</div>
+</div>
+</body>
+</html>
