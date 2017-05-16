@@ -42,5 +42,6 @@
  	<!--템플릿용  <mapper resource="database/mapper/Mapper.xml" />   -->
     <mappers>        
 			<mapper resource="lmh/mapper/TestMapper.xml" />
+			<mapper resource="lmh/mapper/TicketMapper.xml" />
     </mappers>
 </configuration>

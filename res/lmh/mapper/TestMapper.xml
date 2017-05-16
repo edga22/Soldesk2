@@ -6,7 +6,6 @@
 		<id		property="id"		column="TEST_ID" />
 		<result	property="name"	column="NAME" />
 		<result	property="pw"	column="PASSWARD" />
-
 	</resultMap>
 		
 	<select id="getTest" resultMap="TestMap">

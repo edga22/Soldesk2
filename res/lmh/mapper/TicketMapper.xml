@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="lmh.mapper.TicketMapper">
+	<resultMap id="ticketMap" type="domain.Ticket">
+		<id		property="seat"		column="SEAT" />
+		<result	property="grade"	column="GRADE" />
+		<result	property="state"	column="STATE" />
+	</resultMap>		
+		
+	<select id="getTickets" parameterType="string" resultMap="ticketMap">
+		SELECT * FROM abcd
+	</select>	
+
+	<!-- create 구절을 만들어야 됨 -->
+	<insert id="makeTicket" parameterType="domain.Ticket">
+		INSERT INTO Books (seat,grade,state)
+		values (#{seat,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR})
+	</insert>
+	
+	<!--  -->
+	<insert id="setTicket" parameterType="domain.Ticket">
+		INSERT INTO Books (seat,grade,state)
+		values (#{seat,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR})
+	</insert>
+	
+	<cache/>
+</mapper>

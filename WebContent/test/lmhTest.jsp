@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="domain.Test" 
-		 import="lmh.service.TestService"%>
+<%@ page import="domain.Ticket" 
+		 import="lmh.dao.TicketDao"
+		 import="lmh.dao.TicketDaoImpl"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,18 +15,21 @@
 </head>
 <body>
 <%
-TestService ts = new TestService();
+TicketDao tm = new TicketDaoImpl();
+String title = "abcd";
 
-Test[] tests = ts.getOne();
+Ticket[] tks = tm.getTickets(title);
 
-for(Test test:tests){
+for(Ticket tck:tks){
+%>
+	<p><%=tck.getGrade() %></p>	
+	<p><%=tck.getSeat() %></p>	
+	<p><%=tck.getState() %></p>	
+<%	
+}
 %>
 
-<%= test.getId() %>
-<%= test.getName() %>
-<%= test.getPw() %>
 
-<%} %>
 
 </body>
 </html>
