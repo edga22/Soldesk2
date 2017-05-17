@@ -373,12 +373,11 @@ body {
 }
 </style>
 
-<script src="zabuto_calendar.min.js"></script>
-<link rel="stylesheet" type="text/css" href="zabuto_calendar.min.css">
+<script src="./zabuto_calendar.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./zabuto_calendar.min.css">
 <script type="application/javascript">
     $(document).ready(function () {
-        $("#my-calendar").zabuto_calendar();
-        language: "nl"
+        $("#my-calendar").zabuto_calendar({language: "kr"});
     });
 </script>
 </head>
@@ -566,5 +565,10 @@ body {
             </div>
         </div>
     </div>
+    <script type="application/javascript">
+	    $(document).ready(function () {
+	        $("#my-calendar").zabuto_calendar({language: "kr"});
+	    });
+	</script>
 </body>
 </html>
