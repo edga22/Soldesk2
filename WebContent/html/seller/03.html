@@ -16,21 +16,39 @@
 	margin : 0.5rem;
 }
 .new-seat {
-	width : 4rem;
-	height : 4rem;
+	width : 3rem;
+	height : 3rem;
 	margin : 1px;
 	padding : 1px;	
-	font-size : 2rem;
+	font-size : 0.7rem;
+	text-align: center;
 	color: white;
 	border : 2px blue solid;
 	background-color:black;
-	display : inline;
+	display : inline-block;
 }
 .new-seat:hover{
 	border:0.1rem solid red;
 	cursor: pointer; /* 커서를 댈경우 손모양으로 바뀜 */
 }
 
+.write{
+	width:6rem;
+}
+.box{
+	width:5rem;
+	height:5rem;
+	margin:1px;
+	padding:1px;
+}
+#gradeResult1{ background-color:black;
+}
+#gradeResult2{ background-color:blue;
+}
+#gradeResult3{ background-color:red;
+}
+#gradeResult4{ background-color:#BDFF12;
+}
 </style>
 </head>
 <body>
@@ -46,7 +64,9 @@ $(document).ready(function(){
 	});	
 	
 	// 클릭시 반응(좌석생성)
-	$("#check").click(function(){	
+	$("#check").click(function(){
+		$(".layout").empty();
+		
 		row = $("#row").val();
 		col = $("#col").val();
 		
@@ -57,7 +77,8 @@ $(document).ready(function(){
 					seat = '<div class="new-seat" id="col-seat">'+i+j+ '<input type="hidden" class="seat-value" name="'+ i +j +'" value="1"></div>';
 					$(".row-seat:last").append( seat );																		
 			}			
-		}		
+		}
+		
 		// 좌석선택시 값 변경
 		$(".new-seat").on("click", function(){			
 			 //없는 좌석 선택시 normal 상태로 변경
@@ -67,24 +88,74 @@ $(document).ready(function(){
 						"background-color": "black",
 						"color":"white"
 				});
-			//일반 좌석 선택시 s석으로 변경	
+			//검정 좌석 선택시 파란색으로 변경	
 			}else if($(this).find(".seat-value").val()==1 ){
 				$(this).find(".seat-value").val(2);
 				$( this ).css({
 						"background-color": "blue",
 						"color":"white"
 				});
-			//s석 선택시 좌석 삭제(선택 못하게 바뀜)
+			//파란 좌석 선택시 빨간색으로 변경	
 			}else if($(this).find(".seat-value").val()==2 ){
+				$(this).find(".seat-value").val(3);
+				$( this ).css({
+						"background-color":"red",
+						"color":"white",
+				});
+			//빨간 좌석 선택시 초록색으로 변경		
+			}else if($(this).find(".seat-value").val()==3 ){
+				$(this).find(".seat-value").val(4);
+				$( this ).css({
+						"background-color":"#BDFF12",
+						"color":"black",
+				});
+			//초록 좌석 선택시 없는좌석으로 변경		
+			}else if($(this).find(".seat-value").val()==4 ){
 				$(this).find(".seat-value").val(0);
 				$( this ).css({
 						"background-color":"white",
 						"color":"rgba(0,0,0,0.0)",
 				});
 			} 		
-		});
-	});	
+		});	
+	});
+	
+	//좌석 등급 생성
+	$("#sel").on("change", function(){
+		$("#grades").empty();
+		
+		var choice = $("#sel :selected").val();    
+	    var result = $('<button type="button" id="creatGrade" class="btn btn-danger btn-sm ">등록</button>'); 
+	    
+	     for(var i=0;i<choice;i++){
+	    	var sheetDiv = $('<div></div>');
+	 	    var gradeName = $('<label>등급 이름: <input type="text" class="write" id="grade'+i+'"></label>');
+	 	    var gradePrice = $('<label>가격: <input type="number" min="0" class="write" id="price'+i+'">원</label>'); 
+	    	$("#grades").append(sheetDiv.append(gradeName).append(gradePrice));
+	    }     
+	    $("#grades").append(result);
+	    
+	    
+	    $("#creatGrade").on("click", function(){
+	    	$("#resultPrice").empty();
+	    	
+	    	for(var i=0;i<choice;i++){
+	    		var div = $('<span id="gradeResult'+(i+1)+'" class="box">&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+	    		var grade = '#'+'grade'+i;
+	    		var price = '#'+'price'+i;
+	    		var text = $('<span>&nbsp;&nbsp;'+$(grade).val()+'석&nbsp;&nbsp;'+$(price).val()+'원</span><br>')
+	    		$("#resultPrice").append(div).append(text);
+	    	}
+	    });	    	    	
+	});
+	
+	//최종완료 버튼
+	$("#complete").on("click", function(){
+		alert("완료되었습니다.");
+	});
+	
 });
+
 </script>
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
@@ -113,19 +184,42 @@ $(document).ready(function(){
 <div class="container">
 	<form>
 	<div class="row">
-		<div class="col-lg-12" style="background-color:#77FF70;  height:5rem;">
+		<div class="col-lg-12" style="background-color:#77FF70;  height:5rem; padding:1rem;">
 		<input type="text" name="title" placeholder="제목" required>
-		<input type="number" name="row" id="row" placeholder="가로" min="1" max="10" required>
-		<input type="number" name="col" id="col" placeholder="세로" min="1" max="10" required>
+		<input type="number" name="row" id="row" placeholder="가로" min="1" max="18" required>
+		<input type="number" name="col" id="col" placeholder="세로" min="1" max="18" required>
 		<button type="button" id="check" class="btn btn-info">입력</button>
 		<button type="reset" id="reset" class="btn btn-warning">리셋</button>
-		<button type="submit" formaction="seatResult(mh).jsp" class="btn btn-danger">좌석 선택완료</button>
+		<button type="submit" formaction="#" id="complete" class="btn btn-danger">좌석 선택완료</button>
 		</div>	
 	</div>
 	<hr style="border: solid 0.1rem;">
 	<div class="row">
-		<div class="col-sm-12" >
+		<div class="col-sm-8" >
 			<div class="layout"></div>
+		</div>
+		<div class="col-sm-4" style="background-color:#FFF612; height:60rem;">
+			<h5>좌석 등급은 최대 4개까지 선택 가능합니다.</h5>
+			<div>
+				<span>좌석 등급 갯수:</span>
+				<select id="sel">
+					<option value="1">좌석등급 1개</option>
+					<option value="2">좌석등급 2개</option>
+					<option value="3">좌석등급 3개</option>
+					<option value="4">좌석등급 4개</option>
+				</select>
+			</div>
+			<hr style="border:0.1rem solid black;">
+			<div>
+				<h3>공연 좌석 등록</h3>
+				<p>좌석 등급 이름은 대소문자를 구분하지 않습니다.</p>
+				<div id="grades"></div>
+			</div>
+			<hr style="border:0.1rem solid black;">
+			<div>
+				<h3>공연 좌석 등급별 가격</h3>
+				<div id="resultPrice"></div>
+			</div>	   
 		</div>
 	</div>
 </form>	
