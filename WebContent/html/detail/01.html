@@ -173,6 +173,10 @@ body {
     padding:0.8rem 1rem;
     color:#ccc;
 }
+/*글자수 제한*/
+.morecontent span {
+    display: none;
+}
 </style>
 
 <script src="/html/zabuto_calendar.min.js"></script>
@@ -183,6 +187,13 @@ body {
         {"date":"2017-05-29","badge":true,"title":"Example 2"}
     ];
     $(document).ready(function () {
+    	$("tr.answer").hide();
+    	//질문 클릭시 function
+    	$("tr.question").click(function(){
+            //alert("Click!");
+            $("tr.answer").toggle();
+        });
+    	
     	//글자수 제한
     	var showChar = 150; 
         var ellipsestext = "...";
@@ -191,16 +202,15 @@ body {
             var content = $(this).html();
      
             if(content.length > showChar) {
-     
                 var c = content.substr(0, showChar);
                 var h = content.substr(showChar, content.length - showChar);
-     
-                var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;</span>';
+                var html = c + '<span class="moreellipses">' + ellipsestext+ 
+                '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;</span>';
      
                 $(this).html(html);
             }
-     
         });
+        
         $("#my-calendar").zabuto_calendar({
         	language: "kr",
 		  	data: eventData,
@@ -345,14 +355,15 @@ body {
     		
     		<ul class="list-group">
   				<li class="list-group-item">
-  					<h3>매디슨 카운티의 다리</h3>
-  					<span class="more">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  					<a href="#" data-toggle="modal" data-target="#myModal"><h3>매디슨 카운티의 다리</h3></a>
+  					<span class="more">
+  					첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.
+  					첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.
+  					첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.
+  					첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.
   					</span>
   					<br>
   					<small>예매자</small> | <small>날짜</small>
-  					<a href="#" data-toggle="modal" data-target="#myModal">Open Modal</a>
   				</li>
 			</ul>
 			
@@ -383,8 +394,36 @@ body {
     	</div>
   	</div>
   	<div id="menu4" class="tab-pane fade"> <!-- 메뉴4 -->
-    	<h3>Menu 2</h3>
-    	<p>Some content in menu 2.</p>
+    	<table class="table table-hover">
+    		<thead>
+      			<tr>
+        			<th>글번호</th>
+        			<th>날짜</th>
+        			<th>제목</th>
+        			<th>작성자</th>
+        			<th>상태</th>
+      			</tr>
+    		</thead>
+    		<tbody>
+      			<tr class="question">
+        			<td>1</td>
+        			<td>2017/05/18</td>
+        			<td>환불 문의입니다</td>
+        			<td>왕예나</td>
+        			<td>미답변</td>
+      			</tr>
+      			<tr>
+      				<td colspan="5" class="answer">
+      				<div>
+      					<p>Q.환불 취소하고 싶은데요</p>
+      					<p>A.안녕하세요 고객님</p>
+      					<p>문의하신 공연 예매취소 되었습니다.</p>
+      					<p>확인 부탁드립니다. 감사합니다.</p>	
+      				</div>
+      				</td>
+      			</tr>
+    		</tbody>
+  		</table>
   	</div>
   	<div id="menu5" class="tab-pane fade"> <!-- 메뉴5 -->
     	<h3>Menu 2</h3>
