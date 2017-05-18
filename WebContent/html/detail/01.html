@@ -149,7 +149,7 @@ body {
 .affix {
       top: 0;
       width: 100%;
-      z-index: 9999 !important;
+      z-index: 999 !important;
 }
 .affix + .container-fluid {
       padding-top: 124px;
@@ -177,6 +177,10 @@ body {
 .morecontent span {
     display: none;
 }
+
+.answer{
+	display: none;
+}
 </style>
 
 <script src="/html/zabuto_calendar.min.js"></script>
@@ -186,13 +190,12 @@ body {
         {"date":"2017-05-17","badge":false,"title":"Example 1"},
         {"date":"2017-05-29","badge":true,"title":"Example 2"}
     ];
+	
     $(document).ready(function () {
-    	$("tr.answer").hide();
-    	//질문 클릭시 function
-    	$("tr.question").click(function(){
-            //alert("Click!");
-            $("tr.answer").toggle();
-        });
+    	$(".question").click(function(e){
+    		e.preventDefault();
+    		$('#answer'+$(this).attr('data-prod-answer')).toggle();   
+    	});
     	
     	//글자수 제한
     	var showChar = 150; 
@@ -332,21 +335,24 @@ body {
 </div> <!-- 끝 -->
 <hr>
 <div class="container"> <!-- 시작 -->
+	<div class="row"> <!-- row 시작 -->
 	 <!-- nav바 -->
   		<ul class="nav nav-tabs">
     		<li class="active"><a data-toggle="tab" href="#menu1">상세정보</a></li>
-    		<li><a data-toggle="tab" href="#menu3">관람후기</a></li>
-    		<li><a data-toggle="tab" href="#menu4">Q&A</a></li>
-    		<li><a data-toggle="tab" href="#menu5">예매유의사항</a></li>
+    		<li><a data-toggle="tab" href="#menu2">관람후기</a></li>
+    		<li><a data-toggle="tab" href="#menu3">Q&A</a></li>
+    		<li><a data-toggle="tab" href="#menu4">예매유의사항</a></li>
   		</ul>
  	<!-- nav바 -->
  	
  	<div class="tab-content"> <!-- 탭 콘텐트 시작 -->
-  		<div id="menu1" class="tab-pane fade in active"> <!-- 메뉴1 -->
-    	<h3>HOME</h3>
-    	<p>Some content.</p>
+  	<div id="menu1" class="tab-pane fade in active"> <!-- 메뉴1 -->
+  		<div class = "well well-sm">알림사항</div>
+    	<img src="/img/detail1.jpg" style="width: 1200px;"/>
+    	<div class = "well well-sm">작품설명</div>
+    	<img src="/img/detail2.jpg" style="width: 1200px;"/>
   	</div>
-  	<div id="menu3" class="tab-pane fade"> <!-- 메뉴3 -->
+  	<div id="menu2" class="tab-pane fade"> <!-- 메뉴3 -->
     	<div class="panel panel-default">
     		<div class="panel-heading">공연 관람후기</div>
     		<div class="panel-body">
@@ -393,7 +399,7 @@ body {
   			</div> <!-- Modal -->
     	</div>
   	</div>
-  	<div id="menu4" class="tab-pane fade"> <!-- 메뉴4 -->
+  	<div id="menu3" class="tab-pane fade"> <!-- 메뉴4 -->
     	<table class="table table-hover">
     		<thead>
       			<tr>
@@ -405,15 +411,15 @@ body {
       			</tr>
     		</thead>
     		<tbody>
-      			<tr class="question">
+      			<tr class="question" data-prod-answer="1">
         			<td>1</td>
         			<td>2017/05/18</td>
         			<td>환불 문의입니다</td>
         			<td>왕예나</td>
-        			<td>미답변</td>
+        			<td>답변완료</td>
       			</tr>
-      			<tr>
-      				<td colspan="5" class="answer">
+      			<tr id="answer1" class="answer">
+      				<td colspan="5">
       				<div>
       					<p>Q.환불 취소하고 싶은데요</p>
       					<p>A.안녕하세요 고객님</p>
@@ -422,14 +428,51 @@ body {
       				</div>
       				</td>
       			</tr>
+      			<tr class="question" data-prod-answer="2">
+        			<td>2</td>
+        			<td>2017/05/25</td>
+        			<td>가정의 달 20% 할인 문의해요~</td>
+        			<td>왕예나</td>
+        			<td>미답변</td>
+      			</tr> 
+      			<tr id="answer2" class="answer">
+      				<td colspan="5">
+      				<div>
+      					<p>Q.가정의 달 20% 할인 문의 합니다.</p>
+      				</div>
+      				</td>
+      			</tr>
     		</tbody>
   		</table>
   	</div>
-  	<div id="menu5" class="tab-pane fade"> <!-- 메뉴5 -->
-    	<h3>Menu 2</h3>
-    	<p>Some content in menu 2.</p>
+  	<div id="menu4" class="tab-pane fade"> <!-- 메뉴5 -->
+    	<div class = "well well-sm">티켓수령안내</div>
+    	<p><b>예약번호입장</b></p>
+		<p>공연 당일 현장 교부처에서 예약번호 및 본인 확인 후 티켓을 수령하실 수 있습니다.</p>
+		<p>상단 예매확인/취소 메뉴에서 예매내역을 프린트하여 가시면 편리합니다.</p>
+		<p><b>티켓배송</b></p>
+		<p>예매완료(결제익일) 기준 4~5일 이내에 배송됩니다. (주말, 공휴일을 제외한 영업일 기준)</p>
+		<p>배송 중 전달 불가사항이 발생할 시에는 반송되며, 본인 수령 불가 시 경우에 따라 대리 수령도 가능합니다.</p>
+		<p>공연 3일 전까지 티켓을 배송받지 못하신 경우 고객센터(1544-1555)로 연락 주시기 바랍니다.</p>
+		<p>반송이 확인되지 않은 티켓은 현장에서도 수령하실 수 없으며, 공연 관람 및 환불이 불가합니다.</p>
+    	<div class = "well well-sm">예매취소 시 유의사항</div>
+    	<p>① 예매 후 7일까지 취소 시에는 취소수수료가 없습니다.</p>
+		<p>② 관람일 기준은 아래와 같이 취소수수료가 적용됩니다.</p>
+		<p>①번과 ②번 모두 해당되는 경우, ②번 기준이 우선 적용됩니다.</p>
+		<p>~관람일 10일전까지 : 뮤지컬/콘서트/클래식 장당 4,000원, 연극/전시 등 장당 2,000원 (단, 최대 티켓금액의 10% 한도)</p>
+		<p>관람일 9일전~관람일 7일전까지 : 티켓금액의 10%</p>
+		<p>관람일 6일전~관람일 3일전까지 : 티켓금액의 20%</p>
+		<p>관람일 2일전~관람일 1일전까지 : 티켓금액의 30%</p>
+		<p>위 ② 번의 경우에도 예매 당일 밤 12시 이전 취소 시에는 취소수수료가 없습니다.</p>
+		<p>(취소기간 내에 한함)
+    	<div class = "well well-sm">환불안내</div>
+    	<p>예매 취소 시에 환불 계좌번호를 남기고, 그 계좌를 통해 취소수수료를 제외한 금액을 환불 받습니다. 취소 후 고객님의 계좌로 입금까지 대략 5~7일 정도가 소요됩니다. (주말 제외)
+		환불은 반드시 예매자 본인 명의의 계좌로만 받으실 수 있습니다.</p>
+		<p>단, 예매자 본인 명의의 계좌가 없을 경우에는 직계 가족 명의의 계좌에 한하여 가능하며, 이 경우 관계를 증명할 수 있는 증빙서류를 예매자 본인이 팩스나 우편 등으로 인터파크 티켓 본사로 보내주셔야 합니다.
+		(예매자 본인 외 가족이 증빙서류를 보내주셨을 경우, 이로 인해 문제 발생 시 환불 접수한 가족 본인에게 모든 책임이 있습니다.)</p>
   	</div>
 </div> <!-- 탭 콘텐트 끝 -->
+</div> <!-- row 끝 -->
 </div>  <!-- 끝 -->
 
 <div class="container-fluid" id="footer">
