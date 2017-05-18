@@ -175,14 +175,32 @@ body {
 }
 </style>
 
-<script src="zabuto_calendar.min.js"></script>
-<link rel="stylesheet" type="text/css" href="zabuto_calendar.min.css">
+<script src="/html/zabuto_calendar.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/html/zabuto_calendar.min.css">
 <script type="application/javascript">
 	var eventData = [
         {"date":"2017-05-17","badge":false,"title":"Example 1"},
-        {"date":"2017-05-29","badge":false,"title":"Example 2"}
+        {"date":"2017-05-29","badge":true,"title":"Example 2"}
     ];
     $(document).ready(function () {
+    	//글자수 제한
+    	var showChar = 150; 
+        var ellipsestext = "...";
+        
+        $('.more').each(function() {
+            var content = $(this).html();
+     
+            if(content.length > showChar) {
+     
+                var c = content.substr(0, showChar);
+                var h = content.substr(showChar, content.length - showChar);
+     
+                var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;</span>';
+     
+                $(this).html(html);
+            }
+     
+        });
         $("#my-calendar").zabuto_calendar({
         	language: "kr",
 		  	data: eventData,
@@ -271,7 +289,7 @@ body {
 		<div class="col-xs-4">
 			<h4>예매가능 공연날짜</h4>
 			<h5>2017.06.08 ~ 2017.06.18</h5>
-			<div id="my-calendar"></div>
+			<div id="my-calendar"></div> <!-- 캘린더 -->
 			<div class="btn-group btn-block"> <!-- 드롭다운 -->
 				<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
         			<span class="col-xs-10">
@@ -303,17 +321,77 @@ body {
 	</div>
 </div> <!-- 끝 -->
 <hr>
-<div class="container">
+<div class="container"> <!-- 시작 -->
 	 <!-- nav바 -->
   		<ul class="nav nav-tabs">
-    		<li class="active"><a href="#">상세정보</a></li>
-    		<li><a href="#">캐스팅 캘린더</a></li>
-    		<li><a href="#">관람후기</a></li>
-    		<li><a href="#">Q&A</a></li>
-    		<li><a href="#">예매유의사항</a></li>
+    		<li class="active"><a data-toggle="tab" href="#menu1">상세정보</a></li>
+    		<li><a data-toggle="tab" href="#menu3">관람후기</a></li>
+    		<li><a data-toggle="tab" href="#menu4">Q&A</a></li>
+    		<li><a data-toggle="tab" href="#menu5">예매유의사항</a></li>
   		</ul>
- <!-- nav바 -->
-</div>
+ 	<!-- nav바 -->
+ 	
+ 	<div class="tab-content"> <!-- 탭 콘텐트 시작 -->
+  		<div id="menu1" class="tab-pane fade in active"> <!-- 메뉴1 -->
+    	<h3>HOME</h3>
+    	<p>Some content.</p>
+  	</div>
+  	<div id="menu3" class="tab-pane fade"> <!-- 메뉴3 -->
+    	<div class="panel panel-default">
+    		<div class="panel-heading">공연 관람후기</div>
+    		<div class="panel-body">
+    			<p> 티켓 매매 및 양도의 글은 발견 즉시 임의 삭제되며 전화번호, 이메일 등의 개인정보는 악용될 우려가 있으므로 게시를 삼가 주시기 바랍니다.</p>
+    		</div>
+    		
+    		<ul class="list-group">
+  				<li class="list-group-item">
+  					<h3>매디슨 카운티의 다리</h3>
+  					<span class="more">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  					</span>
+  					<br>
+  					<small>예매자</small> | <small>날짜</small>
+  					<a href="#" data-toggle="modal" data-target="#myModal">Open Modal</a>
+  				</li>
+			</ul>
+			
+			<!-- Modal -->
+  			<div class="modal fade mod-lg" id="myModal" role="dialog">
+    			<div class="modal-dialog">
+    
+      		<!-- Modal content-->
+      		<div class="modal-content">
+        		<div class="modal-header">
+          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+          		<h3 class="modal-title">매디슨 카운티의 다리</h3>
+        	</div>
+        	<div class="modal-body">
+          		<p>첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.
+  					첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.
+  					첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.
+  					첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.첫 뮤지컬로 너무 좋았습니다.
+  				</p>
+        	</div>
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+        	</div>
+      		</div> <!-- Modal content-->
+      		
+      			</div> 
+  			</div> <!-- Modal -->
+    	</div>
+  	</div>
+  	<div id="menu4" class="tab-pane fade"> <!-- 메뉴4 -->
+    	<h3>Menu 2</h3>
+    	<p>Some content in menu 2.</p>
+  	</div>
+  	<div id="menu5" class="tab-pane fade"> <!-- 메뉴5 -->
+    	<h3>Menu 2</h3>
+    	<p>Some content in menu 2.</p>
+  	</div>
+</div> <!-- 탭 콘텐트 끝 -->
+</div>  <!-- 끝 -->
 
 <div class="container-fluid" id="footer">
         <div class="row">
@@ -392,10 +470,6 @@ body {
             </div>
         </div>
     </div>
-    <script type="application/javascript">
-	    $(document).ready(function () {
-	        $("#my-calendar").zabuto_calendar({language: "kr"});
-	    });
-	</script>
+
 </body>
 </html>
