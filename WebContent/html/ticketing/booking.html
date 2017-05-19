@@ -17,45 +17,28 @@
 	height : 600px;	
 	border : 1px solid black;
 }
-.seat-row{
-	margin : 0.5rem;
-}
-
-.seat{
-	width : 4rem;
-	height : 4rem;
-	margin : 1px;
-	padding : 1px;	
-	font-size : 1rem;
-	border : 2px blue solid;
-	display : inline;
-	cursor : default;
-}
 .info-wrapper{
 	height : 10%;
 }
 .info-panel {
 	height : 100%;
 	width : 100%;
-	border : 1px dotted black;
+	border : 0px dotted black;
+	text-align: center;
 }
 .booking-wrapper{
 	height : 90%;
-	border : 2px solid #663300;
+	border : 1px solid #663300;
 }
 .select-body{
 	height: 100%;
 	border : 1px solid #663300;
+	padding: 0px;
 }
 .control-body{
 	height : 100%;
 	border : 1px solid #663300;
 	
-}
-.seat-layout-wrapper{
-	height : 100%;
-	width : 100%;
-	border : 1px dotted black;
 }
 .control-panel{
 	height : 85%;
@@ -64,94 +47,34 @@
 .btn-panel{
 	height : 15%;
 	border : 1px dotted black;
+	text-align: center;
+}
+.btn-next{
+	/*Vertical Center Start*/
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	/*Vertical Center End*/
+}
+iframe {
+    background: #000;
+    border: none;         /* Reset default border */
+    height: 100%;        /* Viewport-relative units */
+    width: 100%;
+	overflow: hidden;
+}
+.img-step{
+	display: inline-block;
+	/*Vertical Center Start*/
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	/*Vertical Center End*/
 }
 </style>
 <script>
 $(document).ready(function(){
-	var seatLayout = [
-			[9, 9, 1, 1, 1, 9, 1,],
-			[1, 9, 1, 1, 1, 9, 1,],
-			[1, 9, 1, 1, 1, 9, 1,],
-			[1, 9, 1, 1, 1, 9, 1,],
-			[1, 9, 1, 1, 1, 9, 1,],
-			[1, 9, 1, 1, 1, 9, 1,]
-	];
-		
-	var row = '<div class="seat-row">	</div>';
-		
-	for(i = 0 ; i < seatLayout.length ; i++){
-		$(".seat-layout-wrapper").append( row );
-		for(j = 0 ; j < seatLayout[i].length ; j++){
-			var seatId = i + "-" + j ; 
-			var col = '<div class="seat" id="'+ seatId +'">'+ i +'-'+ j +'</div>';
-			$(".seat-row:last").append ( col );
-			
-			if(seatLayout[i][j] == 9){
-				$("#"+seatId).css("border-color","#b3b3b3");
-			}
-		}
-	};	
 	
-	/* 이벤트부 */
-	$(".seat").mouseover(function(){
-		/* $( this ).css("border-color", "red"); */
-		var id = $(this).attr('id').split('-');
-				
-		$(".result p").text("행"+id[0] + "열"+id[1]);
-	});	
-	$(".seat").mouseleave(function(){
-		/* $( this ).css("border-color", "blue"); */
-		
-		$(".result p").text("나감");
-	});	
-	$(".seat").click(function(){
-		if($( this ).css("border-color") =='rgb(179, 179, 179)'){
-			return false;
-		}
-		$( this ).css("border-color", "red");
-		
-		var id = $(this).attr('id').split('-');
-		if(seatLayout[id[0]][id[1]] == 1){
-			seatLayout[id[0]][id[1]] = 0;
-		}else{
-			if(confirm("이미 선택한 좌석입니다. 취소하시겠습니까?")){
-				seatLayout[id[0]][id[1]] = 1;
-				$( this ).css("border-color", "blue");
-			}
-		}
-	});
-	
-	/* AJAX */
-	$("#submit").on('click',function(){
-
-		var seatString = [];
-		for(i = 0 ; i < seatLayout.length ; i++){
-			var seatRow = seatLayout[i];
-			seatString.push(seatRow.toString());
-		}
-				
-		var json = {
-			"seats[]": seatString,
-			"three":"3",	
-		};
-		
-		var result = $.post( /* 포스트 방식 전송 */
-			"layout1.jsp" , /* 보낼주소 */
-			json, /* 보낼 파라미터 */
-			null, /* 성공 함수 */
-			"json" /* 결과값 타입 */
-			);
-		
-		result.done(function( data ){
-			var x = data.text;
-			$("#output").text( x[1] );
-		});				
-		
-	});
-	
-	$("#testbtn").click(function(){
-		alert($(".test").attr("name") + "-" + $(".test").attr("value"));
-	});
 });
 </script>
 </head>
@@ -161,14 +84,18 @@ $(document).ready(function(){
 <div class="container">
 	<div class="row info-wrapper">
 	<div class="col-sm-12" style="height:100%;">
-		<div class="info-panel"></div>
+		<div class="info-panel">
+			<img class="img-step" src="img/step_01.gif">
+			<img class="img-step" src="img/step_02.gif">
+			<img class="img-step" src="img/step_03.gif">
+			<img class="img-step" src="img/step_04.gif">
+			<img class="img-step" src="img/step_05.gif">
+		</div>
 	</div>
 	</div>
 	<div class="row booking-wrapper">
 		<div class="col-sm-9 select-body">
-				<div class="seat-layout-wrapper">
-					
-				</div>
+				<iframe src="seat_select.html" scrolling="no"></iframe>
 		</div>
 		<div class="col-sm-3 control-body">		
 			<div class="control-panel">	
@@ -176,7 +103,7 @@ $(document).ready(function(){
 				<p>시간정보</p>
 			</div>	
 			<div class="btn-panel">
-				<button class="btn btn-info">다음 단계 ></button>
+				<button class="btn btn-info btn-lg btn-next">다음 단계 ></button>
 			</div>			
 		</div>
 	</div>
