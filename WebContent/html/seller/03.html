@@ -26,6 +26,11 @@
 	border : 2px blue solid;
 	background-color:black;
 	display : inline-block;
+	-ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 .new-seat:hover{
 	border:0.1rem solid red;
@@ -49,6 +54,12 @@
 }
 #gradeResult4{ background-color:#BDFF12;
 }
+#timeSlot{
+	width:12rem;
+}
+button{
+	background-color:black;
+}
 </style>
 </head>
 <body>
@@ -62,6 +73,59 @@ $(document).ready(function(){
 	$("#reset").click(function(){
 		$('.new-seat').remove();
 	});	
+	
+	// 지역 선택시 나타나는 세부 선택창
+	$("#locals").on("change", function(){
+		$("#localDetail").empty();
+		var choice = $("#locals :selected").val();
+		var span = $('<span>공연장: </span>');
+		var localOption = $('<select id="stage"></select>');
+		var southSeoul = $('<option value="1">서울놀이마당</option><option value="2">영등포아트홀</option>'); 
+		var northSeoul = $('<option value="1">동숭아트홀</option><option value="2">디큐브아트홀</option><option value="3">국립극장</option>'); 
+		var southArea = $('<option value="1">성남아트홀</option><option value="2">인천문화예술회관</option>'); 
+		var northArea = $('<option value="1">아람누리</option><option value="2">북한강야외공연장</option>'); 
+		
+		switch(choice){
+		case "1": $("#localDetail").append(span.append(localOption.append(southSeoul))); break;
+		case "2": $("#localDetail").append(span.append(localOption.append(northSeoul))); break;
+		case "3": $("#localDetail").append(span.append(localOption.append(southArea)));  break;
+		case "4": $("#localDetail").append(span.append(localOption.append(northArea)));  break;
+		}
+		//공연장 선택완료시 시간관련 네비바가 나타남
+		$("#stage").on("change", function(){
+			$("#nav1").empty();
+			var timeMain = $('<button type="button" id="addTime" class="btn btn-warning btn-sm">시간추가</button>'
+								+'<button type="button" id="rstTime" class="btn btn-danger btn-sm">시간리셋</button>'
+								+'<span id="timesNav">&nbsp;&nbsp;&nbsp;</span>');
+			$("#nav1").css({
+				"background-color":"#66a3ff",
+				"height":"5rem",
+				"padding":"1rem",	
+				"margin":"0.5rem"
+			});
+			$("#nav1").append(timeMain);
+			
+			//시간추가 선택시
+			var cnt = 1;
+			$("#addTime").on("click", function(){				
+				if(cnt>5){
+					cnt = 1;
+					alert('최대 5회차 까지 입니다.')
+				}else{
+					var times = $('<label>'+cnt+'차:<input type="time" name="'+$("#title").val()+'" id="timeSlot">&nbsp;&nbsp;</label>');
+					$("#timesNav").append(times);
+					cnt=cnt+1;
+				}
+			});
+			
+			//시간리셋 선택시
+			$("#rstTime").on("click", function(){
+				$("#timesNav").empty();
+			});
+			
+		});
+	
+	});
 	
 	// 클릭시 반응(좌석생성)
 	$("#check").click(function(){
@@ -184,13 +248,27 @@ $(document).ready(function(){
 <div class="container">
 	<form>
 	<div class="row">
-		<div class="col-lg-12" style="background-color:#77FF70;  height:5rem; padding:1rem;">
-		<input type="text" name="title" placeholder="제목" required>
-		<input type="number" name="row" id="row" placeholder="가로" min="1" max="18" required>
-		<input type="number" name="col" id="col" placeholder="세로" min="1" max="18" required>
-		<button type="button" id="check" class="btn btn-info">입력</button>
-		<button type="reset" id="reset" class="btn btn-warning">리셋</button>
-		<button type="submit" formaction="#" id="complete" class="btn btn-danger">좌석 선택완료</button>
+		<div class="col-lg-12" style="background-color:#66a3ff; height:5rem; padding:1rem;	margin:0.5rem;">
+			<div>
+				<span>공연 지역: 
+				<select id="locals">
+					<option value="1">서울남부</option>
+					<option value="2">서울북부</option>
+					<option value="3">경기남부</option>
+					<option value="4">경기북부</option>
+				</select>
+				&nbsp;&nbsp;&nbsp;</span>
+				<span id="localDetail"></span>
+			</div>
+		</div>
+		<div class="col-lg-12" id="nav1"></div>
+		<div class="col-lg-12" style="background-color:#66a3ff; height:5rem; padding:1rem;	margin:0.5rem;">
+			<input type="text" id="title" name="title" placeholder="제목" required>
+			<input type="number" name="row" id="row" placeholder="가로" min="1" max="18" required>
+			<input type="number" name="col" id="col" placeholder="세로" min="1" max="18" required>
+			<button type="button" id="check" class="btn btn-info">입력</button>
+			<button type="reset" id="reset" class="btn btn-warning">리셋</button>
+			<button type="submit" formaction="#" id="complete" class="btn btn-danger">좌석 선택완료</button>
 		</div>	
 	</div>
 	<hr style="border: solid 0.1rem;">
@@ -198,7 +276,7 @@ $(document).ready(function(){
 		<div class="col-sm-8" >
 			<div class="layout"></div>
 		</div>
-		<div class="col-sm-4" style="background-color:#FFF612; height:60rem;">
+		<div class="col-sm-4" style="background-color:#ffff99; height:60rem;">
 			<h5>좌석 등급은 최대 4개까지 선택 가능합니다.</h5>
 			<div>
 				<span>좌석 등급 갯수:</span>
