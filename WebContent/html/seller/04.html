@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<style>
+#resistForm{
+	border:0.1rem solid black;
+	margin:1rem;
+	padding:1rem;
+}
+
+.table1{
+	width:30rem;
+	margin:1rem;
+	padding:0.5rem;
+}
+.table2{
+	width:10rem;
+	margin:1rem;
+	padding:0.5rem;
+}
+#table th{
+	text-align:center;
+	width:20rem;
+}
+#table{
+	blackground-color:gray;
+}
+#buttons{
+	text-align:center;
+}
+</style>
+</head>
+<body>
+<script>
+
+</script>
+
+<!-- 메인 네비바 -->
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+       	   </button>
+			<a class="navbar-brand" href="01.html">공연 티켓 판매자</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse"> <!-- nav 내용 시작 -->
+			<ul class="nav navbar-nav">
+                <li><a href="02.html">공연장등록</a></li>
+                <li><a href="03.html">공연등록</a></li>
+                <li><a href="06.html">기타1</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">로그아웃</a></li>
+				<li><a href="#">쇼핑몰</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<!-- 데이터 입력칸 -->
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6" id="resistForm">
+			<table id="table">
+				<tr>
+					<th>공연장명</th><td><input type="text" class="table1" name="hallName"/></td>
+				</tr>
+				<tr>
+					<th>상영관명</th><td><input type="text" class="table1" name="hallName"/></td>
+				</tr>
+				<tr>
+					<th>좌석수(가로)</th><td><input type="number" class="table2" name="hallName"/></td>
+				</tr>
+				<tr>
+					<th>좌석수(세로)</th><td><input type="number" class="table2" name="hallName"/></td>
+				</tr>
+				<tr>
+					<th>우편번호</th><td><input type="number" class="table2" name="hallName"/></td>
+				</tr>
+				<tr>
+					<th>주소</th><td><input type="text" class="table1" name="hallName"/></td>
+				</tr>
+				<tr>
+					<th>세부 주소</th><td><input type="text" class="table1" name="hallName"/></td>
+				</tr>
+				<tr>
+					<th>공연장 전화번호</th><td><input type="text" class="table1" name="hallName" placeholder="(-)하이픈 금지"/></td>
+				</tr>
+			</table>
+			<div id="buttons">
+				<button type="button" class="btn btn-success btn-sm">등록</button>
+				<button type="button" class="btn btn-danger btn-sm">확인</button>
+			</div>
+		</div>
+		<div class="col-sm-3"></div>
+	
+	</div>
+</div>
+	
+</body>
+</html>
