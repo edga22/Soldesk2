@@ -5,9 +5,173 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
+<style>
+.container{
+	margin-top : 5rem;	/* 상단 여백을 위해  */
+	width : 1000px;
+	height : 600px;	
+	border : 1px solid black;
+}
+.seat-row{
+	margin : 0.5rem;
+}
+
+.seat{
+	width : 4rem;
+	height : 4rem;
+	margin : 1px;
+	padding : 1px;	
+	font-size : 2rem;
+	border : 2px blue solid;
+	display : inline;
+	cursor : default;
+}
+.info-wrapper{
+	height : 10%;
+}
+.info-panel {
+	height : 100%;
+	width : 100%;
+	
+}
+.booking-wrapper{
+	height : 85%;
+	border : 2px solid #663300;
+}
+.select-body{
+	height: 100%;
+	border : 1px solid #663300;
+}
+.control-body{
+	height : 100%;
+	border : 1px solid #663300;
+	
+}
+.seat-layout-wrapper{
+	height : 100%;
+	width : 100%;
+}
+.control-panel{
+	height : 90%;
+}
+.btn-panel{
+	margin-top:10px;
+	height : 10%;
+}
+th{
+	text-align:center;
+}
+</style>
 </head>
 <body>
+	<div class="container">
+	<div class="row info-wrapper">
+	<div class="col-sm-12" style="height:100%;">
+		<div class="info-panel">
+			<div class="btn-group btn-group-justified">
+  				<a href="#" class="btn btn-default">01 관람일 회차선택</a>
+  				<a href="#" class="btn btn-default">02 좌석 선택</a>
+  				<a href="#" class="btn btn-danger">03 가격/할인 선택</a>
+  				<a href="#" class="btn btn-default">04 배송선택/주문자확인</a>
+  				<a href="#" class="btn btn-default">05 결제하기</a>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="row booking-wrapper">
+		<div class="col-sm-9 select-body">
+			<div class="seat-layout-wrapper">
+				<h4>가격</h4>
+				<table class="table">
+					<thead>
+						<h4>100석/ 좌석 2석 선택 하였습니다.</h4>
+					</thead>
+					<tbody>
+						<tr>
+							<th>기본가</th>
+							<td colspan="2">20000원</td>
+							<td>2매</td>
+						</tr>
+						<tr>
+							<th rowspan="4">기본할인</th>
+							<td>학생할인(중, 고, 대학생 10%)</td>
+							<td>18000원</td>
+							<td>2매</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>00000000원</td>
+							<td>0매</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>00000000원</td>
+							<td>0매</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>00000000원</td>
+							<td>0매</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>			
+		</div>
+		<div class="col-sm-3 control-body">		
+			<div class="control-panel">	
+				<table id="ticketInfo">
+					<tr>
+						<td rowspan="4">
+	            			<img src="<%=img %>" style="width:150px; height:150px;" onerror="ImgError(this)">
+						</td>
+						<th>20주년 특별공연 <라이어 스페셜></th>
+	   				</tr>
+        			<tr>  
+            			<th>2017.05.23~2017.07.30</th> 
+        			</tr> 
+	    			<tr>  
+	        			<th>동숭아트센터 동숭홀 만 13세이상</th>
+	    			</tr>
+	    			<tr>
+	    				<th>관람시간 110분</th>
+	    			</tr>
+	   			</table>
+				<table class="table table-bordered">
+					<thead>
+						<h4>My 예매정보</h4>
+					</thead>
+					<tbody>
+						<tr>
+							<th id="detail">일시</th>
+							<td>2017년 5월 23일</td>
+						</tr>
+						<tr>
+							<th id="detail">선택좌석</th>
+							<td>2석</td>
+						</tr>
+						<tr>
+							<th id="detail">티켓금액</th>
+							<td>20000원</td>
+						</tr>
+						<tr>
+							<th id="detail">취소기한</th>
+							<td>공연 하루 전까지</td>
+						</tr>
+						<tr>
+							<th id="detail">취소 수수료</th>
+							<td>티켓 금액의 0%~30%</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+			<div class="btn-panel">
+				<button class="btn btn-info btn-block">다음으로</button>
+			</div>			
+		</div>
+	</div>
+</div>
 
 </body>
 </html>
