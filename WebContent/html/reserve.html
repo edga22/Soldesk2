@@ -61,7 +61,13 @@
 	height : 10%;
 }
 </style>
-
+<script type="text/javascript">
+function ImgError(source){
+    source.src = "../img/post1.png";
+    source.onerror = "";
+    return true;
+}
+</script>
 <script src="zabuto_calendar.min.js"></script>
 <link rel="stylesheet" type="text/css" href="zabuto_calendar.min.css">
 <script type="application/javascript">
@@ -110,8 +116,50 @@
 		</div>
 		<div class="col-sm-4 control-body">		
 			<div class="control-panel">	
-				<p>연극정보</p>
-				<p>시간정보</p>
+				<table id="memberLevellTb">
+					<tr>
+						<td rowspan="4">
+	            			<img src="<%=img %>" style="width:150px; height:150px;" onerror="ImgError(this)">
+						</td>
+						<th>20주년 특별공연 <라이어 스페셜></th>
+	   				</tr>
+        			<tr>  
+            			<th>2017.05.23~2017.07.30</th> 
+        			</tr> 
+	    			<tr>  
+	        			<th>동숭아트센터 동숭홀 만 13세이상</th>
+	    			</tr>
+	    			<tr>
+	    				<th>관람시간 110분</th>
+	    			</tr>
+	   			</table>
+				<table>
+					<thead>
+						<h4>My 예매정보</h4>
+					</thead>
+					<tbody>
+						<tr>
+							<th id="detail">일시</th>
+							<td>2017년.5월23일</td>
+						</tr>
+						<tr>
+							<th id="detail">선택좌석</th>
+							<td>2석</td>
+						</tr>
+						<tr>
+							<th id="detail">티켓금액</th>
+							<td>20000원</td>
+						</tr>
+						<tr>
+							<th id="detail">취소기한</th>
+							<td>공연 하루 전까지</td>
+						</tr>
+						<tr>
+							<th id="detail">취소 수수료</th>
+							<td>티켓 금액의 0%~30%</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>	
 			<div class="btn-panel">
 				<button class="btn btn-info btn-block">다음으로</button>
