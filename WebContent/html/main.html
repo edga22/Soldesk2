@@ -55,7 +55,7 @@ body {
 /* 상단로고 */
 .topLogo {
     display:inline-block; 
-    width:2.8rem;
+    width:2.6rem;
     padding:0.3rem;
     margin:0 -0.1rem;
     color: #fff;
@@ -63,6 +63,10 @@ body {
     font-weight:bold;
     text-decoration: none;
     background-color: #555;
+}
+
+#nav a:HOVER{
+	text-decoration: none;
 }
 
 /* 상단 중간 메뉴 */
@@ -417,7 +421,7 @@ function ImgError(source){
 		<div class="row" id="top-btn-wrap"> 
 		    <div class="container">
 				<div class="row">
-				    <div class="col-sm-3">
+				    <div class="col-sm-3 topLogoDiv]">
 					    <a href="#" class="btn btn-link" style="width:10%;">
 					    <span class="topLogo">T</span>
 					    <span class="topLogo">I</span>
@@ -435,9 +439,7 @@ function ImgError(source){
 						<a href="#" class="btn btn-default btn-lg">뮤지컬</a> 
 						<a href="#" class="btn btn-default btn-lg">콘서트</a> 
 						<a href="#" class="btn btn-default btn-lg">연극</a>
-						<a href="#" class="btn btn-default btn-lg">오페라</a> 
-		                <a href="#" class="btn btn-default btn-lg">클래식</a>
-		                <a href="#" class="btn btn-default btn-lg">아동/가족</a>
+						<a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#login-modal">로그인</a> 
 					</div>
 					</div>
 				</div>
@@ -455,7 +457,7 @@ function ImgError(source){
 				</div>
 				<div class="btn_theater">
 				    <span class="membership_link">
-				        <a class="membership_txt" title="로그인 바로가기" href="#" data-toggle="modal" data-target="#login-modal">로그인</a>
+				        <a class="membership_txt" title="로그인 바로가기" href="#">회원가입</a>
 				        <i class="split"></i>
 				        <a class="membership_txt" href="#" title="고객센터 바로가기">고객센터</a>
 				    </span>
@@ -516,10 +518,9 @@ function ImgError(source){
         <div class="row">
             <div class="col-md-8 col-md-offset-3">
 	            <div class="btn-group btn-group-justified">
-	               <a href="#" class="btn btn-default btn-lg">영화</a> 
-                   <a href="#" class="btn btn-default btn-lg">공연</a> 
-                   <a href="#" class="btn btn-default btn-lg">영화관</a>
-                   <a href="#" class="btn btn-default btn-lg">공연장</a>
+	               <a href="#" class="btn btn-default btn-lg">뮤지컬</a> 
+                   <a href="#" class="btn btn-default btn-lg">콘서트</a> 
+                   <a href="#" class="btn btn-default btn-lg">연극</a>
 	            </div>
             </div>
         </div>
