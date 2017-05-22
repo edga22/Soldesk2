@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>공연 예매</title>
 <style>
 .container{
 	margin-top : 5rem;	/* 상단 여백을 위해  */
@@ -130,50 +130,7 @@ function ImgError(source){
 		</div>
 		<div class="col-sm-3 control-body">		
 			<div class="control-panel">	
-				<table id="ticketInfo">
-					<tr>
-						<td rowspan="4">
-	            			<img src="<%=img %>" style="width:150px; height:150px;" onerror="ImgError(this)">
-						</td>
-						<th>20주년 특별공연 <라이어 스페셜></th>
-	   				</tr>
-        			<tr>  
-            			<th>2017.05.23~2017.07.30</th> 
-        			</tr> 
-	    			<tr>  
-	        			<th>동숭아트센터 동숭홀 만 13세이상</th>
-	    			</tr>
-	    			<tr>
-	    				<th>관람시간 110분</th>
-	    			</tr>
-	   			</table>
-				<table class="table table-bordered">
-					<thead>
-						<h4>My 예매정보</h4>
-					</thead>
-					<tbody>
-						<tr>
-							<th id="detail">일시</th>
-							<td>2017년 5월 23일</td>
-						</tr>
-						<tr>
-							<th id="detail">선택좌석</th>
-							<td>2석</td>
-						</tr>
-						<tr>
-							<th id="detail">티켓금액</th>
-							<td>20000원</td>
-						</tr>
-						<tr>
-							<th id="detail">취소기한</th>
-							<td>공연 하루 전까지</td>
-						</tr>
-						<tr>
-							<th id="detail">취소 수수료</th>
-							<td>티켓 금액의 0%~30%</td>
-						</tr>
-					</tbody>
-				</table>
+				<iframe src="control-panel.html" scrolling="no"></iframe>
 			</div>	
 			<div class="btn-panel" style="margin-top:40px">
 				<a href="02.html"><button class="btn btn-info btn-block">다음으로 ></button></a>
