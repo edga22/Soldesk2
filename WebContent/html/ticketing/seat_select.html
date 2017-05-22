@@ -20,7 +20,7 @@ body{
 }
 .stage{
 	width : 300px;
-	height: 100px;
+	height: 80px;
 	border: 1px solid black;
 	background-color: white;
 	margin: auto;
@@ -30,13 +30,18 @@ body{
 	background-repeat: no-repeat;
 	background-position: center center;
 }
+.pick-number{
+	position: absolute;
+	right: 1rem;
+	top: 0;	
+}
 /*시트 레이아웃 시작*/
 .seat-layout-wrapper{
 	padding: 3rem;
 	display: inline-block;
 	margin: auto;
 	text-align: center;
-	background-color: white;
+	background-color: whitesmoke;
 }
 .seat-row{
 	margin-bottom: 0.5rem;
@@ -50,10 +55,10 @@ body{
 	display: inline-block;
 	cursor: default;
 	margin-right: 0.5rem;
-	width: 2rem;
-	height: 2rem;
+	width: 3rem;
+	height: 3rem;
 	font-size: 1rem;	
-	line-height: 1.8rem;
+	line-height: 2.6rem;
 }
 
 .left-seat{
@@ -122,7 +127,7 @@ body{
 			/* 동작 설정 */			
 			$(".seat").click(function(){
 				/* 예매 인원을 저장하는 변수 (읽어와야함, 임시로 2명지정) */
-				var personNumber = 2;
+				var personNumber = parseInt( $("#tickets option:selected").text() );
 				
 				var id = $(this).attr('id').split('-');
 				var seatStat = seatLayout[id[0]][id[1]];
@@ -130,7 +135,7 @@ body{
 					if(maxCheck(personNumber)){
 					swal({
 						type: "error",
-						text : '예매 인원수 : '+personNumber+'명을 넘게 선택하셨습니다.'
+						text : '예매 인원수 '+personNumber+'명을 넘게 선택하셨습니다.'
 						});
 					return false;
 					}		
@@ -141,8 +146,14 @@ body{
 					$( this ).removeClass("selected-seat").addClass("left-seat");					
 				}
 			});
-			$(".seat").dblclick(function(){
-				return false;
+
+			$("#tickets").change(function(){
+				$(".seat").each(function(){
+					var id = $( this ).attr('id').split('-');
+					if(seatLayout[id[0]][id[1]] == 0) seatLayout[id[0]][id[1]] = 1;
+					$( this ).removeClass("selected-seat").addClass("left-seat");
+				});
+
 			});
 		}
 
@@ -155,6 +166,16 @@ body{
 <div id="seat-window">
 	<div class="stage">
 
+	</div>
+	<div class="pick-number form-group">
+		<label for="tickets">예매 인원</label>
+		<select class="form-control" id="tickets">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
 	</div>
 
 	<div class="seat-layout-wrapper">
