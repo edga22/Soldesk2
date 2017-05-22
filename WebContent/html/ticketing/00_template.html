@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<title>booking</title>
+
+<style>
+.container{
+	margin-top : 5rem;	/* 상단 여백을 위해  */
+	width : 1000px;
+	height : 600px;	
+	border : 1px dotted black;
+}
+.info-wrapper{
+	height : 10%;
+}
+.info-panel {
+	height : 100%;
+	width : 100%;
+	border : 1px dotted black;
+	text-align: center;
+}
+.booking-wrapper{
+	height : 90%;
+	border : 1px dotted black;
+}
+.select-body{
+	height: 100%;
+	border : 1px dotted black;
+	padding: 0px;
+}
+.control-body{
+	height : 100%;
+	border : 1px dotted black;
+	
+}
+.control-panel{
+	height : 85%;
+	border : 1px dotted black;
+}
+.btn-panel{
+	height : 15%;
+	border : 1px dotted black;
+	text-align: center;
+}
+.btn-next{
+	/*Vertical Center Start*/
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	/*Vertical Center End*/
+}
+iframe {
+    background: #000;
+    border: none;         /* Reset default border */
+    height: 100%;        /* Viewport-relative units */
+    width: 100%;
+	overflow: hidden;
+}
+.img-step{
+	display: inline-block;
+	/*Vertical Center Start*/
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	/*Vertical Center End*/
+}
+</style>
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+</head>
+
+<body>
+
+<div class="container">
+	<div class="row info-wrapper">
+	<div class="col-sm-12" style="height:100%;">
+		<div class="info-panel">
+			<img class="img-step" src="img/step_01.gif">
+			<img class="img-step" src="img/step_02.gif">
+			<img class="img-step" src="img/step_03.gif">
+			<img class="img-step" src="img/step_04.gif">
+			<img class="img-step" src="img/step_05.gif">
+		</div>
+	</div>
+	</div>
+	<div class="row booking-wrapper">
+		<div class="col-sm-9 select-body">
+				<iframe src="#" scrolling="no"></iframe>
+		</div>
+		<div class="col-sm-3 control-body">		
+			<div class="control-panel">	
+			</div>	
+			<div class="btn-panel">
+				<button class="btn btn-info btn-lg btn-next">다음 단계 ></button>
+			</div>			
+		</div>
+	</div>
+	
+</div>
+
+</body>
+</html>
