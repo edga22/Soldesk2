@@ -126,7 +126,7 @@ body{
 
 			/* 동작 설정 */			
 			$(".seat").click(function(){
-				/* 예매 인원을 저장하는 변수 (읽어와야함, 임시로 2명지정) */
+				/* 예매 인원을 저장하는 변수 */
 				var personNumber = parseInt( $("#tickets option:selected").text() );
 				
 				var id = $(this).attr('id').split('-');
