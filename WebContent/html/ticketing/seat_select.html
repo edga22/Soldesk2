@@ -33,15 +33,36 @@ body{
 .pick-number{
 	position: absolute;
 	right: 1rem;
-	top: 0;	
+	top: 1rem;	
+	text-align: right;
+	border: 1px solid skyblue;
+	padding: 1rem;
 }
+.legend{
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	border: 1px solid skyblue;
+	text-align: left;
+	padding: 1rem;
+}
+.legend-seat{
+	display: inline-block;
+	cursor: default;
+	margin-right: 0.5rem;
+	width: 1rem;
+	height: 1rem;
+}
+.legend-item{
+}
+
 /*시트 레이아웃 시작*/
 .seat-layout-wrapper{
 	padding: 3rem;
 	display: inline-block;
 	margin: auto;
 	text-align: center;
-	background-color: whitesmoke;
+	background-color: white;
 }
 .seat-row{
 	margin-bottom: 0.5rem;
@@ -119,7 +140,14 @@ body{
 			};	
 
 			var maxCheck = function (max){
-				if($(".selected-seat").length >= max){
+				var selectCnt = 0;
+				for(var i=0;i<seatLayout.length;i++ ){
+					for(j = 0 ; j < seatLayout[i].length ; j++){
+						if(seatLayout[i][j] == 0) selectCnt++;
+					}					
+				}
+				console.log(selectCnt);
+				if(selectCnt >= max){
 					return true;
 				}else return false;				
 			}
@@ -164,6 +192,17 @@ body{
 	</script>
 
 <div id="seat-window">
+	<div class="legend">
+		<div class="legend-item">
+			<div class="legend-seat left-seat"></div><span>남은 좌석</span>
+		</div>
+		<div class="legend-item">
+			<div class="legend-seat selected-seat"></div><span>선택한 좌석</span>
+		</div>
+		<div class="legend-item">
+			<div class="legend-seat reserved-seat"></div><span>예약된 좌석</span>
+		</div>
+	</div>
 	<div class="stage">
 
 	</div>
@@ -185,3 +224,4 @@ body{
 </div>
 </body>
 </html>
+
