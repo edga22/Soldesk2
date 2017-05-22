@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+
+<title>booking</title>
+
 <style>
 .container{
 	margin-top : 5rem;	/* 상단 여백을 위해  */
@@ -68,24 +71,21 @@ iframe {
 	transform: translateY(-50%);
 	/*Vertical Center End*/
 }
-th{
-	text-align:center;
-}
 </style>
-<script type="text/javascript">
-function ImgError(source){
-    source.src = "../img/post1.png";
-    source.onerror = "";
-    return true;
-}
+<script>
+$(document).ready(function(){
+	
+});
 </script>
 </head>
+
 <body>
-	<div class="container">
+
+<div class="container">
 	<div class="row info-wrapper">
 	<div class="col-sm-12" style="height:100%;">
 		<div class="info-panel">
-  			<img class="img-step" src="img/step_01.gif">
+			<img class="img-step" src="img/step_01.gif">
 			<img class="img-step" src="img/step_02.gif">
 			<img class="img-step" src="img/step_03.gif">
 			<img class="img-step" src="img/step_04.gif">
@@ -95,49 +95,14 @@ function ImgError(source){
 	</div>
 	<div class="row booking-wrapper">
 		<div class="col-sm-9 select-body">
-			<div class="seat-layout-wrapper">
-				<h4>가격</h4>
-				<table class="table table-bordered">
-					<thead>
-						<h4>100석/ 좌석 2석 선택 하였습니다.</h4>
-					</thead>
-					<tbody>
-						<tr>
-							<th>기본가</th>
-							<td colspan="2">20000원</td>
-							<td>2매</td>
-						</tr>
-						<tr>
-							<th rowspan="4">기본할인</th>
-							<td>학생할인(중, 고, 대학생 10%)</td>
-							<td>18000원</td>
-							<td>2매</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>00000000원</td>
-							<td>0매</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>00000000원</td>
-							<td>0매</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>00000000원</td>
-							<td>0매</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>			
+		
 		</div>
 		<div class="col-sm-3 control-body">		
-			<div class="control-panel">	
-				<table id="ticketInfo">
+			<div class="control-panel">
+			<table id="ticketInfo">
 					<tr>
 						<td rowspan="4">
-	            			<img src="<%=img %>" style="width:150px; height:150px;" onerror="ImgError(this)">
+	            			<img src="<%=img %>" style="width:100px; height:150px;" onerror="ImgError(this)">
 						</td>
 						<th>20주년 특별공연 <라이어 스페셜></th>
 	   				</tr>
@@ -180,13 +145,16 @@ function ImgError(source){
 				</table>
 			</div>	
 			<div class="btn-panel" style="margin-top:40px">
-				<div class="btn-group btn-group-justified" >
-				<a href="02.html" class="btn btn-danger">< 이전으로</a>
-				<a href="04.html" class="btn btn-info">다음 으로 ></a>
+				<div class="btn-group btn-group-justified">
+				<a href="04.html" class="btn btn-danger">< 이전으로</a>
+				<a href="#" class="btn btn-info">결재완료</a>
 				</div>
 			</div>
 			</div>			
 		</div>
 	</div>
+	
+</div>
+
 </body>
 </html>

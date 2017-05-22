@@ -12,21 +12,7 @@
 	margin-top : 5rem;	/* 상단 여백을 위해  */
 	width : 1000px;
 	height : 600px;	
-	border : 1px solid black;
-}
-.seat-row{
-	margin : 0.5rem;
-}
-
-.seat{
-	width : 4rem;
-	height : 4rem;
-	margin : 1px;
-	padding : 1px;	
-	font-size : 2rem;
-	border : 2px blue solid;
-	display : inline;
-	cursor : default;
+	border : 1px dotted black;
 }
 .info-wrapper{
 	height : 10%;
@@ -34,31 +20,53 @@
 .info-panel {
 	height : 100%;
 	width : 100%;
-	
+	border : 1px dotted black;
+	text-align: center;
 }
 .booking-wrapper{
-	height : 85%;
-	border : 2px solid #663300;
+	height : 90%;
+	border : 1px dotted black;
 }
 .select-body{
 	height: 100%;
-	border : 1px solid #663300;
+	border : 1px dotted black;
+	padding: 0px;
 }
 .control-body{
 	height : 100%;
-	border : 1px solid #663300;
+	border : 1px dotted black;
 	
 }
-.seat-layout-wrapper{
-	height : 100%;
-	width : 100%;
-}
 .control-panel{
-	height : 90%;
+	height : 85%;
+	border : 1px dotted black;
 }
 .btn-panel{
-	margin-top:10px;
-	height : 10%;
+	height : 15%;
+	border : 1px dotted black;
+	text-align: center;
+}
+.btn-next{
+	/*Vertical Center Start*/
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	/*Vertical Center End*/
+}
+iframe {
+    background: #000;
+    border: none;         /* Reset default border */
+    height: 100%;        /* Viewport-relative units */
+    width: 100%;
+	overflow: hidden;
+}
+.img-step{
+	display: inline-block;
+	/*Vertical Center Start*/
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	/*Vertical Center End*/
 }
 </style>
 
@@ -191,10 +199,10 @@
 					</tbody>
 				</table>
 			</div>	
-			<div class="btn-panel">
+			<div class="btn-panel" style="margin-top:40px">
 				<div class="btn-group btn-group-justified">
 				<a href="03.html" class="btn btn-danger">< 이전으로</a>
-				<a href="04.html" class="btn btn-info">다음 으로 ></a>
+				<a href="05.html" class="btn btn-info">다음 으로 ></a>
 				</div>
 			</div>			
 		</div>
