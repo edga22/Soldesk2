@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){                
+                cw=screen.availWidth;     //화면 넓이
+                ch=screen.availHeight;    //화면 높이
+
+                sw=1000;    //띄울 창의 넓이
+                sh=600;    //띄울 창의 높이
+
+                ml=(cw-sw)/2;        //가운데 띄우기위한 창의 x위치
+                mt=(ch-sh)/2-100;         //가운데 띄우기위한 창의 y위치
+                window.open("./ticketing/01.html", "예매하기", 
+                'width='+sw+',height='+sh+',top='+mt+',left='+ml+'scrollbars=no, menubar=no, status=no, location=no, resizable=no');
+            })
+        });
+    </script>
+    <div class="container">
+    <button type="button">팝업 시험</button>
+    </div>
+</body>
+</html>
