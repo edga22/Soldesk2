@@ -4,9 +4,9 @@
 <title>마이페이지</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
 /* 웹폰트 */
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -493,26 +493,13 @@ $(function() { $("#postcodify_search_button").postcodifyPopUp(); });
         <td>1</td>
         <td>A00001</td>
         <td>
-        	<a href="#">매디슨 카운티의 다리</a>
+        	<a href="#">시카고</a>
         </td>
         <td>삼성전자 블루스퀘어 홀</td>
         <td>17.06.30</td>
         <td>17.05.31</td>
         <td>
         	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">작성</button>
-        </td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>A00001</td>
-        <td>
-        	<a href="#">매디슨 카운티의 다리</a>
-        </td>
-        <td>삼성전자 블루스퀘어 홀</td>
-        <td>17.06.30</td>
-        <td>17.05.31</td>
-        <td>
-        	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#">작성</button>
         </td>
       </tr>
     </tbody>
@@ -526,13 +513,20 @@ $(function() { $("#postcodify_search_button").postcodifyPopUp(); });
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">후기 작성</h4>
         </div>
         <div class="modal-body">
-          <p>This is a large modal.</p>
+          <p><img src="../img/musical/chicago.gif"/></p>
+          <form>
+          <div class="form-group">
+            <label for="message-text" class="form-control-label">작성:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">등록</button>
         </div>
       </div>
     </div>
