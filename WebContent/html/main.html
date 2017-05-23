@@ -44,7 +44,7 @@ body {
     padding:0 0.5rem 0.1rem 0.5rem;
     opacity: 1.0;
     border:1px dashed white;
-    font-size:3.8rem;"
+    font-size:3.8rem;
 }
 /* 상단 메뉴 */
 #top-btn-wrap{
@@ -402,6 +402,27 @@ body {
 }
 </style>
 <script type="text/javascript">
+var booking_popup = function(){
+	var popup_url = "./ticketing/01.html";
+	var popup_name = "예매하기";
+	cw=screen.availWidth;     //화면 넓이
+	ch=screen.availHeight;    //화면 높이
+
+	sw=1000;    //띄울 창의 넓이
+	sh=600;    //띄울 창의 높이
+
+	ml=(cw-sw)/2;        //가운데 띄우기위한 창의 x위치
+	mt=(ch-sh)/2-100;         //가운데 띄우기위한 창의 y위치
+	window.open( popup_url , popup_name, 
+	'width='+sw+',height='+sh+',top='+mt+',left='+ml+'scrollbars=no, menubar=no, status=no, location=no, resizable=no');
+}
+
+/*도큐먼트 레디*/
+$(document).ready(function(){
+	$("[name='booking_popup'").click(function(){                
+		booking_popup();
+	})
+});
 function ImgError(source){
     source.src = "../img/noImg.png";
     source.onerror = "";
@@ -462,7 +483,7 @@ function ImgError(source){
 				    <span class="membership_link">
 				        <a class="membership_txt" title="로그인 바로가기" href="#">회원가입</a>
 				    </span>
-				    <button type="button" class="btn btn-default btn-xs">빠른예매</button>
+				    <button type="button" class="btn btn-default btn-xs" name="booking_popup">빠른예매</button>
 				</div>
             </div>
         </div>
