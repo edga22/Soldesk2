@@ -15,6 +15,10 @@
         #sub{
         	font-size: 0.7rem;
         }
+        .img-wrapper{
+            border: 1px solid black;
+            margin-right: 2px;
+        }
     </style>
 </head>
 
@@ -24,7 +28,9 @@
         <table id="ticketInfo">
             <tr>
                 <td rowspan="4">
-                    <img src="<%=img %>" style="width:100px; height:150px;" onerror="ImgError(this)">
+                    <div class="img-wrapper">
+                    <img src="http://lorempixel.com/g/100/150" style="width:100px; height:150px;" onerror="ImgError(this)">
+                    </div>
                 </td>
                 <td id="sub">20주년 특별공연<br> <라이어 스페셜></td>
             </tr>
