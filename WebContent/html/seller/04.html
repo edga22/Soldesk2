@@ -39,7 +39,7 @@
 <body>
 
 <!-- jQuery와 Postcodify를 로딩한다 -->
-<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<script src="http://d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 
 
 <script>
@@ -58,21 +58,28 @@ $(document).ready(function(){
    	  var AddressName = $('[name="AddressName"]').val();
    	  var AddressDetailName = $('[name="AddressDetailName"]').val();
    	  var hallNumberName = $('[name="hallNumberName"]').val();
-   	  var result = confirm("등록하시겠습니까?")
-     
+   	  var result = confirm("등록하시겠습니까?");
+
+		 $("#complete").alert(function(){
+			 alert("등록완료 되었습니다.");
+		 });
+
       if(result){
-    	  $(".modal-body").append(hallname);
-		
+    	  $(".modal-body").append(hallname+"<br>");
+		  $(".modal-body").append(TheaterName+"<br>");
+		  $(".modal-body").append(SeatColName+"<br>");
+		  $(".modal-body").append(SeatRowName+"<br>");
+		  $(".modal-body").append(PostName+"<br>");
+		  $(".modal-body").append(AddressName+"<br>");
+		  $(".modal-body").append(AddressDetailName+"<br>");
+		  $(".modal-body").append(hallNumberName);
       }else{
-    	   alert("취소되었습니다.")
+    	   alert("취소되었습니다.");
+		   return false;
       }
     });
 });
-		  $(document).ready(function(){
-	   	 $("#button2").click(function(){
-	      confirm("등록완료하시겠습니까?")
-		 });
-	});
+		  
 </script>
 
 <!-- 메인 네비바 -->
@@ -150,13 +157,14 @@ $(document).ready(function(){
         <p></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="complete">등록완료</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel">취소</button>
       </div>
     </div>
 
   </div>
 </div>
-				<button type="button" class="btn btn-danger btn-sm" id ="button2">확인</button>
+			
 			</div>
 		</div>
 		<div class="col-sm-3"></div>
