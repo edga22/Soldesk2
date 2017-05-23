@@ -105,10 +105,10 @@ $(document).ready(function(){
 			$("#nav1").empty();
 			var timeMain = '날짜 선택 : <input type="date">'
 								+'<button type="button" id="addTime" class="btn btn-default btn-sm" style="background-color:black; color:white;">시간추가</button>'
-								+'<button type="button" id="rstTime" class="btn btn-danger btn-sm">시간리셋</button>'
+								+'<button type="button" id="rstTime" class="btn btn-danger btn-sm" style="background-color:#4d4dff; color:white;">시간리셋</button>'
 								+'<span id="timesNav">&nbsp;&nbsp;&nbsp;</span>';
 			$("#nav1").css({
-				"background-color":"#ffa31a",
+				"background-color":"#ff8000",
 				"height":"5rem",
 				"padding":"1rem",	
 				"margin":"0.5rem"
@@ -258,7 +258,7 @@ $(document).ready(function(){
 <div class="container">
 	<form>
 	<div class="row">
-		<div class="col-lg-12" style="background-color:#ffa31a; height:5rem; padding:1rem;	margin:0.5rem;">
+		<div class="col-lg-12" style="background-color:#ff8000; height:5rem; padding:1rem;	margin:0.5rem;">
 			<div>
 				<span>공연 지역: 
 				<select id="locals">
@@ -272,13 +272,13 @@ $(document).ready(function(){
 			</div>
 		</div>
 		<div class="col-lg-12" id="nav1"></div>
-		<div class="col-lg-12" style="background-color:#ffa31a; height:5rem; padding:1rem;	margin:0.5rem;">
+		<div class="col-lg-12" style="background-color:#ff8000; height:5rem; padding:1rem;	margin:0.5rem;">
 			<input type="text" id="title" name="title" placeholder="제목" required>
 			<input type="number" name="row" id="row" placeholder="가로" min="1" max="18" required>
 			<input type="number" name="col" id="col" placeholder="세로" min="1" max="18" required>
-			<button type="button" id="check" class="btn btn-default" style="background-color:white; color:black";>입력</button>
-			<button type="reset" id="reset" class="btn btn-danger" style="color:black";>리셋</button>
-			<button type="submit" formaction="#" id="complete" class="btn btn-default" style="background-color:black; color:white";>좌석 선택완료</button>
+			<button type="button" id="check" class="btn btn-default" style="background-color:white; color:black;">입력</button>
+			<button type="reset" id="reset" class="btn btn-danger" style="background-color:#4d4dff; color:white;">리셋</button>
+			<button type="submit" formaction="#" id="complete" class="btn btn-default" style="background-color:black; color:white;">좌석 선택완료</button>
 		</div>	
 	</div>
 	<hr style="border: solid 0.1rem;">
@@ -286,7 +286,7 @@ $(document).ready(function(){
 		<div class="col-sm-8">
 			<div class="layout" id="shell"></div>
 		</div>
-		<div class="col-sm-4" style="background-color:#1a1a1a; height:60rem; border:0.1rem solid #ffa31a; color:white">
+		<div class="col-sm-4" style="background-color:#1a1a1a; height:60rem; border:0.1rem solid #ff8000; color:white">
 			<h5>좌석 등급은 최대 4개까지 선택 가능합니다.</h5>
 			<div>
 				<span>좌석 등급 갯수:</span>
@@ -297,13 +297,13 @@ $(document).ready(function(){
 					<option value="4">좌석등급 4개</option>
 				</select>
 			</div>
-			<hr style="border:0.1rem solid #ffa31a;">
+			<hr style="border:0.1rem solid #ff8000;">
 			<div>
 				<h3>공연 좌석 등록</h3>
 				<p>좌석 등급 이름은 대소문자를 구분하지 않습니다.</p>
 				<div id="grades"></div>
 			</div>
-			<hr style="border:0.1rem solid #ffa31a;">
+			<hr style="border:0.1rem solid #ff8000;">
 			<div>
 				<h3>공연 좌석 등급별 가격</h3>
 				<div id="resultPrice"></div>
