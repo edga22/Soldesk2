@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <style>
 #resistForm{
 	border:0.1rem solid black;
@@ -41,10 +41,38 @@
 <!-- jQuery와 Postcodify를 로딩한다 -->
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 
-<!-- "우편번호찾기" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
-<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
-<script>
 
+<script>
+$(document).ready(function(){
+	<!-- "우편번호찾기" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+	$("#postcodify_search_button").postcodifyPopUp();
+	
+	
+    $("#button1").click(function(){
+    	 $(".modal-body").empty();
+   	  var hallname = $('[name="hallName"]').val();
+   	  var TheaterName = $('[name="TheaterName"]').val();
+   	  var SeatColName = $('[name="SeatColName"]').val();
+   	  var SeatRowName = $('[name="SeatRowName"]').val();
+   	  var PostName = $('[name="PostName"]').val();
+   	  var AddressName = $('[name="AddressName"]').val();
+   	  var AddressDetailName = $('[name="AddressDetailName"]').val();
+   	  var hallNumberName = $('[name="hallNumberName"]').val();
+   	  var result = confirm("등록하시겠습니까?")
+     
+      if(result){
+    	  $(".modal-body").append(hallname);
+		
+      }else{
+    	   alert("취소되었습니다.")
+      }
+    });
+});
+		  $(document).ready(function(){
+	   	 $("#button2").click(function(){
+	      confirm("등록완료하시겠습니까?")
+		 });
+	});
 </script>
 
 <!-- 메인 네비바 -->
@@ -63,7 +91,7 @@
 			<ul class="nav navbar-nav">
                 <li><a href="04.html">공연장등록</a></li>
                 <li><a href="03.html">공연등록</a></li>
-                <li><a href="06.html">기타1</a></li>
+                <li><a href="06.html">공연장관리</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">로그아웃</a></li>
@@ -82,32 +110,53 @@
 					<th>공연장명</th><td><input type="text" class="table1" name="hallName"/></td>
 				</tr>
 				<tr>
-					<th>상영관명</th><td><input type="text" class="table1" name="hallName"/></td>
+					<th>상영관명</th><td><input type="text" class="table1" name="TheaterName"/></td>
 				</tr>
 				<tr>
-					<th>좌석수(가로)</th><td><input type="number" class="table2" name="hallName"/></td>
+					<th>좌석수(가로)</th><td><input type="number" class="table2" name="SeatColName"/></td>
 				</tr>
 				<tr>
-					<th>좌석수(세로)</th><td><input type="number" class="table2" name="hallName"/></td>
+					<th>좌석수(세로)</th><td><input type="number" class="table2" name="SeatRowName"/></td>
 				</tr>
 				<tr>
-					<th>우편번호</th><td><input type="number" class="table2 postcodify_postcode5" name="hallName"/>
+					<th>우편번호</th><td><input type="number" class="table2 postcodify_postcode5" name="PostName"/>
 					<button type="button" id="postcodify_search_button" class="btn btn-default">우편번호찾기</button></td>
 				</tr>
 				<tr>
-					<th>주소</th><td><input type="text" class="table1 postcodify_address" name="hallName"/></td>
+					<th>주소</th><td><input type="text" class="table1 postcodify_address" name="AddressName"/></td>
 				</tr>
 			
 				<tr>
-					<th>세부 주소</th><td><input type="text" class="table1 postcodify_details" name="hallName"/></td>
+					<th>세부 주소</th><td><input type="text" class="table1 postcodify_details" name="AddressDetailName"/></td>
 				</tr>
 				<tr>
-					<th>공연장 전화번호</th><td><input type="text" class="table1" name="hallName" placeholder="(-)하이픈 금지"/></td>
+					<th>공연장 전화번호</th><td><input type="text" class="table1" name="hallNumberName" placeholder="(-)하이픈 금지"/></td>
 				</tr>
 			</table>
 			<div id="buttons">
-				<button type="button" class="btn btn-success btn-sm">등록</button>
-				<button type="button" class="btn btn-danger btn-sm">확인</button>
+				<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" id ="button1">등록</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">공연장등록</h4>
+      </div>
+      <div class="modal-body">
+        <p></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+				<button type="button" class="btn btn-danger btn-sm" id ="button2">확인</button>
 			</div>
 		</div>
 		<div class="col-sm-3"></div>

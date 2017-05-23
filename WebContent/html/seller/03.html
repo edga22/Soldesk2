@@ -94,9 +94,10 @@ $(document).ready(function(){
 		//공연장 선택완료시 시간관련 네비바가 나타남
 		$("#stage").on("change", function(){
 			$("#nav1").empty();
-			var timeMain = $('<button type="button" id="addTime" class="btn btn-warning btn-sm">시간추가</button>'
+			var timeMain = '날짜 선택 : <input type="date">'
+								+'<button type="button" id="addTime" class="btn btn-warning btn-sm">시간추가</button>'
 								+'<button type="button" id="rstTime" class="btn btn-danger btn-sm">시간리셋</button>'
-								+'<span id="timesNav">&nbsp;&nbsp;&nbsp;</span>');
+								+'<span id="timesNav">&nbsp;&nbsp;&nbsp;</span>';
 			$("#nav1").css({
 				"background-color":"#66a3ff",
 				"height":"5rem",
@@ -236,7 +237,7 @@ $(document).ready(function(){
 			<ul class="nav navbar-nav">
                 <li><a href="04.html">공연장등록</a></li>
                 <li><a href="03.html">공연등록</a></li>
-                <li><a href="06.html">기타1</a></li>
+                <li><a href="06.html">공연장관리</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">로그아웃</a></li>
