@@ -76,13 +76,60 @@ function ImgError(source){
     return true;
 }
 </script>
-<script src="zabuto_calendar.min.js"></script>
-<link rel="stylesheet" type="text/css" href="zabuto_calendar.min.css">
+<script src="/html/zabuto_calendar.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/html/zabuto_calendar.min.css">
 <script type="application/javascript">
-    $(document).ready(function (){
-        $("#my-calendar").zabuto_calendar();
-        language: "nl"
-    });
+	var eventData = [
+        {"date":"2017-05-17","badge":false,"title":"Example 1"},
+        {"date":"2017-05-29","badge":true,"title":"Example 2"}
+    ];
+	
+    $(document).ready(function () {
+    	$(".question").click(function(e){
+    		e.preventDefault();
+    		$('#answer'+$(this).attr('data-prod-answer')).toggle();   
+    	});
+    	
+    	//글자수 제한
+    	var showChar = 150; 
+        var ellipsestext = "...";
+        
+        $('.more').each(function() {
+            var content = $(this).html();
+     
+            if(content.length > showChar) {
+                var c = content.substr(0, showChar);
+                var h = content.substr(showChar, content.length - showChar);
+                var html = c + '<span class="moreellipses">' + ellipsestext+ 
+                '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;</span>';
+     
+                $(this).html(html);
+            }
+        });
+        
+        $("#my-calendar").zabuto_calendar({
+        	language: "kr",
+		  	data: eventData,
+	        action: function () {
+	            return myDateFunction(this.id, false);
+	        },
+	    });
+	});
+    
+    function myDateFunction(id, fromModal) {
+        $("#date-popover").hide();
+        if (fromModal) {
+            $("#" + id + "_modal").modal("hide");
+        }
+        var date = $("#" + id).data("date");
+        var hasEvent = $("#" + id).data("hasEvent");
+        if (hasEvent && !fromModal) {
+            return false;
+        }
+        $("#date-popover-content").html('You clicked on date ' + date);
+        $("#date-popover").show();
+        return true;
+    }
 </script>
 </head>
 <body>
