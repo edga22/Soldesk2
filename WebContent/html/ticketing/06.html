@@ -51,7 +51,7 @@ body {
 /* 상단로고 */
 .topLogo {
     display:inline-block; 
-    width:2.8rem;
+    width:2.6rem;
     padding:0.3rem;
     margin:0 -0.1rem;
     color: #fff;
@@ -59,6 +59,10 @@ body {
     font-weight:bold;
     text-decoration: none;
     background-color: #555;
+}
+
+#nav a:HOVER{
+	text-decoration: none;
 }
 
 /* 상단 중간 메뉴 */
@@ -242,7 +246,7 @@ body {
 
 .card img {
 	width: 100%;
-	height: 300px;
+	height: auto;
 }
 
 .card.back {
@@ -399,8 +403,8 @@ table{
 		<div class="row" id="top-btn-wrap"> 
 		    <div class="container">
 				<div class="row">
-				    <div class="col-sm-3">
-					    <a href="#" class="btn btn-link" style="width:10%;">
+				    <div class="col-sm-3 topLogoDiv]">
+					    <a href="../main.html" class="btn btn-link" style="width:10%;">
 					    <span class="topLogo">T</span>
 					    <span class="topLogo">I</span>
 					    <span class="topLogo">C</span>
@@ -417,9 +421,7 @@ table{
 						<a href="#" class="btn btn-default btn-lg">뮤지컬</a> 
 						<a href="#" class="btn btn-default btn-lg">콘서트</a> 
 						<a href="#" class="btn btn-default btn-lg">연극</a>
-						<a href="#" class="btn btn-default btn-lg">오페라</a> 
-		                <a href="#" class="btn btn-default btn-lg">클래식</a>
-		                <a href="#" class="btn btn-default btn-lg">아동/가족</a>
+						<a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#login-modal">로그인</a> 
 					</div>
 					</div>
 				</div>
@@ -453,7 +455,7 @@ table{
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid" id="footer">
+ <div class="container-fluid" id="footer">
         <div class="row">
             <div class="container">
 	            <div id="footerDiv" class="col-sm-2">
@@ -475,7 +477,7 @@ table{
         <div class="row">
             <div class="container">
                 <div class="col-sm-4">
-					<a href="#" class="btn btn-link">
+					<a href="../main.html" class="btn btn-link">
 						<span class="topLogo">T</span>
 						<span class="topLogo">I</span>
 						<span class="topLogo">C</span>
@@ -493,7 +495,7 @@ table{
 		                   회사소개 | 채용정보 | 제휴/광고/부대사업 문의 | 이용약관 | 개인정보 처리방침 | 고객센터
 		                </div>
 		                <div class="row footerDiv2">
-			                서울특별시 강남구 도산대로 156, 2층 메가박스(주) (논현동, 중앙엠앤비사옥)<br>
+			                        서울특별시 종로구 관철동 종로12길 15 / T : 02-6901-7022<br>
 							대표자명 윤광재 | 개인정보보호 책임자 개발지원실 실장 유강현<br>
 							사업자등록번호 000-00-00000 | 통신판매업신고번호 제 000호
 						</div>
@@ -508,5 +510,31 @@ table{
     <div id="MOVE_TOP_BTN">
     <span class="glyphicon glyphicon-circle-arrow-up" title="맨위로"></span>
     </div>
+	<script>
+	$(function() {
+	    $(window).scroll(function() {
+	        if ($(this).scrollTop() > 500) {
+	            $('#MOVE_TOP_BTN').fadeIn();
+	        } else {
+	            $('#MOVE_TOP_BTN').fadeOut();
+	        }
+	    });
+	    
+	    $("#MOVE_TOP_BTN").click(function() {
+	        $('html, body').animate({
+	            scrollTop : 0
+	        }, 400);
+	        return false;
+	    });
+	});
+	</script>
+    <script>
+	$(document).ready(function(){
+	   
+	    $("#topAdClose").click(function(){
+	        $("#topHeadAd").hide();
+	    }); 
+	});
+    </script>
 </body>
 </html>
