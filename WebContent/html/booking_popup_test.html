@@ -10,18 +10,23 @@
 </head>
 <body>
     <script>
+        var booking_popup = function(){
+            var popup_url = "./ticketing/01.html";
+            var popup_name = "예매하기";
+            cw=screen.availWidth;     //화면 넓이
+            ch=screen.availHeight;    //화면 높이
+
+            sw=1000;    //띄울 창의 넓이
+            sh=600;    //띄울 창의 높이
+
+            ml=(cw-sw)/2;        //가운데 띄우기위한 창의 x위치
+            mt=(ch-sh)/2-100;         //가운데 띄우기위한 창의 y위치
+            window.open( popup_url , popup_name, 
+            'width='+sw+',height='+sh+',top='+mt+',left='+ml+'scrollbars=no, menubar=no, status=no, location=no, resizable=no');
+        }
         $(document).ready(function(){
             $("button").click(function(){                
-                cw=screen.availWidth;     //화면 넓이
-                ch=screen.availHeight;    //화면 높이
-
-                sw=1000;    //띄울 창의 넓이
-                sh=600;    //띄울 창의 높이
-
-                ml=(cw-sw)/2;        //가운데 띄우기위한 창의 x위치
-                mt=(ch-sh)/2-100;         //가운데 띄우기위한 창의 y위치
-                window.open("./ticketing/01.html", "예매하기", 
-                'width='+sw+',height='+sh+',top='+mt+',left='+ml+'scrollbars=no, menubar=no, status=no, location=no, resizable=no');
+                
             })
         });
     </script>
