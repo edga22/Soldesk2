@@ -1,15 +1,16 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC>
 <html lang="ko">
 <head>
-<title>마이페이지</title>
 <meta charset="utf-8">
+<title>티켓박스 메인</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<!-- jQuery와 Postcodify를 로딩한다 -->
-<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-<!-- "우편번호찾기" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="login.css">
 <style type="text/css">
 /* 웹폰트 */
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -54,7 +55,7 @@ body {
 /* 상단로고 */
 .topLogo {
     display:inline-block; 
-    width:2.8rem;
+    width:2.6rem;
     padding:0.3rem;
     margin:0 -0.1rem;
     color: #fff;
@@ -62,6 +63,10 @@ body {
     font-weight:bold;
     text-decoration: none;
     background-color: #555;
+}
+
+#nav a:HOVER{
+	text-decoration: none;
 }
 
 /* 상단 중간 메뉴 */
@@ -142,7 +147,7 @@ body {
 .affix {
       top: 0;
       width: 100%;
-      z-index: 9999 !important;
+      z-index: 999 !important;
 }
 .affix + .container-fluid {
       padding-top: 124px;
@@ -245,7 +250,7 @@ body {
 
 .card img {
 	width: 100%;
-	height: 300px;
+	height: auto;
 }
 
 .card.back {
@@ -351,7 +356,19 @@ body {
 	background-color: #fff;
 	border: 1px solid #00ace6;
 }
-
+/* 마이페이지 */
+.mypageBtn{
+	font-size:1.8rem;
+	font-weight:bold;
+	padding:2rem 0 1.5rem 0;
+	text-decoration:none;
+}
+.mypageBtn span{
+	font-size:5rem;
+	margin-bottom:1rem;
+	text-decoration:none;
+}
+/* 공통하단 */
 #footer {
     margin-top:2rem;
     padding:2rem;
@@ -399,148 +416,144 @@ function ImgError(source){
     source.onerror = "";
     return true;
 }
-$(function() { $("#postcodify_search_button").postcodifyPopUp(); });
 </script>
 </head>
 <body>
-<div class="container-fluid" data-spy="affix" data-offset-top="1" style="border-bottom:1px solid #888;">
-		<div class="row" style="background-color: #fff;"> 
+	<div class="container-fluid" data-spy="affix" data-offset-top="1" style="border-bottom:1px solid #888;">
+		<div class="row" id="top-btn-wrap"> 
 		    <div class="container">
 				<div class="row">
-					<div class="btn-group btn-group-justified" id="nav">
-					    <a href="#" class="btn btn-link">
-					    <span class="topLogo1">TI</span>
-					    <span class="topLogo1">CK</span>
-					    <span class="topLogo1">ET</span>
+				    <div class="col-sm-3 topLogoDiv]">
+					    <a href="#" class="btn btn-link" style="width:10%;">
+					    <span class="topLogo">T</span>
+					    <span class="topLogo">I</span>
+					    <span class="topLogo">C</span>
+					    <span class="topLogo">K</span>
+					    <span class="topLogo">E</span>
+					    <span class="topLogo">T</span>
 					    <span class="topLogo">B</span>
 					    <span class="topLogo">O</span>
 					    <span class="topLogo">X</span>
 					    </a>
+					</div>
+					<div class="col-sm-9">
+					<div class="btn-group btn-group-justified" id="nav">
 						<a href="#" class="btn btn-default btn-lg">뮤지컬</a> 
 						<a href="#" class="btn btn-default btn-lg">콘서트</a> 
 						<a href="#" class="btn btn-default btn-lg">연극</a>
-						<a href="#" class="btn btn-default btn-lg">전시/행사</a> 
-		                <a href="#" class="btn btn-default btn-lg">클래식/무용</a>
-		                <a href="#" class="btn btn-default btn-lg">아동/가족</a>
-		                <a href="#" class="btn btn-default btn-lg">공연장</a>
-		                <a href="#" class="btn btn-default btn-lg">로그인</a>
+						<a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#login-modal">로그인</a> 
+					</div>
 					</div>
 				</div>
 			</div>
 		</div> 
 	</div>
-<div class="container">
-	<div class="row">
-	<div class="btn-group btn-group-justified">
-  		<a href="/html/mypage/01.html" class="btn btn-primary">개인정보수정</a>
-  		<a href="/html/mypage/02.html" class="btn btn-default">예매확인/취소</a>
-  		<a href="/html/mypage/03.html" class="btn btn-default">관람내역</a>
-  		<a href="/html/mypage/05.html" class="btn btn-default">회원탈퇴</a>
-	</div>
-	
-	<div class="page-header">
-  		<h1><span class="glyphicon glyphicon-user"></span> 개인 정보 수정</h1>
+	<div class="row" style="background-color: #fff;"> 
+        <div class="container">
+			<div class="header-btn-wrap">
+				<button type="button" class="btn_menu_all"><i class="fa fa-bars"></i>전체메뉴</button>
+				<div class="btn_social">
+				    <a class="film_society" href="#" title="지역 바로가기">지역</a>
+				    <i class="split"></i>
+				    <a class="classic_society" href="#" title="공연장 바로가기">공연장</a>
+				</div>
+				<div class="btn_theater">
+				    <span class="membership_link">
+				        <a class="membership_txt" title="로그인 바로가기" href="#">회원가입</a>
+				        <i class="split"></i>
+				        <a class="membership_txt" href="./mypage/01.html" title="고객센터 바로가기">고객센터</a>
+				    </span>
+				    <button type="button" class="btn btn-default btn-xs">빠른예매</button>
+				</div>
+            </div>
+        </div>
+    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+			<div class="btn-group btn-group-justified">
+		  		<a href="/html/mypage/01.html" class="btn btn-primary mypageBtn"><span class="glyphicon glyphicon-user"></span><br>개인정보수정</a>
+		  		<a href="/html/mypage/02.html" class="btn btn-default mypageBtn"><span class="glyphicon glyphicon-check"></span><br>예매확인/취소</a>
+		  		<a href="/html/mypage/03.html" class="btn btn-default mypageBtn"><span class="glyphicon glyphicon-erase"></span><br>관람내역</a>
+		  		<a href="/html/mypage/05.html" class="btn btn-default mypageBtn"><span class="glyphicon glyphicon-remove-sign"></span><br>회원탈퇴</a>
+			</div>
+			
+			<div class="page-header">
+		  		<h1><span class="glyphicon glyphicon-user"></span> 개인 정보 수정</h1>
+			</div>
+		
+			<form class="form-inline" action="#">
+				<table class="table">
+				    <tbody>
+				      <tr>
+				        <td><label>아이디</label></td>
+				        <td><p>soldesk</p></td>
+				      </tr>
+				      <tr>
+				        <td><label for="pw">비밀번호</label></td>
+				        <td><input type="password" id="pw" name="#" class="form-control" required/>
+				        <button type="submit" class="btn btn-default">비밀번호 변경</button>
+				        </td>
+				      </tr>
+				      <tr>
+				        <td><label for="name">이름</label></td>
+				        <td><input type="text" id="name" name="#" class="form-control" required/></td>
+				      </tr>
+				      <tr>
+				        <td><label for="birth">생년월일</label></td>
+				        <td><input type="number" min="1900" id="birth" name="#" class="form-control" required/>년
+				        <input type="number" min="1" max="12" name="#" class="form-control" required/>월
+				        <input type="number" min="1" max="31" name="#" class="form-control" required/>일</td>
+				      </tr>
+				      <tr>
+				        <td>주소</td>
+				        <td><input type="text" name="postCode" class="postcodify_postcode5 form-control" value="" placeholder="우편번호 버튼을 누르세요." readonly/>
+						<input type="text" name="address1" class="postcodify_address form-control" value="" required readonly/>
+						<button type="button" id="postcodify_search_button" class="btn btn-default">우편번호찾기</button></td>
+				      </tr>
+				      <tr>
+				      	<td><label for="detailPost">상세주소</label></td>
+						<td>
+							<input type="text" id="detailPost" name="#" class="postcodify_details form-control" value="" placeholder="상세주소를 입력하세요." style=""required />
+						</td>
+				      </tr>
+				      <tr>
+				        <td><label for="phone">휴대폰 번호</label></td>
+				        <td><input type="number" id="phone" name="#" class="form-control" required/>-
+				        <input type="number" name="#" class="form-control" required/>-
+				        <input type="number" name="#" class="form-control" required/></td>
+				      </tr>
+				      <tr>
+				        <td><label for="email">이메일 주소</label></td>
+				        <td><input type="text" id="email" name="#" value="" class="form-control" required/>
+				        </td>
+				      </tr>
+				  </tbody>
+			  </table>
+			  <div class="clearfix"></div>
+			  <div class="col-sm-12 text-center">
+				  <a href="#" class="btn btn-default btn-lg" role="submit"> 취소 </a>
+				  <a href="#" class="btn btn-primary btn-lg" role="submit"> 수정 </a>
+			  </div>
+		  </form>
+	  </div>
+	  </div>
 	</div>
 
-	<form class="form-inline" action="#">
-	<table class="table">
-    <tbody>
-      <tr>
-        <td><label>아이디</label></td>
-        <td><p>soldesk</p></td>
-      </tr>
-      <tr>
-        <td><label for="pw">비밀번호</label></td>
-        <td><input type="password" id="pw" name="#" class="form-control" required/>
-        <button type="submit" class="btn btn-default">비밀번호 변경</button>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="name">이름</label></td>
-        <td><input type="text" id="name" name="#" class="form-control" required/></td>
-      </tr>
-      <tr>
-        <td><label for="birth">생년월일</label></td>
-        <td><input type="text" id="birth" name="#" class="form-control" required/>년
-        <input type="text" name="#" class="form-control" required/>월
-        <input type="text" name="#" class="form-control" required/>일</td>
-      </tr>
-      <tr>
-        <td>주소</td>
-        <td><input type="text" name="postCode" class="postcodify_postcode5 form-control" value="" placeholder="우편번호 버튼을 누르세요." readonly/>
-		<input type="text" name="address1" class="postcodify_address form-control" value="" required readonly/>
-		<button type="button" id="postcodify_search_button" class="btn btn-default">우편번호찾기</button></td>
-      </tr>
-      <tr>
-      	<td><label for="detailPost">상세주소</label></td>
-		<td>
-			<input type="text" id="detailPost" name="#" class="postcodify_details form-control" value="" placeholder="상세주소를 입력하세요." style=""required />
-		</td>
-      </tr>
-      <tr>
-        <td><label for="phone">휴대폰 번호</label></td>
-        <td><input type="text" id="phone" name="#" class="form-control" required/>-
-        <input type="text" name="#" class="form-control" required/>-
-        <input type="text" name="#" class="form-control" required/></td>
-      </tr>
-      <tr>
-        <td><label for="email">이메일 주소</label></td>
-        <td><input type="text" id="email" name="#" value="" class="form-control" required/>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
-  <a href="#" class="btn btn-default" role="submit">취소</a>
-  <a href="#" class="btn btn-primary" role="submit">수정</a>
-  </form>
-  </div>
-</div>
-
-<div class="container-fluid" id="footer">
+	<div class="container-fluid" id="footer">
         <div class="row">
             <div class="container">
 	            <div id="footerDiv" class="col-sm-2">
-	            경기
+	            지역
 	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            김포 남양주 동탄 의정부민락 백석 별내 분당 수원 수원남문 안산중앙 양주 영통 오산 일산 일산벨라시타 킨텍스 파주금촌 파주운정 파주출판도시 평택 하남스타필드 DriveM(용인)
-	            </div>
-	            <div id="footerDiv" class="col-sm-2">
-	            인천
-	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            검단 송도 연수 인천논현 청라
+	            <div id="footerSocial"class="col-sm-10">
+	            강원 경기 경남 경북 광주 대구 대전 부산 서울 세종 울산 인천 전남 전북 제주 충남 충북
 	            </div>
 	            <div id="footerDiv" class="col-sm-2">
-	            대전 | 세종 | 충청
+	            공연장
 	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            공주 대전 보령 세종 진천 천안 제천 충주
-	            </div>
-	            <div id="footerDiv" class="col-sm-2">
-	            부산 | 경상
-	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            거창 경남대 경산하양 경주 구미 구미강동 김천 대구(칠성로) 덕천 동대구 문경 부산극장 부산대 북대구(칠곡) 사천 서면 안동 양산 울산 진주 창원 해운대(장산)
-	            </div>
-	            <div id="footerDiv" class="col-sm-2">
-	            광주 | 전라
-	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            광주(충장로) 광주상무 광주하남 남원 목포 목포하당(포르모) 송천 순천 신대 여수 전대(광주) 전주(객사) 첨단(광주)
-	            </div>
-	            <div id="footerDiv" class="col-sm-2">
-	            강원
-	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            남춘천 속초 원주 원주센트럴
-	            </div>
-	            <div id="footerDiv" class="col-sm-2">
-	            제주
-	            </div>
-	            <div id="footerDiv" class="col-sm-10">
-	            제주 제주아라
+	            <div id="footerTheater" class="col-sm-10">
+	            세종문화회관 예술의전당 충무아트센터 성남아트센터 경기도문화의전당 안산문화예술의전당
 	            </div>
 	        </div>
         </div>
@@ -548,31 +561,57 @@ $(function() { $("#postcodify_search_button").postcodifyPopUp(); });
     <div class="container-fluid" id="footer2">
         <div class="row">
             <div class="container">
-                <div class="col-sm-8">
+                <div class="col-sm-4">
+					<a href="#" class="btn btn-link">
+						<span class="topLogo">T</span>
+						<span class="topLogo">I</span>
+						<span class="topLogo">C</span>
+						<span class="topLogo">K</span>
+						<span class="topLogo">E</span>
+						<span class="topLogo">T</span>
+						<span class="topLogo">B</span>
+						<span class="topLogo">O</span>
+						<span class="topLogo">X</span>
+					</a>
+	            </div>
+	            <div class="col-sm-8">
                     <div class="row">
-		                <a href="#" class="btn btn-link">
-		                <span class="topLogo1">TI</span>
-                        <span class="topLogo1">CK</span>
-                        <span class="topLogo1">ET</span>
-                        <span class="topLogo">B</span>
-                        <span class="topLogo">O</span>
-                        <span class="topLogo">X</span>
-		                </a>
-	                </div>
-	                <div class="row footerDiv2">
-	                   회사소개 | 채용정보 | 제휴/광고/부대사업 문의 | 이용약관 | 개인정보 처리방침 | 고객센터
-	                </div>
-	                <div class="row footerDiv2">
-		                서울특별시 강남구 도산대로 156, 2층 메가박스(주) (논현동, 중앙엠앤비사옥)<br>
-						대표자명 김진선 | 개인정보보호 책임자 경영지원실 실장 이재원<br>
-						사업자등록번호 211-86-59478 | 통신판매업신고번호 제 833호
-					</div>
-                </div>
-                <div id="footerDiv" class="col-sm-4">
-                    Copyright 2014 by MEGABOX. All rights reserved
-                </div>
+		                <div class="row footerDiv2">
+		                   회사소개 | 채용정보 | 제휴/광고/부대사업 문의 | 이용약관 | 개인정보 처리방침 | 고객센터
+		                </div>
+		                <div class="row footerDiv2">
+			                        서울특별시 종로구 관철동 종로12길 15 / T : 02-6901-7022<br>
+							대표자명 윤광재 | 개인정보보호 책임자 개발지원실 실장 유강현<br>
+							사업자등록번호 000-00-00000 | 통신판매업신고번호 제 000호
+						</div>
+		                <div class="row footerDiv2">
+		                    Copyright 2017 by TICKETBOX. All rights reserved
+		                </div>
+		            </div>
+	            </div>
             </div>
         </div>
     </div>
+    <div id="MOVE_TOP_BTN">
+    <span class="glyphicon glyphicon-circle-arrow-up" title="맨위로"></span>
+    </div>
+	<script>
+	$(function() {
+	    $(window).scroll(function() {
+	        if ($(this).scrollTop() > 500) {
+	            $('#MOVE_TOP_BTN').fadeIn();
+	        } else {
+	            $('#MOVE_TOP_BTN').fadeOut();
+	        }
+	    });
+	    
+	    $("#MOVE_TOP_BTN").click(function() {
+	        $('html, body').animate({
+	            scrollTop : 0
+	        }, 400);
+	        return false;
+	    });
+	});
+	</script>
 </body>
 </html>
