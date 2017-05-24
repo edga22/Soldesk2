@@ -4,9 +4,47 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+img{
+	width:100px;
+	height:auto;
+}
+#perform{
+	border: solid 0.1rem black;
+ 	padding: 50px;
+ }
+#warning{
+	margin:75%
+}
+.answer{
+	display: none;
+}
+#totalQuestion{
+	display:none;
+}
+</style>
+<script type="text/javascript">
+function ImgError(source){
+    source.src = "../nolmg.png";
+    source.onerror = "";
+    return true;
+}
+
+$(document).ready(function(){
+	$("#warning").click(function(){
+		$('#totalQuestion').toggle();
+	});
+
+	$(".question").click(function(e){
+		e.preventDefault();
+		$('#answer'+$(this).attr('data-prod-answer')).toggle();   
+	});
+});
+
+</script>
 </head>
 <body>
 <!-- 메인 네비바 -->
@@ -34,5 +72,100 @@
 		</div>
 	</div>
 </nav><!-- 메인 네비바 종료  -->
+<div class="container">
+		<div class="row col-sm-10" style="margin-top:10px" id="perform">
+			<div class="col-sm-3">
+				<img src="17005953_p.gif" onerror="ImgError(this)"/>
+			</div>
+			<div class="col-sm-7">
+				<div class="col-sm-10">
+					<h2>연극 <라이어></h2>
+					<p>게시자:없음			등록일:2017.5.12</p>
+					<p>총 티켓 판매 수: 3002302장</p>
+				</div>
+				<div class="col-sm-2">
+					<button type="button" class="btn btn-danger" id="warning" data-prod-answer="1" style="cursor:pointer">Q/A게시판</button>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<table class="table table-hover" style="margin-top:50px" id="totalQuestion">
+    			<thead>
+      				<tr>
+				        <th>글번호</th>
+				        <th>질문내용</th>
+				        <th>작성자</th>
+				        <th>상태</th>
+				        <th>등록</th>
+		      		</tr>
+		    	</thead>
+		    	<tbody>
+		      		<tr class="question" data-prod-answer="1" style="cursor:pointer">
+		        		<td>1</td>
+		        		<td>몇세 관람가인가요</td>
+		        		<td>박원서</td>
+		        		<td>답변완료</td>
+		        		<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">답변등록</button>
+		      		</tr>
+		      		<tr id="answer1" class="answer">
+		      			<td></td>
+		      			<td colspan="4">
+		      				<p>라이어 몇세관람가죠?</p>
+		      			</td>
+		      		<tr class="question" data-prod-answer="2" style="cursor:pointer">
+		        		<td>2</td>
+		        		<td>메카트니 사인받고싶어요</td>
+		        		<td>박원서</td>	
+		        		<td>답변대기</td>
+		        		<td><button type="button" class="btn btn-success">답변등록</button>
+		      		</tr>
+		      		<tr id="answer2" class="answer">
+		      			<td></td>
+		      			<td colspan="4">
+		      				<p>저도 받고싶네요</p>
+		      			</td>
+		      		<tr class="question" data-prod-answer="3" style="cursor:pointer">
+		        		<td>3</td>
+		        		<td>그리스 여행보내줘요</td>
+		        		<td>박원서</td>
+		        		<td>답변대기</td>
+		        		<td><button type="button" class="btn btn-success">답변등록</button>
+		      		</tr>
+		      		<tr id="answer3" class="answer">
+		      			<td></td>
+		      			<td colspan="4">
+		      				<p>여행사에서 상담하세요</p>
+		      			</td>
+		    	</tbody>
+		  </table>
+		  <div id="myModal" class="modal fade" role="dialog">
+ 			<div class="modal-dialog modal-lg">
+		  		<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">문의 하기</h4>
+				</div>
+				<div class="modal-body">	
+					<form action="#">
+						<div class="form-inline"style="margin-bottom:30px">
+							<input type="text" class="form-control" placeholder="작성자"/>
+							<input type="text" class="form-control" placeholder="제목" style="width:50%"/>
+							<input type="password" class="form-control" placeholder="비밀번호"/>
+						</div>
+						<div class="form-group">
+							<label for="comment">답변:</label>
+							<textarea class="form-control" rows="20" id="comment"></textarea>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">등록</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>  
 </body>
 </html>
