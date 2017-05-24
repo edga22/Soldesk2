@@ -84,14 +84,14 @@
 
 .loginmodal-container a {
   text-decoration: none;
-  color: #666;
+  color: #111;
   font-weight: 400;
   text-align: center;
   display: inline-block;
-  opacity: 0.6;
+  /* opacity: 0.6; */
   transition: opacity ease 0.5s;
 } 
 
 .login-help{
-  font-size: 12px;
+  font-size: 1.5rem;
 }
