@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <style>
 body{
 background-image: url('seller_background.jpg');
@@ -103,7 +103,7 @@ $(document).ready(function(){
 		//공연장 선택완료시 시간관련 네비바가 나타남
 		$("#stage").on("change", function(){
 			$("#nav1").empty();
-			var timeMain = '날짜 선택 : <input type="date">'
+			var timeMain = '날짜 선택 : <input type="date" id="date-input">'
 								+'<button type="button" id="addTime" class="btn btn-default btn-sm" style="background-color:black; color:white;">시간추가</button>'
 								+'<button type="button" id="rstTime" class="btn btn-danger btn-sm" style="background-color:#4d4dff; color:white;">시간리셋</button>'
 								+'<span id="timesNav">&nbsp;&nbsp;&nbsp;</span>';
@@ -225,8 +225,54 @@ $(document).ready(function(){
 	});
 	
 	//최종완료 버튼
-	$("#complete").on("click", function(){
-		alert("완료되었습니다.");
+	$("#button1").click(function(){
+    $(".modal-body").empty();
+    var locals = $("#locals option:selected").text();
+    var localDetail = $("#localDetail option:selected").text(); 
+    var day = $("#date-input").val();
+    var time1 = $("#timeSlot1").val();
+	var time2 = $("#timeSlot2").val();
+	var time3 = $("#timeSlot3").val();
+	var time4 = $("#timeSlot4").val();
+	var time5 = $("#timeSlot5").val();
+    var titles = $("#title").val();
+    var rows = $("#row").val();
+    var cols = $("#col").val();
+    var sels = $("#sel option:selected").text();
+    var grade1 = $("#grade0").val();
+	var grade2 = $("#grade1").val();
+	var grade3 = $("#grade2").val();
+	var grade4 = $("#grade3").val();
+    var price1 = $("#price0").val();
+	var price2 = $("#price1").val();
+	var price3 = $("#price2").val();
+	var price4 = $("#price3").val();
+    var result = confirm("입력 하시겠습니까?");
+
+     $("#complete").click(function(){
+			 alert("등록완료 되었습니다.");
+		 });
+    if(result){
+        $(".modal-body").append("공연지역: " +locals+"<br>");
+        $(".modal-body").append("공연장: " +localDetail+"<br>");
+        $(".modal-body").append("날짜 선택: " +day+"<br>");
+        $(".modal-body").append("시간: " +time1+"<br>");
+		$(".modal-body").append("시간: " +time2+"<br>");
+		$(".modal-body").append("시간: " +time3+"<br>");
+		$(".modal-body").append("시간: " +time4+"<br>");
+		$(".modal-body").append("시간: " +time5+"<br>");
+        $(".modal-body").append("제목: " +titles+"<br>");
+        $(".modal-body").append("가로: " +rows+"<br>");
+        $(".modal-body").append("세로: " +cols+"<br>");
+        $(".modal-body").append("좌석 등급 갯수: " +sels+"<br>");
+        $(".modal-body").append("등급 이름: " + grade1  + "가격: " + price1+"<br>");
+		$(".modal-body").append("등급 이름: " + grade2  + "가격: " + price2+"<br>");
+		$(".modal-body").append("등급 이름: " + grade3  + "가격: " + price3+"<br>");
+	    $(".modal-body").append("등급 이름: " + grade4  + "가격: " + price4);
+    }else{
+        alert("취소되었습니다.");
+        return false;
+    }
 	});
 	
 });
@@ -279,7 +325,27 @@ $(document).ready(function(){
 			<input type="number" name="col" id="col" placeholder="세로" min="1" max="18" required>
 			<button type="button" id="check" class="btn btn-default" style="background-color:white; color:black;">입력</button>
 			<button type="reset" id="reset" class="btn btn-danger" style="background-color:#4d4dff; color:white;">리셋</button>
-			<button type="submit" formaction="#" id="complete" class="btn btn-default" style="background-color:black; color:white;">좌석 선택완료</button>
+			<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" id ="button1" style="background-color:black; color:white;">좌선 선택완료</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header"style="text-align:center;">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">공연등록</h4>
+      </div>
+      <div class="modal-body">
+        <p></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="complete">등록완료</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel">취소</button>
+      </div>
+    </div>
+		</div>	
+	</div>
 		</div>	
 	</div>
 	<hr style="border: solid 0.1rem;">
