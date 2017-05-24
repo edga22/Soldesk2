@@ -92,20 +92,17 @@ $(document).ready(function(){
 	
 	});
 	  $("#menu2").click(function(){
-		  $("#stable").empty();
-		  $("#stable").append('<table>');	
-	      $("#stable").append('<tr><td>공연장명' + '</td></tr>')
-		  $("#stable").append('<tr><td>세종문화회관' + '</td></tr>')
-		  $("#stable").append('<tr><td>상영관명' + '</td></tr>')
-		  $("#stable").append('<tr><td>우리집' + '</td></tr>')
-		  $("#stable").append('</table>');
-		  $(this).css({
-			"background-color":"white",
-			"color":"rgba(0,0,0,0.0)"
-		  }
-		  )}
-	  
-	);
+		var moiveinfo = $('<thead>'+'<tr><th>공연장명</th><th>상영관명</th><th>공연명</th>'+
+								   +'</tr>'
+								   +'</thead>'+
+						  '<tbody>'+'<tr>'+'<td>세종문화회관</td><td>롯데시네마</td><td>보스베이비</td>'
+						  		   +'</tr>'+'<tr>'+'<td>국립극장</td><td>CGV</td><td>캣츠</td>'
+								   +'</tr>'
+								   +'<tr>'+'<td>동숭아트홀</td><td>MEGABOX</td><td>점프</td>'
+								   +'</tr>'+'</tbody>');
+		$('#stable').empty();
+		$('#stable').append(moiveinfo);
+	  });
 });
 
 		  
@@ -149,8 +146,8 @@ $(document).ready(function(){
 				</ul>
 			<div>
 		</div>
-		<div class="col-sm-3" id="searchtable">
-			<table id="stable" style="border: solid 0.1rem;">
+		<div class="col-sm-6" id="searchtable">
+			<table class="table table-bordered" style="border: solid 0.1rem; background-color:#cccccc;" id="stable">
 			</table>
 		</div>
 		<div class="col-sm-6" id="resistForm">
