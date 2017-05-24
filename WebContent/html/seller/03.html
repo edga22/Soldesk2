@@ -74,6 +74,31 @@ button{
 <body>
 <script>
 $(document).ready(function(){
+
+	// 메뉴선택시 나타나는 창.
+	$("#resist").click(function(){
+		var navBars = $('<div class="col-lg-12" style="background-color:#ff8000; height:5rem; padding:1rem;	margin:0.5rem;">'
+						+'<div>'
+						+'<span>공연 지역: '
+						+'<select id="locals">'
+						+'<option value="1">서울남부</option><option value="2">서울북부</option><option value="3">경기남부</option><option value="4">경기북부</option>'
+						+'</select>'
+						+'&nbsp;&nbsp;&nbsp;</span>'
+						+'<span id="localDetail"></span>'
+						+'</div></div>);'
+						+'<div class="col-lg-12" id="nav1"></div>'
+						+'<div class="col-lg-12" style="background-color:#ff8000; height:5rem; padding:1rem;	margin:0.5rem;">'
+						+'<input type="text" id="title" name="title" placeholder="제목" required>'
+						+'<input type="number" name="row" id="row" placeholder="가로" min="1" max="18" required>'
+						+'<input type="number" name="col" id="col" placeholder="세로" min="1" max="18" required>'
+						+'<button type="button" id="check" class="btn btn-default" style="background-color:white; color:black;">입력</button>'
+						+'<button type="reset" id="reset" class="btn btn-danger" style="background-color:#4d4dff; color:white;">리셋</button>'
+						+'<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" id ="button1" style="background-color:black; color:white;">좌선 선택완료</button>'
+						+'</div>');
+
+		$("#mainResult").empty();
+		$("#mainResult").append(navBars);
+
 	var row;
 	var col;
 	var seatRow='<div class="row-seat"> </div>';
@@ -274,10 +299,25 @@ $(document).ready(function(){
         return false;
     }
 	});
+
+
+	});/*메뉴 버튼: 공연등록 종료*/
+
+	//검색버튼 작동
+	$("#search").click(function(){
+		$("#mainResult").empty();
+
+	});
+	
+	//전체검색버튼 작동
+	$("#searchAll").click(function(){
+		$("#mainResult").empty();
+
+	});		
 	
 });
 
-</script>
+</script><!--    ======================    메인 =======  시작     ========================    -->
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -301,54 +341,24 @@ $(document).ready(function(){
 			</ul>
 		</div>
 	</div>
-</nav>
+</nav> <!-- 메인 네비바 종료 -->
 <div class="container">
-	<form>
-	<div class="row">
-		<div class="col-lg-12" style="background-color:#ff8000; height:5rem; padding:1rem;	margin:0.5rem;">
+	<div class="row" >
+
+		<div class="col-md-12" style="background-color:#1a1a1a; height:5rem; padding:1rem;	margin:0.5rem; border:0.1rem #4d4dff solid;">
 			<div>
-				<span>공연 지역: 
-				<select id="locals">
-					<option value="1">서울남부</option>
-					<option value="2">서울북부</option>
-					<option value="3">경기남부</option>
-					<option value="4">경기북부</option>
-				</select>
-				&nbsp;&nbsp;&nbsp;</span>
-				<span id="localDetail"></span>
-			</div>
+				<button type="button" class="btn btn-default btn-sm" id="resist">공연등록</button>
+				<input type="text" id="search" placeholder="공연명 작성"></input>
+				<button type="button" class="btn btn-default btn-sm" id="search">공연검색</button>
+				<button type="button" class="btn btn-default btn-sm" id="searchAll">공연전체</button>
+			</div>				
 		</div>
-		<div class="col-lg-12" id="nav1"></div>
-		<div class="col-lg-12" style="background-color:#ff8000; height:5rem; padding:1rem;	margin:0.5rem;">
-			<input type="text" id="title" name="title" placeholder="제목" required>
-			<input type="number" name="row" id="row" placeholder="가로" min="1" max="18" required>
-			<input type="number" name="col" id="col" placeholder="세로" min="1" max="18" required>
-			<button type="button" id="check" class="btn btn-default" style="background-color:white; color:black;">입력</button>
-			<button type="reset" id="reset" class="btn btn-danger" style="background-color:#4d4dff; color:white;">리셋</button>
-			<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" id ="button1" style="background-color:black; color:white;">좌선 선택완료</button>
-
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header"style="text-align:center;">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">공연등록</h4>
-      </div>
-      <div class="modal-body">
-        <p></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="complete">등록완료</button>
-		<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel">취소</button>
-      </div>
-    </div>
-		</div>	
-	</div>
-		</div>	
+		
+		<div class="col-md-12" id="mainResult"></div><!-- 공연등록시 메뉴 나타날 창-->
+	    	
 	</div>
 	<hr style="border: solid 0.1rem;">
+
 	<div class="row">
 		<div class="col-sm-8">
 			<div class="layout" id="shell"></div>
@@ -377,8 +387,26 @@ $(document).ready(function(){
 			</div>	   
 		</div>
 	</div>
-</form>	
-</div>
 
+</div>
+<!-- modal창 시작 -->
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header"style="text-align:center;">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">공연등록</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p></p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal" id="complete">등록완료</button>
+			<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel">취소</button>
+	      </div>
+	    </div><!--modal내용 종료 -->
+	  </div>	
+	</div>
 </body>
 </html>
