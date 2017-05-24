@@ -43,6 +43,9 @@ background-size: 100%;
 #buttons{
 	text-align:center;
 }
+#table2{
+	text-align:center;
+}
 </style>
 </head>
 <body>
@@ -53,12 +56,12 @@ background-size: 100%;
 
 <script>
 $(document).ready(function(){
-	<!-- "우편번호찾기" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+	/* "우편번호찾기" 단추를 누르면 팝업 레이어가 열리도록 설정한다*/
 	$("#postcodify_search_button").postcodifyPopUp();
 	
 	
     $("#button1").click(function(){
-    	 $(".modal-body").empty();
+    	 $("#table2").empty();
    	  var hallname = $('[name="hallName"]').val();
    	  var TheaterName = $('[name="TheaterName"]').val();
    	  var SeatColName = $('[name="SeatColName"]').val();
@@ -74,14 +77,14 @@ $(document).ready(function(){
 		 });
 
       if(result){
-    	  $(".modal-body").append(hallname+"<br>");
-		  $(".modal-body").append(TheaterName+"<br>");
-		  $(".modal-body").append(SeatColName+"<br>");
-		  $(".modal-body").append(SeatRowName+"<br>");
-		  $(".modal-body").append(PostName+"<br>");
-		  $(".modal-body").append(AddressName+"<br>");
-		  $(".modal-body").append(AddressDetailName+"<br>");
-		  $(".modal-body").append(hallNumberName);
+    	  $("#table2 > tbody").append('<tr><td>공연장명: </td><td>'+hallname+'</td></tr>');
+		  $("#table2 > tbody").append('<tr><td>상영관명: </td><td>'+TheaterName+'</td></tr>');
+		  $("#table2").append('<tr><td>좌석수(가로): </td><td>'+SeatColName+'</td></tr>');
+		  $("#table2").append('<tr><td>좌석수(세로): </td><td>'+SeatRowName+'</td></tr>');
+		  $("#table2").append('<tr><td>우편번호: </td><td>'+PostName+'</td></tr>');
+		  $("#table2").append('<tr><td>주소: </td><td>'+AddressName+'</td></tr>');
+		  $("#table2").append('<tr><td>세부주소: </td><td>'+AddressDetailName+'</td></tr>');
+		  $("#table2").append('<tr><td>공연장 전화번호: </td><td>'+hallNumberName+'</td></tr>');
       }else{
     	   alert("취소되었습니다.");
 		   return false;
@@ -111,7 +114,7 @@ $(document).ready(function(){
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">로그아웃</a></li>
-				<li><a href="#">쇼핑몰</a></li>
+				<li><a href="../main2.html">쇼핑몰</a></li>
 			</ul>
 		</div>
 	</div>
@@ -146,7 +149,7 @@ $(document).ready(function(){
 					<th>세부 주소</th><td><input type="text" class="table1 postcodify_details" name="AddressDetailName"/></td>
 				</tr>
 				<tr>
-					<th>공연장 전화번호</th><td><input type="text" class="table1" name="hallNumberName" placeholder="(-)하이픈 금지"/></td>
+					<th>공연장 전화번호</th><td><input type="number" class="table1" name="hallNumberName" placeholder="(-)하이픈 금지"/></td>
 				</tr>
 			</table>
 			<div id="buttons">
@@ -157,13 +160,14 @@ $(document).ready(function(){
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content">
+    <div class="modal-content" style="text-align:center;">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">공연장등록</h4>
       </div>
       <div class="modal-body">
-        <p></p>
+        <table id="table2">
+		</table>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" id="complete">등록완료</button>
