@@ -471,81 +471,81 @@ function ImgError(source){
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-			<div class="btn-group btn-group-justified">
-		  		<a href="../mypage/01.html" class="btn btn-primary mypageBtn"><span class="glyphicon glyphicon-user"></span><br>개인정보수정</a>
-		  		<a href="../mypage/02.html" class="btn btn-default mypageBtn"><span class="glyphicon glyphicon-check"></span><br>예매확인/취소</a>
-		  		<a href="../mypage/03.html" class="btn btn-default mypageBtn"><span class="glyphicon glyphicon-erase"></span><br>관람내역</a>
-		  		<a href="../mypage/05.html" class="btn btn-default mypageBtn"><span class="glyphicon glyphicon-remove-sign"></span><br>회원탈퇴</a>
-			</div>
+				<div class="btn-group btn-group-justified">
+			  		<a href="../mypage/01.html" class="btn btn-primary mypageBtn"><span class="glyphicon glyphicon-user"></span><br>개인정보수정</a>
+			  		<a href="../mypage/02.html" class="btn btn-default mypageBtn"><span class="glyphicon glyphicon-check"></span><br>예매확인/취소</a>
+			  		<a href="../mypage/03.html" class="btn btn-default mypageBtn"><span class="glyphicon glyphicon-erase"></span><br>관람내역</a>
+			  		<a href="../mypage/05.html" class="btn btn-default mypageBtn"><span class="glyphicon glyphicon-remove-sign"></span><br>회원탈퇴</a>
+				</div>
+				
+				<div class="page-header">
+			  		<h1>개인 정보 수정</h1>
+				</div>
 			
-			<div class="page-header">
-		  		<h1>개인 정보 수정</h1>
-			</div>
-		
-			<form class="form-inline" action="#">
-				<table class="table">
-				    <tbody>
-				      <tr>
-				        <td><label>아이디</label></td>
-				        <td><p>soldesk</p></td>
-				      </tr>
-				      <tr>
-				        <td><label for="pw">비밀번호</label></td>
-				        <td><input type="password" id="pw" name="#" class="form-control" required/>
-				        <button type="submit" class="btn btn-default">비밀번호 변경</button>
-				        </td>
-				      </tr>
-				      <tr>
-				        <td><label for="name">이름</label></td>
-				        <td><input type="text" id="name" name="#" class="form-control" required/></td>
-				      </tr>
-				      <tr>
-				        <td><label for="birth">생년월일</label></td>
-				        <td><input type="number" min="1900" id="birth" name="#" class="form-control" required/>년
-				        <input type="number" min="1" max="12" name="#" class="form-control" required/>월
-				        <input type="number" min="1" max="31" name="#" class="form-control" required/>일</td>
-				      </tr>
-				      <tr>
-				        <td>주소</td>
-				        <td><input type="text" name="postCode" class="postcodify_postcode5 form-control" value="" placeholder="우편번호 버튼을 누르세요." readonly/>
-						<input type="text" name="address1" class="postcodify_address form-control" value="" required readonly/>
-						<button type="button" id="postcodify_search_button" class="btn btn-default">우편번호찾기</button></td>
-				      </tr>
-				      <tr>
-				      	<td><label for="detailPost">상세주소</label></td>
-						<td>
-							<input type="text" id="detailPost" name="#" class="postcodify_details form-control" value="" placeholder="상세주소를 입력하세요." style="width:80%;"required />
-						</td>
-				      </tr>
-				      <tr>
-				        <td><label for="phone">휴대폰 번호</label></td>
-				        <td><input type="number" id="phone" name="#" class="form-control" required/>-
-				        <input type="number" name="#" class="form-control" required/>-
-				        <input type="number" name="#" class="form-control" required/></td>
-				      </tr>
-				      <tr>
-				        <td><label for="email">이메일 주소</label></td>
-				        <td><input type="text" id="email" name="#" class="form-control" style="width:20%" required/>
-				<label>@</label>	 
-				<input type="text" name="#" class="form-control" value="" style="width:20%" required/>
-				<select id="selectEmail" class="form-control">
-	  				<option value="1" selected>직접입력</option>
-	    			<option value="naver.com">naver.com</option>
-	    			<option value="hanmail.net">hanmail.net</option>
-	    			<option value="nate.com">nate.com</option>
-	    			<option value="gmail.com">gmail.com</option>
-	 			</select>
-				        </td>
-				      </tr>
-				  </tbody>
-			  </table>
-			  <div class="clearfix"></div>
-			  <div class="col-sm-12 text-center">
-				  <a href="#" class="btn btn-default btn-lg" role="submit"> 취소 </a>
-				  <a href="#" class="btn btn-primary btn-lg" role="submit"> 수정 </a>
-			  </div>
-		  </form>
-	  </div>
+				<form class="form-inline" action="#">
+					<table class="table">
+					    <tbody>
+					      <tr>
+					        <td><label>아이디</label></td>
+					        <td><p>soldesk</p></td>
+					      </tr>
+					      <tr>
+					        <td><label for="pw">비밀번호</label></td>
+					        <td><input type="password" id="pw" name="#" class="form-control" required/>
+					        <button type="submit" class="btn btn-default">비밀번호 변경</button>
+					        </td>
+					      </tr>
+					      <tr>
+					        <td><label for="name">이름</label></td>
+					        <td><input type="text" id="name" name="#" class="form-control" required/></td>
+					      </tr>
+					      <tr>
+					        <td><label for="birth">생년월일</label></td>
+					        <td><input type="number" min="1900" id="birth" name="#" class="form-control" required/>년
+					        <input type="number" min="1" max="12" name="#" class="form-control" required/>월
+					        <input type="number" min="1" max="31" name="#" class="form-control" required/>일</td>
+					      </tr>
+					      <tr>
+					        <td>주소</td>
+					        <td><input type="text" name="postCode" class="postcodify_postcode5 form-control" value="" placeholder="우편번호 버튼을 누르세요." readonly/>
+							<input type="text" name="address1" class="postcodify_address form-control" value="" required readonly/>
+							<button type="button" id="postcodify_search_button" class="btn btn-default">우편번호찾기</button></td>
+					      </tr>
+					      <tr>
+					      	<td><label for="detailPost">상세주소</label></td>
+							<td>
+								<input type="text" id="detailPost" name="#" class="postcodify_details form-control" value="" placeholder="상세주소를 입력하세요." style="width:80%;"required />
+							</td>
+					      </tr>
+					      <tr>
+					        <td><label for="phone">휴대폰 번호</label></td>
+					        <td><input type="number" id="phone" name="#" class="form-control" required/>-
+					        <input type="number" name="#" class="form-control" required/>-
+					        <input type="number" name="#" class="form-control" required/></td>
+					      </tr>
+					      <tr>
+					        <td><label for="email">이메일 주소</label></td>
+					        <td><input type="text" id="email" name="#" class="form-control" style="width:20%" required/>
+					<label>@</label>	 
+					<input type="text" name="#" class="form-control" value="" style="width:20%" required/>
+					<select id="selectEmail" class="form-control">
+		  				<option value="1" selected>직접입력</option>
+		    			<option value="naver.com">naver.com</option>
+		    			<option value="hanmail.net">hanmail.net</option>
+		    			<option value="nate.com">nate.com</option>
+		    			<option value="gmail.com">gmail.com</option>
+		 			</select>
+					        </td>
+					      </tr>
+					  </tbody>
+				  </table>
+				  <div class="clearfix"></div>
+				  <div class="col-sm-12 text-center">
+					  <a href="#" class="btn btn-default btn-lg" role="submit"> 취소 </a>
+					  <a href="#" class="btn btn-primary btn-lg" role="submit"> 수정 </a>
+				  </div>
+			  </form>
+		  </div>
 	  </div>
 	</div>
 
