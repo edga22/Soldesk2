@@ -142,17 +142,22 @@ body{
 						seatNum++;
 					}
 				}
-			};	
+			};
 
-			var maxCheck = function (max){
+			var selectCnt = function(){
 				var selectCnt = 0;
 				for(var i=0;i<seatLayout.length;i++ ){
 					for(j = 0 ; j < seatLayout[i].length ; j++){
 						if(seatLayout[i][j] == 0) selectCnt++;
 					}					
 				}
-				console.log(selectCnt);
-				if(selectCnt >= max){
+				return selectCnt;
+			}
+
+			var maxCheck = function (max){
+				var selectNum = selectCnt();
+				
+				if(selectNum >= max){
 					return true;
 				}else return false;				
 			}
@@ -178,6 +183,8 @@ body{
 					seatLayout[id[0]][id[1]] = 1;
 					$( this ).removeClass("selected-seat").addClass("left-seat");
 				}
+				
+				sessionStorage.setItem('ticketCnt',selectCnt());
 			});
 
 			$("#tickets").change(function(){
@@ -188,7 +195,6 @@ body{
 						$( this ).removeClass("selected-seat").addClass("left-seat");
 					}
 				});
-
 			});
 		}
 

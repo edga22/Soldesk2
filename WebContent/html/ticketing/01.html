@@ -68,6 +68,15 @@ iframe {
 	transform: translateY(-50%);
 	/*Vertical Center End*/
 }
+.text-center{
+	text-align: center;
+}
+.selectDate{
+	font-size: 1.5rem;
+	height: 1.5rem;
+	line-height : 1rem;
+
+}
 </style>
 <script type="text/javascript">
 function ImgError(source){
@@ -76,15 +85,39 @@ function ImgError(source){
     return true;
 }
 </script>
-<script src="../zabuto_calendar.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../zabuto_calendar.min.css">
+<link rel="stylesheet" type="text/css" href="./zabuto_calendar.min.css">
+<script src="./zabuto_calendar.min.js"></script>
 <script type="application/javascript">
 	var eventData = [
-        {"date":"2017-05-17","badge":false,"title":"Example 1"},
-        {"date":"2017-05-29","badge":true,"title":"Example 2"}
+        {"date":"2017-05-17","badge":false},
+		{"date":"2017-05-18","badge":false},
+		{"date":"2017-05-19","badge":false},
+        {"date":"2017-05-20","badge":false}
     ];
+
+	var initCalender = function(){
+		$('#show-calender').zabuto_calendar({
+			language: "kr",
+		  	data: eventData,
+	        action: function () {
+				clickCalender( this.id );
+			},
+		});
+	}
+
+	var clickCalender = function( id ){
+		var date = $("#" + id).data("date");
+		var hasEvent = $("#" + id).data("hasEvent");
+		if(hasEvent){
+			$(".selectDate").text(date);
+			sessionStorage.setItem('ticketDate', date);
+		}	
+	}
 	
     $(document).ready(function () {
+		initCalender();
+	});
+	/*
     	$(".question").click(function(e){
     		e.preventDefault();
     		$('#answer'+$(this).attr('data-prod-answer')).toggle();   
@@ -129,7 +162,7 @@ function ImgError(source){
         $("#date-popover-content").html('You clicked on date ' + date);
         $("#date-popover").show();
         return true;
-    }
+    }*/
 </script>
 </head>
 <body>
@@ -150,13 +183,15 @@ function ImgError(source){
 			<div class="seat-layout-wrapper">
 				<div class="row">
 					<div class="col-sm-6">
-						<h5>날짜 선택</h5>
-						<div id="my-calendar"></div>
+						<div id="show-calender"></div>
 					</div>
-					<div class="col-sm-2">
-						<h5>시간 선택</h5>
-						<button type="button" class="btn btn-default">15시 00분</button>
-						<button type="button" class="btn btn-default">17시 00분</button>
+					<div class="col-sm-2 text-center">
+						<h4>선택한 날짜</h4>
+						<div class='selectDate'><span>&nbsp; &nbsp;  -&nbsp; &nbsp; - &nbsp; &nbsp; </span></div>
+
+						<h4>시간 선택</h4>
+						<button type="button" class="btn btn-default btn-sm">15시 00분</button>
+						<button type="button" class="btn btn-default btn-sm">17시 00분</button>
 					</div>
 					<div class="col-sm-4">
 						<h5>좌석등급/ 잔여석</h5>

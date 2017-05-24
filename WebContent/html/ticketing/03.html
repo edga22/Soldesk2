@@ -78,6 +78,14 @@ function ImgError(source){
     source.onerror = "";
     return true;
 }
+var ticketCnt = sessionStorage.getItem('ticketCnt');            
+$(document).ready(function(){
+	$('select').each(function(){
+		for(var i = 0 ; i <= ticketCnt ; i++){		
+			$( this ).append('<option>'+i+'</option>');		
+		}
+	});
+});
 </script>
 </head>
 <body>
@@ -105,28 +113,27 @@ function ImgError(source){
 						<tr>
 							<th>기본가</th>
 							<td colspan="2">20000원</td>
-							<td>2매</td>
+							<td>
+								<select class="form-control" class="tickets">
+								</select>
+							</td>
 						</tr>
 						<tr>
-							<th rowspan="4">기본할인</th>
+							<th rowspan="4">조건 할인</th>
 							<td>학생할인(중, 고, 대학생 10%)</td>
 							<td>18000원</td>
-							<td>2매</td>
+							<td>
+								<select class="form-control" class="tickets">
+								</select>
+							</td>
 						</tr>
 						<tr>
-							<td></td>
-							<td>00000000원</td>
-							<td>0매</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>00000000원</td>
-							<td>0매</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>00000000원</td>
-							<td>0매</td>
+							<td>장애우 할인(15%)</td>
+							<td>15000원</td>
+							<td>
+								<select class="form-control" class="tickets">
+								</select>
+							</td>
 						</tr>
 					</tbody>
 				</table>

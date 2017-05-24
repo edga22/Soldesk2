@@ -23,6 +23,14 @@
 </head>
 
 <body>
+    <script>
+        $(document).ready(function(){
+            var ticketDate = sessionStorage.getItem('ticketDate');
+            var ticketCnt = sessionStorage.getItem('ticketCnt');            
+            $('#ticketCnt').text(ticketCnt);
+            $('#ticketDate').text(ticketDate);
+        });
+    </script>
     <div class="control-window">
         
         <table id="ticketInfo">
@@ -50,24 +58,20 @@
             </thead>
             <tbody>
                 <tr>
-                    <th id="detail">일시</th>
-                    <td>2017년 5월 23일</td>
+                    <th>일시</th>
+                    <td id='ticketDate'></td>
                 </tr>
                 <tr>
-                    <th id="detail">선택좌석</th>
-                    <td>2석</td>
+                    <th>선택좌석</th>
+                    <td id='ticketCnt'></td>
                 </tr>
                 <tr>
-                    <th id="detail">티켓금액</th>
-                    <td>20000원</td>
+                    <th>티켓금액</th>
+                    <td id='ticketPrice'></td>
                 </tr>
                 <tr>
-                    <th id="detail">취소기한</th>
+                    <th>취소기한</th>
                     <td>공연 하루 전까지</td>
-                </tr>
-                <tr>
-                    <th id="detail">취소 수수료</th>
-                    <td>티켓 금액의 0%~30%</td>
                 </tr>
             </tbody>
         </table>
