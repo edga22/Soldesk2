@@ -184,7 +184,9 @@ body{
 				$(".seat").each(function(){
 					var id = $( this ).attr('id').split('-');
 					if(seatLayout[id[0]][id[1]] == 0) seatLayout[id[0]][id[1]] = 1;
-					$( this ).removeClass("selected-seat").addClass("left-seat");
+					if( $( this ).hasClass("selected-seat")) {
+						$( this ).removeClass("selected-seat").addClass("left-seat");
+					}
 				});
 
 			});
