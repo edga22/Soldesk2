@@ -83,6 +83,9 @@ body{
 	font-size: 1rem;	
 	line-height: 2.6rem;
 }
+.left-seat:hover{
+	background-color: gray;
+}
 
 .left-seat{
 	border: 2px solid blue;
@@ -106,7 +109,7 @@ body{
 <body>
 	<script>
 		// 시트 설정부
-		var seatSetup = function(){
+		var seatInit = function(){
 			/* 레이아웃 그리기 */
 			var seatLayout = [
 			[1, 1, 1, 9, 2, 2, 2, 1, 1, 9, 1, 1, 1,],
@@ -187,9 +190,17 @@ body{
 			});
 		}
 
+		var ticketsInit = function(){
+			var inputNum = 20;
+			for(var i = 1 ; i <= inputNum ; i++){
+				$("#tickets").append("<option>"+i+"</option>");
+			}
+		};
+
 		// 도큐먼트 래디
 		$(document).ready(function(){
-			seatSetup();	
+			seatInit();
+			ticketsInit();
 		});		
 	</script>
 
@@ -211,11 +222,6 @@ body{
 	<div class="pick-number form-group">
 		<label for="tickets">예매 인원</label>
 		<select class="form-control" id="tickets">
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
 		</select>
 	</div>
 
