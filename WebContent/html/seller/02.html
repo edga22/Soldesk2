@@ -89,8 +89,25 @@ $(document).ready(function(){
     	   alert("취소되었습니다.");
 		   return false;
       }
-    });
+	
+	});
+	  $("#menu2").click(function(){
+		  $("#stable").empty();
+		  $("#stable").append('<table>');	
+	      $("#stable").append('<tr><td>공연장명' + '</td></tr>')
+		  $("#stable").append('<tr><td>세종문화회관' + '</td></tr>')
+		  $("#stable").append('<tr><td>상영관명' + '</td></tr>')
+		  $("#stable").append('<tr><td>우리집' + '</td></tr>')
+		  $("#stable").append('</table>');
+		  $(this).css({
+			"background-color":"white",
+			"color":"rgba(0,0,0,0.0)"
+		  }
+		  )}
+	  
+	);
 });
+
 		  
 </script>
 
@@ -132,7 +149,10 @@ $(document).ready(function(){
 				</ul>
 			<div>
 		</div>
-		<div class="col-sm-3"></div>
+		<div class="col-sm-3" id="searchtable">
+			<table id="stable" style="border: solid 0.1rem;">
+			</table>
+		</div>
 		<div class="col-sm-6" id="resistForm">
 			<table id="table">
 				<tr>
