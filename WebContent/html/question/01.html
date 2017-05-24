@@ -6,13 +6,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link href="../star/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
-<script src="../star/js/star-rating.js" type="text/javascript"></script>
-<link href="../star/themes/krajee-svg/theme.css" media="all" rel="stylesheet" type="text/css" />
-<script src="../star/themes/krajee-svg/theme.js"></script>
-<script src="../star/js/locales/kr.js"></script>
+<script src="./star/themes/krajee-svg/theme.js"></script>
+<script src="./star/js/locales/kr.js"></script>
 <link rel="stylesheet" type="text/css" href="../login.css">
-<title>영화 정보</title>
 <style type="text/css">
 /* 웹폰트 */
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -436,7 +432,7 @@ function ImgError(source){
 		    <div class="container">
 				<div class="row">
 				    <div class="col-sm-3 topLogoDiv]">
-					    <a href="../main.html" class="btn btn-link" style="width:10%;">
+					    <a href="#" class="btn btn-link" style="width:10%;">
 					    <span class="topLogo">T</span>
 					    <span class="topLogo">I</span>
 					    <span class="topLogo">C</span>
@@ -450,9 +446,9 @@ function ImgError(source){
 					</div>
 					<div class="col-sm-9">
 					<div class="btn-group btn-group-justified" id="nav">
-						<a href="01.html" class="btn btn-default btn-lg">뮤지컬</a> 
-						<a href="01.html" class="btn btn-default btn-lg">콘서트</a> 
-						<a href="01.html" class="btn btn-default btn-lg">연극</a>
+						<a href="#" class="btn btn-default btn-lg">뮤지컬</a> 
+						<a href="#" class="btn btn-default btn-lg">콘서트</a> 
+						<a href="#" class="btn btn-default btn-lg">연극</a>
 						<a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#login-modal">로그인</a> 
 					</div>
 					</div>
@@ -460,19 +456,7 @@ function ImgError(source){
 			</div>
 		</div> 
 	</div>
-			<div class="col-xs-12 col-xs-offset-3" style="margin-top:50px">
-				<form class="form-inline form-group-lg" id="searchlist" role="search" action="#">
-					<select class="form-control" id="sel" name="search">
-						<option value="all">통합검색</option>
-						<option value="date">날짜별</option>
-						<option value="cate">장르별</option>
-						<option value="local">지역벌</option>
-					</select>
-					<input type="text" class="form-control" id="search" name="searchDetail"/>
-					<button type="submit" id="search-btn" class="btn btn-default btn-lg">검색</button>
-					<a href="#"><button type="button" class="btn btn-default btn-lg" id="rank">순위별</button></a>
-				</form>
-			</div>
+	<!-- 로그인 모달창 -->
 	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 		<div class="modal-dialog">
 			<div class="loginmodal-container">
@@ -490,180 +474,68 @@ function ImgError(source){
 			</div>
 		</div>
 	</div>
-		  
-	<div class="container" id="container">
+	<div class="container">
 		<div class="row">
-			<div class="col-md-12 frameDiv" style="margin-top:30px">
-				<div class="frame">
-					<div id="frame1">
-						<div class="card">
-							<img src="./img/에어리언.jpg" onerror="ImgError(this)" />
-						</div>
-						<div class="card back">
-							<img class="backPost" src="../img/에어리언.jpg" onerror="ImgError(this)" />
-							<article id="movieInfo">
-								<input id="input-id" type="text" class="rating" data-size="xs" >
-								<div class="moveInfoBtn">
-									<div class="moveInfoBtn1">
-										<span class="glyphicon glyphicon-ok"></span><br> 본공연
-									</div>
-									<div class="moveInfoBtn2">
-										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
-									</div>
-								</div>
-							</article>
-						</div>
-					</div>
-					<div class="movieInfo2">
-						2017.05.25 <span class="dDay">D-1</span>
-					</div>
-					<div class="movieInfo3">
-						<p>
-							<span class="age">12</span> 공연 1
-						</p>
-						<div class="movieInfo3Btn">상세정보</div>
-						<div class="movieInfo3Btn">예매하기</div>
-					</div>
+			<table class="table table-hover" style="margin-top:50px">
+    			<thead>
+      				<tr>
+				        <th>글번호</th>
+				        <th>날짜</th>
+				        <th>제목</th>
+				        <th>작성자</th>
+				        <th>상태</th>
+		      		</tr>
+		    	</thead>
+		    	<tbody>
+		      		<tr>
+		        		<td>1</td>
+		        		<td>2017.05.30</td>
+		        		<td>로그인이 안되요</td>
+		        		<td>박원서</td>
+		        		<td>답변완료</td>
+		      		</tr>
+		      		<tr>
+		        		<td>2</td>
+		        		<td>2017.05.30</td>
+		        		<td>예약이안되요</td>
+		        		<td>박원서</td>
+		        		<td>답변대기</td>
+		      		</tr>
+		      		<tr>
+		        		<td>3</td>
+		        		<td>2017.05.30</td>
+		        		<td>탈퇴할래요</td>
+		        		<td>박원서</td>
+		        		<td>답변대기</td>
+		      		</tr>
+		    	</tbody>
+		  </table>
+		  <div class="col-sm-12 text-right">
+		  	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">글쓰기</button>
+		  </div>
+		  <div id="myModal" class="modal fade" role="dialog">
+ 			<div class="modal-dialog">
+		  		<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">문의 하기</h4>
 				</div>
-				<div class="frame">
-					<div id="frame2">
-						<div class="card">
-							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
-						</div>
-						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
-							<article id="movieInfo">
-								<input id="input-id" type="text" class="rating" data-size="xs" >
-								<div class="moveInfoBtn">
-									<div class="moveInfoBtn1">
-										<span class="glyphicon glyphicon-ok"></span><br> 본공연
-									</div>
-									<div class="moveInfoBtn2">
-										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
-									</div>
-								</div>
-							</article>
-						</div>
-					</div>
-					<div class="movieInfo2">
-						2017.05.25 <span class="dDay">D-1</span>
-					</div>
-					<div class="movieInfo3">
-						<p>
-							<span class="age">12</span> 공연 2
-						</p>
-						<div class="movieInfo3Btn">상세정보</div>
-						<div class="movieInfo3Btn">예매하기</div>
-					</div>
+				<div class="modal-body">	
+					<form action="#">
+						
+					</form>
 				</div>
-				<div class="frame">
-					<div id="frame3">
-						<div class="card">
-							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
-						</div>
-						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
-							<article id="movieInfo">
-								<input id="input-id" type="text" class="rating" data-size="xs" >
-								<div class="moveInfoBtn">
-									<div class="moveInfoBtn1">
-										<span class="glyphicon glyphicon-ok"></span><br> 본공연
-									</div>
-									<div class="moveInfoBtn2">
-										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
-									</div>
-								</div>
-							</article>
-						</div>
-					</div>
-					<div class="movieInfo2">
-						2017.05.25 <span class="dDay">D-1</span>
-					</div>
-					<div class="movieInfo3">
-						<p>
-							<span class="age">12</span> 공연 3
-						</p>
-						<div class="movieInfo3Btn">상세정보</div>
-						<div class="movieInfo3Btn">예매하기</div>
-					</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">등록</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 				</div>
-				<div class="frame">
-					<div id="frame4">
-						<div class="card">
-							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
-						</div>
-						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
-							<article id="movieInfo">
-								<input id="input-id" type="text" class="rating" data-size="xs" >
-								<div class="moveInfoBtn">
-									<div class="moveInfoBtn1">
-										<span class="glyphicon glyphicon-ok"></span><br> 본공연
-									</div>
-									<div class="moveInfoBtn2">
-										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
-									</div>
-								</div>
-							</article>
-						</div>
-					</div>
-					<div class="movieInfo2">
-						2017.05.25 <span class="dDay">D-1</span>
-					</div>
-					<div class="movieInfo3">
-						<p>
-							<span class="age">12</span> 공연 4
-						</p>
-						<div class="movieInfo3Btn">상세정보</div>
-						<div class="movieInfo3Btn">예매하기</div>
-					</div>
-				</div>
-				<div class="frame">
-					<div id="frame5">
-						<div class="card">
-							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
-						</div>
-						<div class="card back">
-							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
-							<article id="movieInfo">
-								<input id="input-id" type="text" class="rating" data-size="xs" >
-								<div class="moveInfoBtn">
-									<div class="moveInfoBtn1">
-										<span class="glyphicon glyphicon-ok"></span><br> 본공연
-									</div>
-									<div class="moveInfoBtn2">
-										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
-									</div>
-								</div>
-							</article>
-						</div>
-					</div>
-					<div class="movieInfo2">
-						2017.05.25 <span class="dDay">D-1</span>
-					</div>
-					<div class="movieInfo3">
-						<p>
-							<span class="age">12</span> 공연 5
-						</p>
-						<div class="movieInfo3Btn">상세정보</div>
-						<div class="movieInfo3Btn">예매하기</div>
-					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-	<ul class="pagination pagination-lg" style="margin-left:35%">
-     	<li><a href="#">◀</a></li>
-       	<li><a href="#">1</a></li>
-       	<li><a href="#">2</a></li>
-       	<li><a href="#">3</a></li>
-       	<li><a href="#">4</a></li>
-       	<li><a href="#">5</a></li>
-       	<li><a href="#">▶</a></li>
-    </ul>
-    </div>
-<div class="container-fluid" id="footer">
+		</div>
+	</div>  
+
+	<div class="container-fluid" id="footer">
         <div class="row">
             <div class="container">
 	            <div id="footerDiv" class="col-sm-2">
@@ -685,7 +557,7 @@ function ImgError(source){
         <div class="row">
             <div class="container">
                 <div class="col-sm-4">
-					<a href="../main.html" class="btn btn-link">
+					<a href="#" class="btn btn-link">
 						<span class="topLogo">T</span>
 						<span class="topLogo">I</span>
 						<span class="topLogo">C</span>
