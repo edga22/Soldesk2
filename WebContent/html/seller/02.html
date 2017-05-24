@@ -2,22 +2,99 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>판매자 전용페이지</title>
+<title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <style>
 body{
 background-image: url('seller_background.jpg');
 background-color: #cccccc;
 background-attachment: fixed;
-background-size: 45rem, 45rem;
+background-size: 100%;
+}
+
+#resistForm{
+	border:0.1rem solid black;
+	margin:1rem;
+	padding:1rem;
+	background-color: white;
+	opacity: 1;
+}
+
+.table1{
+	width:30rem;
+	margin:1rem;
+	padding:0.5rem;
+}
+.table2{
+	width:10rem;
+	margin:1rem;
+	padding:0.5rem;
+}
+#table th{
+	text-align:center;
+	width:20rem;
+}
+#table{
+	blackground-color:gray;
+}
+#buttons{
+	text-align:center;
+}
+#table2{
+	text-align:center;
 }
 </style>
 </head>
 <body>
 
+<!-- jQuery와 Postcodify를 로딩한다 -->
+<script src="http://d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+	/* "우편번호찾기" 단추를 누르면 팝업 레이어가 열리도록 설정한다*/
+	$("#postcodify_search_button").postcodifyPopUp();
+	
+	
+    $("#button1").click(function(){
+    	 $("#table2").empty();
+   	  var hallname = $('[name="hallName"]').val();
+   	  var TheaterName = $('[name="TheaterName"]').val();
+   	  var SeatColName = $('[name="SeatColName"]').val();
+   	  var SeatRowName = $('[name="SeatRowName"]').val();
+   	  var PostName = $('[name="PostName"]').val();
+   	  var AddressName = $('[name="AddressName"]').val();
+   	  var AddressDetailName = $('[name="AddressDetailName"]').val();
+   	  var hallNumberName = $('[name="hallNumberName"]').val();
+   	  var result = confirm("등록하시겠습니까?");
+
+		 $("#complete").click(function(){
+			 alert("등록완료 되었습니다.");
+		 });
+
+      if(result){
+    	  $("#table2 > tbody").append('<tr><td>공연장명: </td><td>'+hallname+'</td></tr>');
+		  $("#table2 > tbody").append('<tr><td>상영관명: </td><td>'+TheaterName+'</td></tr>');
+		  $("#table2").append('<tr><td>좌석수(가로): </td><td>'+SeatColName+'</td></tr>');
+		  $("#table2").append('<tr><td>좌석수(세로): </td><td>'+SeatRowName+'</td></tr>');
+		  $("#table2").append('<tr><td>우편번호: </td><td>'+PostName+'</td></tr>');
+		  $("#table2").append('<tr><td>주소: </td><td>'+AddressName+'</td></tr>');
+		  $("#table2").append('<tr><td>세부주소: </td><td>'+AddressDetailName+'</td></tr>');
+		  $("#table2").append('<tr><td>공연장 전화번호: </td><td>'+hallNumberName+'</td></tr>');
+      }else{
+    	   alert("취소되었습니다.");
+		   return false;
+      }
+    });
+});
+		  
+</script>
+
+<!-- 메인 네비바 -->
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -31,69 +108,82 @@ background-size: 45rem, 45rem;
 		</div>
 		<div id="navbar" class="navbar-collapse collapse"> <!-- nav 내용 시작 -->
 			<ul class="nav navbar-nav">
-                <li><a href="04.html">공연장등록</a></li>
-                <li><a href="03.html">공연등록</a></li>
-                <li><a href="06.html">공연장관리</a></li>
+                <li><a href="02.html">공연장관리</a></li>
+                <li><a href="03.html">공연관리</a></li>
+                <li><a href="04.html">Q&A답변</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">로그아웃</a></li>
+				<li><a href="../main1.html">로그아웃</a></li>
 				<li><a href="../main2.html">쇼핑몰</a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
-<div class="container-fluid">
+<!-- 데이터 입력칸 -->
 <div class="container">
-<div class="row">
-	<div class="col-sm-12"><!-- style="background-color:green; height:100rem;" -->
-		<select id="selectLocation" class="form-control-col-sm-2">
-	  		<option value="1" selected>지역선택</option>
-	   		<option value="강원도">강원도</option>
-	    	<option value="경기도">경기도</option>
-	    	<option value="경상남도">경상남도</option>
-	    	<option value="경상북도">경상북도</option>
-	    	<option value="대구광역시">대구광역시</option>
-	    	<option value="대전광역시">대전광역시</option>
-	    	<option value="울산광역시">울산광역시</option>
-	    	<option value="광주광역시">광주광역시</option>
-	    	<option value="인천광역시">인천광역시</option>
-	    	<option value="전라남도">전라남도</option>
-	    	<option value="전라북도">전라북도</option>
-	    	<option value="제주도">제주도</option>
-	    	<option value="충청남도">충청남도</option>
-	    	<option value="충청북도">충청북도</option>
-	 	</select>
-	 	<button type="submit" class="form-control-col-sm-3">공연장 새로등록</button>
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6" id="resistForm">
+			<table id="table">
+				<tr>
+					<th>공연장명</th><td><input type="text" class="table1" name="hallName"/></td>
+				</tr>
+				<tr>
+					<th>상영관명</th><td><input type="text" class="table1" name="TheaterName"/></td>
+				</tr>
+				<tr>
+					<th>좌석수(가로)</th><td><input type="number" class="table2" name="SeatColName"/></td>
+				</tr>
+				<tr>
+					<th>좌석수(세로)</th><td><input type="number" class="table2" name="SeatRowName"/></td>
+				</tr>
+				<tr>
+					<th>우편번호</th><td><input type="number" class="table2 postcodify_postcode5" name="PostName"/>
+					<button type="button" id="postcodify_search_button" class="btn btn-default">우편번호찾기</button></td>
+				</tr>
+				<tr>
+					<th>주소</th><td><input type="text" class="table1 postcodify_address" name="AddressName"/></td>
+				</tr>
+			
+				<tr>
+					<th>세부 주소</th><td><input type="text" class="table1 postcodify_details" name="AddressDetailName"/></td>
+				</tr>
+				<tr>
+					<th>공연장 전화번호</th><td><input type="number" class="table1" name="hallNumberName" placeholder="(-)하이픈 금지"/></td>
+				</tr>
+			</table>
+			<div id="buttons">
+				<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" id ="button1">등록</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="text-align:center;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">공연장등록</h4>
+      </div>
+      <div class="modal-body">
+        <table id="table2">
+		</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="complete">등록완료</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel">취소</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+			
+			</div>
+		</div>
+		<div class="col-sm-3"></div>
+	
 	</div>
 </div>
-	<table class="table table-hover">
-		<tr>
-			<th>공연장명</th>
-			<th>주소</th>
-			<th></th>
-		</tr>
-		<tr>
-			<td>세종문화회관</td>
-			<td>서울시 서대문구</td>
-			<td><button type="button">선택</button></td>
-		</tr>
-		<tr>
-			<td>세종문화회관2</td>
-			<td>서울시 노원구</td>
-			<td><button type="button">선택</button></td>
-		</tr>
-	</table>	
-	<table class="table table-bordered">
-		<tr>
-			<th>공연장명</th>
-			<th>주소명</th>
-		</tr>
-		<tr>
-			<td>세종문화회관</td>
-			<td>서울시 서대문구</td>
-		</tr>
-	</table>
-</div>
-</div>
+	
 </body>
 </html>

@@ -122,7 +122,7 @@ $(document).ready(function(){
 					cnt = 1;
 					alert('최대 5회차 까지 입니다.')
 				}else{
-					var times = $('<label>'+cnt+'차:<input type="time" name="'+$("#title").val()+'" id="timeSlot">&nbsp;&nbsp;</label>');
+					var times = $('<label>'+cnt+'차:<input type="time" name="'+$("#title").val()+'" id="timeSlot'+cnt+'">&nbsp;&nbsp;</label>');
 					$("#timesNav").append(times);
 					cnt=cnt+1;
 				}
@@ -131,6 +131,7 @@ $(document).ready(function(){
 			//시간리셋 선택시
 			$("#rstTime").on("click", function(){
 				$("#timesNav").empty();
+				cnt=1;
 			});
 			
 		});
@@ -244,12 +245,12 @@ $(document).ready(function(){
 		</div>
 		<div id="navbar" class="navbar-collapse collapse"> <!-- nav 내용 시작 -->
 			<ul class="nav navbar-nav">
-                <li><a href="04.html">공연장등록</a></li>
-                <li><a href="03.html">공연등록</a></li>
-                <li><a href="#">공연장관리</a></li>
+                <li><a href="02.html">공연장관리</a></li>
+                <li><a href="03.html">공연관리</a></li>
+                <li><a href="04.html">Q&A답변</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">로그아웃</a></li>
+				<li><a href="../main1.html">로그아웃</a></li>
 				<li><a href="../main2.html">쇼핑몰</a></li>
 			</ul>
 		</div>
