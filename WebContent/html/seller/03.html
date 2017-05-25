@@ -251,53 +251,53 @@ $(document).ready(function(){
 	
 	//최종완료 버튼
 	$("#button1").click(function(){
-    $(".modal-body").empty();
-    var locals = $("#locals option:selected").text();
-    var localDetail = $("#localDetail option:selected").text(); 
-    var day = $("#date-input").val();
-    var time1 = $("#timeSlot1").val();
-	var time2 = $("#timeSlot2").val();
-	var time3 = $("#timeSlot3").val();
-	var time4 = $("#timeSlot4").val();
-	var time5 = $("#timeSlot5").val();
-    var titles = $("#title").val();
-    var rows = $("#row").val();
-    var cols = $("#col").val();
-    var sels = $("#sel option:selected").text();
-    var grade1 = $("#grade0").val();
-	var grade2 = $("#grade1").val();
-	var grade3 = $("#grade2").val();
-	var grade4 = $("#grade3").val();
-    var price1 = $("#price0").val();
-	var price2 = $("#price1").val();
-	var price3 = $("#price2").val();
-	var price4 = $("#price3").val();
-    var result = confirm("입력 하시겠습니까?");
+		$(".modal-body").empty();
+		var locals = $("#locals option:selected").text();
+		var localDetail = $("#localDetail option:selected").text(); 
+		var day = $("#date-input").val();
+		var time1 = $("#timeSlot1").val();
+		var time2 = $("#timeSlot2").val();
+		var time3 = $("#timeSlot3").val();
+		var time4 = $("#timeSlot4").val();
+		var time5 = $("#timeSlot5").val();
+		var titles = $("#title").val();
+		var rows = $("#row").val();
+		var cols = $("#col").val();
+		var sels = $("#sel option:selected").text();
+		var grade1 = $("#grade0").val();
+		var grade2 = $("#grade1").val();
+		var grade3 = $("#grade2").val();
+		var grade4 = $("#grade3").val();
+		var price1 = $("#price0").val();
+		var price2 = $("#price1").val();
+		var price3 = $("#price2").val();
+		var price4 = $("#price3").val();
+		var result = confirm("입력 하시겠습니까?");
 
-     $("#complete").click(function(){
-			 alert("등록완료 되었습니다.");
-		 });
-    if(result){
-        $(".modal-body").append("공연지역: " +locals+"<br>");
-        $(".modal-body").append("공연장: " +localDetail+"<br>");
-        $(".modal-body").append("날짜 선택: " +day+"<br>");
-        $(".modal-body").append("시간: " +time1+"<br>");
-		$(".modal-body").append("시간: " +time2+"<br>");
-		$(".modal-body").append("시간: " +time3+"<br>");
-		$(".modal-body").append("시간: " +time4+"<br>");
-		$(".modal-body").append("시간: " +time5+"<br>");
-        $(".modal-body").append("제목: " +titles+"<br>");
-        $(".modal-body").append("가로: " +rows+"<br>");
-        $(".modal-body").append("세로: " +cols+"<br>");
-        $(".modal-body").append("좌석 등급 갯수: " +sels+"<br>");
-        $(".modal-body").append("등급 이름: " + grade1  + "가격: " + price1+"<br>");
-		$(".modal-body").append("등급 이름: " + grade2  + "가격: " + price2+"<br>");
-		$(".modal-body").append("등급 이름: " + grade3  + "가격: " + price3+"<br>");
-	    $(".modal-body").append("등급 이름: " + grade4  + "가격: " + price4);
-    }else{
-        alert("취소되었습니다.");
-        return false;
-    }
+		$("#complete").click(function(){
+				alert("등록완료 되었습니다.");
+			});
+		if(result){
+			$(".modal-body").append("공연지역: " +locals+"<br>");
+			$(".modal-body").append("공연장: " +localDetail+"<br>");
+			$(".modal-body").append("날짜 선택: " +day+"<br>");
+			$(".modal-body").append("시간: " +time1+"<br>");
+			$(".modal-body").append("시간: " +time2+"<br>");
+			$(".modal-body").append("시간: " +time3+"<br>");
+			$(".modal-body").append("시간: " +time4+"<br>");
+			$(".modal-body").append("시간: " +time5+"<br>");
+			$(".modal-body").append("제목: " +titles+"<br>");
+			$(".modal-body").append("가로: " +rows+"<br>");
+			$(".modal-body").append("세로: " +cols+"<br>");
+			$(".modal-body").append("좌석 등급 갯수: " +sels+"<br>");
+			$(".modal-body").append("등급 이름: " + grade1  + "가격: " + price1+"<br>");
+			$(".modal-body").append("등급 이름: " + grade2  + "가격: " + price2+"<br>");
+			$(".modal-body").append("등급 이름: " + grade3  + "가격: " + price3+"<br>");
+			$(".modal-body").append("등급 이름: " + grade4  + "가격: " + price4);
+		}else{
+			alert("취소되었습니다.");
+			return false;
+		}
 	});
 
 
@@ -306,13 +306,13 @@ $(document).ready(function(){
 	//검색버튼 작동
 	$("#search").click(function(){
 		$("#mainResult").empty();
-
+		console.log(1);
 	});
 	
 	//전체검색버튼 작동
 	$("#searchAll").click(function(){
 		$("#mainResult").empty();
-
+		console.log(2);
 	});		
 	
 });
