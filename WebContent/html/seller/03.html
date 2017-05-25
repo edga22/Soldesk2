@@ -85,19 +85,44 @@ $(document).ready(function(){
 						+'</select>'
 						+'&nbsp;&nbsp;&nbsp;</span>'
 						+'<span id="localDetail"></span>'
-						+'</div></div>);'
+						+'</div></div>'
 						+'<div class="col-lg-12" id="nav1"></div>'
 						+'<div class="col-lg-12" style="background-color:#ff8000; height:5rem; padding:1rem;	margin:0.5rem;">'
 						+'<input type="text" id="title" name="title" placeholder="제목" required>'
 						+'<input type="number" name="row" id="row" placeholder="가로" min="1" max="18" required>'
 						+'<input type="number" name="col" id="col" placeholder="세로" min="1" max="18" required>'
 						+'<button type="button" id="check" class="btn btn-default" style="background-color:white; color:black;">입력</button>'
-						+'<button type="reset" id="reset" class="btn btn-danger" style="background-color:#4d4dff; color:white;">리셋</button>'
+						+'<button type="reset" id="reset" class="btn btn-danger" style="background-color:#4d4dff; color:white;">리셋</button>&nbsp;&nbsp;&nbsp;'
 						+'<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" id ="button1" style="background-color:black; color:white;">좌선 선택완료</button>'
-						+'</div>');
+						+'</div>'										
+						);
+
+	    var navBars2 = $('<div class="col-sm-8">'
+						+'<div class="layout" id="shell"></div>'
+						+'</div>'
+						+'<div class="col-sm-4" style="background-color:#1a1a1a; height:60rem; border:0.1rem solid #ff8000; color:white">'
+						+'<h5>좌석 등급은 최대 4개까지 선택 가능합니다.</h5>'
+						+'<div>'
+						+'<span>좌석 등급 갯수:</span>'
+						+'<select id="sel">'
+						+'<option value="1">좌석등급 1개</option><option value="2">좌석등급 2개</option><option value="3">좌석등급 3개</option><option value="4">좌석등급 4개</option>'
+						+'</select>'
+						+'</div><hr style="border:0.1rem solid #ff8000;">'
+						+'<div>'
+						+'<h3>공연 좌석 등록</h3>'
+						+'<p>좌석 등급 이름은 대소문자를 구분하지 않습니다.</p>'
+						+'<div id="grades"></div>'
+						+'</div><hr style="border:0.1rem solid #ff8000;">'
+						+'<div>'
+						+'<h3>공연 좌석 등급별 가격</h3>'
+						+'<div id="resultPrice"></div>'
+						+'</div></div>'
+						);
 
 		$("#mainResult").empty();
+		$("#mainResult2").empty();
 		$("#mainResult").append(navBars);
+		$("#mainResult2").append(navBars2);
 
 	var row;
 	var col;
@@ -300,19 +325,46 @@ $(document).ready(function(){
 		}
 	});
 
-
 	});/*메뉴 버튼: 공연등록 종료*/
 
 	//검색버튼 작동
 	$("#search").click(function(){
 		$("#mainResult").empty();
-		console.log(1);
+		$("#mainResult2").empty();
+
+		var searchTable = $('<table class="table table-striped" id="serchTable">'
+							+'<tr><th>공연</th><th>지역</th><th>공연장</th><th>날짜</th><th>회차1</th><th>회차2</th><th>좌석(가로x세로)</th>'
+							+'<th>등급1</th><th>등급2</th><th>등급3</th><th>변경</th><tr>'
+							+'<tr><td>캣츠</td><td>서울남부</td><td>예술의전당</td><td>2016.01.01~2016.02.02</td><td>13:30</td><td>18:00</td><td>15x20</td>'
+							+'<td>vip:150000</td><td>a:100000</td><td>b:65000</td><td><button type="button" class="btn btn-default btn-sm" id="modSearch">수정</button></td></tr>'
+							+'</table>'
+							);
+
+	   $("#mainResult").append(searchTable);
+
+	   $("#modSearch").click(function(){
+			$(".modal-body").empty();
+			var contents = $('<table class="table table-condensed">'
+							+'<tr><th>공연제목</th><td><input type="text" value="캣츠"></td><td></td></tr>'
+							+'<tr><th>공연지역</th><td><input type="text" value="서울남부"></td><td></td></tr>'
+							+'<tr><th>공연장</th><td><input type="text" value="예술의전당"></td><td></td></tr>'
+							+'<tr><th>날짜</th><td>시작:<input type="date"></td><td>종료<input type="date"></td></tr>'
+							+'<tr id="roundMain"><th>회차1</th><td>13:30</td><td><button class="btn btn-default">추가</button></td></tr>'
+							+'<tr><th>회차2</th><td>18:00</td><td><button class="btn btn-default">삭제</button></td></tr>'
+							+'<tr><th>좌석(가로x세로)</th><td>15x20</td><td></td></tr>'
+							+'<tr><th>등급1</th><td><input type="text" value="vip" placeholder="등급이름"/></td><td><input type="number" min="0" value="150000" placeholder="금액"/></td></tr>'
+							+'<tr><th>등급2</th><td><input type="text" value="a" placeholder="등급이름"/></td><td><input type="number" min="0" value="100000" placeholder="금액"/></td></tr>'
+							+'<tr><th>등급3</th><td><input type="text" value="b" placeholder="등급이름"/></td><td><input type="number" min="0" value="65000" placeholder="금액"/></td></tr>'
+							+'</table>'
+							);
+			$(".modal-body").append(contents);
+		});
 	});
 	
 	//전체검색버튼 작동
 	$("#searchAll").click(function(){
 		$("#mainResult").empty();
-		console.log(2);
+		$("#mainResult2").empty();
 	});		
 	
 });
@@ -344,50 +396,19 @@ $(document).ready(function(){
 </nav> <!-- 메인 네비바 종료 -->
 <div class="container">
 	<div class="row" >
-
 		<div class="col-md-12" style="background-color:#1a1a1a; height:5rem; padding:1rem;	margin:0.5rem; border:0.1rem #4d4dff solid;">
 			<div>
 				<button type="button" class="btn btn-default btn-sm" id="resist">공연등록</button>
-				<input type="text" id="search" placeholder="공연명 작성"></input>
+				<input type="text" id="perName" placeholder="공연명 작성"></input>
 				<button type="button" class="btn btn-default btn-sm" id="search">공연검색</button>
 				<button type="button" class="btn btn-default btn-sm" id="searchAll">공연전체</button>
 			</div>				
-		</div>
-		
-		<div class="col-md-12" id="mainResult"></div><!-- 공연등록시 메뉴 나타날 창-->
-	    	
-	</div>
-	<hr style="border: solid 0.1rem;">
-
-	<div class="row">
-		<div class="col-sm-8">
-			<div class="layout" id="shell"></div>
-		</div>
-		<div class="col-sm-4" style="background-color:#1a1a1a; height:60rem; border:0.1rem solid #ff8000; color:white">
-			<h5>좌석 등급은 최대 4개까지 선택 가능합니다.</h5>
-			<div>
-				<span>좌석 등급 갯수:</span>
-				<select id="sel">
-					<option value="1">좌석등급 1개</option>
-					<option value="2">좌석등급 2개</option>
-					<option value="3">좌석등급 3개</option>
-					<option value="4">좌석등급 4개</option>
-				</select>
-			</div>
-			<hr style="border:0.1rem solid #ff8000;">
-			<div>
-				<h3>공연 좌석 등록</h3>
-				<p>좌석 등급 이름은 대소문자를 구분하지 않습니다.</p>
-				<div id="grades"></div>
-			</div>
-			<hr style="border:0.1rem solid #ff8000;">
-			<div>
-				<h3>공연 좌석 등급별 가격</h3>
-				<div id="resultPrice"></div>
-			</div>	   
-		</div>
+		</div>	
 	</div>
 
+	<div class="row" id="mainResult"></div><!-- 공연등록시 메뉴 나타날 창-->
+	<div class="row" id="mainResult2"></div><!-- 공연등록시 메뉴 나타날 창2-->			
+	
 </div>
 <!-- modal창 시작 -->
 	<div id="myModal" class="modal fade" role="dialog">
@@ -396,13 +417,11 @@ $(document).ready(function(){
 	    <div class="modal-content">
 	      <div class="modal-header"style="text-align:center;">
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title">공연등록</h4>
 	      </div>
 	      <div class="modal-body">
-	        <p></p>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal" id="complete">등록완료</button>
+	        <button type="button" class="btn btn-default" data-dismiss="modal" id="complete">완료</button>
 			<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel">취소</button>
 	      </div>
 	    </div><!--modal내용 종료 -->
