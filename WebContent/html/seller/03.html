@@ -327,37 +327,36 @@ $(document).ready(function(){
 
 	});/*메뉴 버튼: 공연등록 종료*/
 
+	var searchTable1 = '<thead><tr><th>공연</th><th>지역</th><th>공연장</th><th>날짜</th><th>회차1</th><th>회차2</th><th>좌석(가로x세로)</th>'
+							+'<th>등급1</th><th>등급2</th><th>등급3</th><th>변경</th><tr></thead>'
+							+'<tbody><tr><td>캣츠</td><td>서울남부</td><td>예술의전당</td><td>2016.01.01~2016.02.02</td><td>13:30</td><td>18:00</td><td>15x20</td>'
+							+'<td>vip:150000</td><td>a:100000</td><td>b:65000</td><td><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" id="modSearch1">수정</button></td></tr>'
+							;						
+	var searchTable2 = '<tr><td>삼총사</td><td>서울남부</td><td>예술의전당</td><td>2016.02.03~2016.03.02</td><td>13:30</td><td>18:00</td><td>15x20</td>'
+							+'<td>vip:150000</td><td>a:100000</td><td>b:65000</td><td><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" id="modSearch2">수정</button></td></tr>'
+							;								
+	var modalContents = $('<table class="table table-condensed">'
+								+'<tr><th>공연제목</th><td><input type="text" value="캣츠"></td><td></td></tr>'
+								+'<tr><th>공연지역</th><td><input type="text" value="서울남부"></td><td></td></tr>'
+								+'<tr><th>공연장</th><td><input type="text" value="예술의전당"></td><td></td></tr>'
+								+'<tr><th>날짜</th><td>시작:<input type="date"></td><td>종료<input type="date"></td></tr>'
+								+'<tr id="roundMain"><th>회차1</th><td>13:30</td><td><button class="btn btn-default">추가</button></td></tr>'
+								+'<tr><th>회차2</th><td>18:00</td><td><button class="btn btn-default">삭제</button></td></tr>'
+								+'<tr><th>좌석(가로x세로)</th><td>15x20</td><td></td></tr>'
+								+'<tr><th>등급1</th><td><input type="text" value="vip" placeholder="등급이름"/></td><td><input type="number" min="0" value="150000" placeholder="금액"/></td></tr>'
+								+'<tr><th>등급2</th><td><input type="text" value="a" placeholder="등급이름"/></td><td><input type="number" min="0" value="100000" placeholder="금액"/></td></tr>'
+								+'<tr><th>등급3</th><td><input type="text" value="b" placeholder="등급이름"/></td><td><input type="number" min="0" value="65000" placeholder="금액"/></td></tr>'
+								+'</table>'
+								);
 	//검색버튼 작동
 	$("#search").click(function(){
 		$("#mainResult").empty();
-		$("#mainResult2").empty();
+		$("#mainResult2").empty();	
+	    $("#mainResult").append('<table class="table table-striped" id="serchTable" style="background-color:white;">'+searchTable1+'</tbody></table>');
 
-		var searchTable = $('<table class="table table-striped" id="serchTable">'
-							+'<tr><th>공연</th><th>지역</th><th>공연장</th><th>날짜</th><th>회차1</th><th>회차2</th><th>좌석(가로x세로)</th>'
-							+'<th>등급1</th><th>등급2</th><th>등급3</th><th>변경</th><tr>'
-							+'<tr><td>캣츠</td><td>서울남부</td><td>예술의전당</td><td>2016.01.01~2016.02.02</td><td>13:30</td><td>18:00</td><td>15x20</td>'
-							+'<td>vip:150000</td><td>a:100000</td><td>b:65000</td><td><button type="button" class="btn btn-default btn-sm" id="modSearch">수정</button></td></tr>'
-							+'</table>'
-							);
-
-	   $("#mainResult").append(searchTable);
-
-	   $("#modSearch").click(function(){
-			$(".modal-body").empty();
-			var contents = $('<table class="table table-condensed">'
-							+'<tr><th>공연제목</th><td><input type="text" value="캣츠"></td><td></td></tr>'
-							+'<tr><th>공연지역</th><td><input type="text" value="서울남부"></td><td></td></tr>'
-							+'<tr><th>공연장</th><td><input type="text" value="예술의전당"></td><td></td></tr>'
-							+'<tr><th>날짜</th><td>시작:<input type="date"></td><td>종료<input type="date"></td></tr>'
-							+'<tr id="roundMain"><th>회차1</th><td>13:30</td><td><button class="btn btn-default">추가</button></td></tr>'
-							+'<tr><th>회차2</th><td>18:00</td><td><button class="btn btn-default">삭제</button></td></tr>'
-							+'<tr><th>좌석(가로x세로)</th><td>15x20</td><td></td></tr>'
-							+'<tr><th>등급1</th><td><input type="text" value="vip" placeholder="등급이름"/></td><td><input type="number" min="0" value="150000" placeholder="금액"/></td></tr>'
-							+'<tr><th>등급2</th><td><input type="text" value="a" placeholder="등급이름"/></td><td><input type="number" min="0" value="100000" placeholder="금액"/></td></tr>'
-							+'<tr><th>등급3</th><td><input type="text" value="b" placeholder="등급이름"/></td><td><input type="number" min="0" value="65000" placeholder="금액"/></td></tr>'
-							+'</table>'
-							);
-			$(".modal-body").append(contents);
+		$("#modSearch1").click(function(){
+				$(".modal-body").empty();			
+				$(".modal-body").append(modalContents);
 		});
 	});
 	
@@ -365,6 +364,17 @@ $(document).ready(function(){
 	$("#searchAll").click(function(){
 		$("#mainResult").empty();
 		$("#mainResult2").empty();
+		$("#mainResult2").append('<table class="table" id="serchTable" style="background-color:white;">'+searchTable1+searchTable2+'</tbody></table>');
+
+		$("#modSearch1").click(function(){
+				$(".modal-body").empty();			
+				$(".modal-body").append(modalContents);
+		});
+		$("#modSearch2").click(function(){
+				$(".modal-body").empty();			
+				$(".modal-body").append(modalContents);
+		});
+
 	});		
 	
 });
