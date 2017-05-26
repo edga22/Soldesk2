@@ -37,9 +37,6 @@ background-size: 100%;
 	text-align:center;
 	width:20rem;
 }
-#table{
-	blackground-color:gray;
-}
 #buttons{
 	text-align:center;
 }
@@ -77,8 +74,8 @@ $(document).ready(function(){
 		 });
 
       if(result){
-    	  $("#table2 > tbody").append('<tr><td>공연장명: </td><td>'+hallname+'</td></tr>');
-		  $("#table2 > tbody").append('<tr><td>상영관명: </td><td>'+TheaterName+'</td></tr>');
+    	  $("#table2").append('<tr><td>공연장명: </td><td>'+hallname+'</td></tr>');
+		  $("#table2").append('<tr><td>상영관명: </td><td>'+TheaterName+'</td></tr>');
 		  $("#table2").append('<tr><td>좌석수(가로): </td><td>'+SeatColName+'</td></tr>');
 		  $("#table2").append('<tr><td>좌석수(세로): </td><td>'+SeatRowName+'</td></tr>');
 		  $("#table2").append('<tr><td>우편번호: </td><td>'+PostName+'</td></tr>');
@@ -89,8 +86,31 @@ $(document).ready(function(){
     	   alert("취소되었습니다.");
 		   return false;
       }
-    });
+	
+	});
+	  //공연장 검색 버튼클릭시 나타남	
+	  $("#menu2").click(function(){
+		  $("#stable").toggle();
+		var moiveinfo = $('<thead>'+'<tr><th>상영관명</th><th>공연장</th><th>공연명</th></tr></thead><tbody><tr><td>세종문화회관</td><td>A1</td><td>대부</td>'
+								   +'</tr><tr><td>국립극장</td><td>B1</td><td>캣츠</td></tr><tr><td>동숭아트홀</td><td>C1</td><td>점프</td></tr></tbody>');
+		$('#stable').empty();
+		$('#stable').append(moiveinfo);
+		$("#stable").css({
+				"height":"30rem",
+				"border":"0.1rem",
+				"background-color":"white",
+				"margin":"0.5rem"
+			});
+
+	  });
+	  //공연장 등록 버튼클릭시 나타남
+	  $("#resistForm").hide();
+	  $("#menu1").click(function(){
+		  $("#resistForm").toggle();
+	  });
+	  
 });
+
 		  
 </script>
 
@@ -130,11 +150,23 @@ $(document).ready(function(){
 				 <button type="button" id="menu2">공연장 검색</button>
 				 <button type="button" id="menu2">공연장 전체검색</button>
 				</ul>
-			<div>
+			</div>
 		</div>
-		<div class="col-sm-3"></div>
-		<div class="col-sm-6" id="resistForm">
-			<table id="table">
+				<div class="row">
+					<div class="col-sm-12" id="searchtable">
+						<table class="table table-bordered" id="tablelist">
+						</table>
+					</div>
+				</div>		
+			<div class="row">
+				<div class="col-sm-12" id="searchtable">
+					<table class="table table-bordered" id="stable">
+					</table>
+				</div>
+			</div>
+		<div class="row">
+			<div class="col-sm-12" id="resistForm">
+			<table class="table table-bordered">
 				<tr>
 					<th>공연장명</th><td><input type="text" class="table1" name="hallName"/></td>
 				</tr>
@@ -162,38 +194,30 @@ $(document).ready(function(){
 					<th>공연장 전화번호</th><td><input type="number" class="table1" name="hallNumberName" placeholder="(-)하이픈 금지"/></td>
 				</tr>
 			</table>
-			<div id="buttons">
-				<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" id ="button1">등록</button>
 
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content" style="text-align:center;">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">공연장등록</h4>
-      </div>
-      <div class="modal-body">
-        <table id="table2">
-		</table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="complete">등록완료</button>
-		<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel">취소</button>
-      </div>
-    </div>
-
-  </div>
-</div>
 			
+			<div id="buttons">
+				<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal" id ="button1">등록</button>
+					<div id="myModal" class="modal fade" role="dialog">
+  						<div class="modal-dialog">
+   							<div class="modal-content" style="text-align:center;">
+   								<div class="modal-header">
+        							<button type="button" class="close" data-dismiss="modal">&times;</button>
+        								<h4 class="modal-title">공연장등록</h4>
+    							</div>
+								<div class="modal-body">
+										<table id="table2">
+										</table>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal" id="complete">등록완료</button>
+									<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel">취소</button>
+								</div>
+        			      </div>
+ 					 </div>
+				 </div>
 			</div>
 		</div>
-		<div class="col-sm-3"></div>
-	
-	</div>
-</div>
-	
+	</div>	
 </body>
 </html>

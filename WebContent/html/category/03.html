@@ -1,7 +1,8 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
+<title>티켓박스 메인</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -12,7 +13,6 @@
 <script src="../star/themes/krajee-svg/theme.js"></script>
 <script src="../star/js/locales/kr.js"></script>
 <link rel="stylesheet" type="text/css" href="../login.css">
-<title>영화 정보</title>
 <style type="text/css">
 /* 웹폰트 */
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -20,6 +20,7 @@
  * {
     box-sizing: border-box;
  }
+ 
 body {
     font-family: 'NotoSansKR', 'Nanum Gothic', "Times New Roman", Times, sans-serif;
 }
@@ -77,7 +78,7 @@ body {
     height: 61px;
     position: relative;
     margin: 0 auto;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     z-index: 20;
 }
 .btn_menu_all {
@@ -403,7 +404,7 @@ body {
 </style>
 <script type="text/javascript">
 var booking_popup = function(){
-	var popup_url = "./ticketing/01.html";
+	var popup_url = "../ticketing/01.html";
 	var popup_name = "예매하기";
 	cw=screen.availWidth;     //화면 넓이
 	ch=screen.availHeight;    //화면 높이
@@ -421,7 +422,11 @@ var booking_popup = function(){
 $(document).ready(function(){
 	$("[name='booking_popup'").click(function(){                
 		booking_popup();
-	})
+	});
+	
+	$("#topAdClose").click(function(){
+        $("#topHeadAd").hide();
+    });
 });
 function ImgError(source){
     source.src = "../img/noImg.png";
@@ -449,51 +454,383 @@ function ImgError(source){
 					    </a>
 					</div>
 					<div class="col-sm-9">
-					<div class="btn-group btn-group-justified" id="nav">
-						<a href="01.html" class="btn btn-default btn-lg">뮤지컬</a> 
-						<a href="01.html" class="btn btn-default btn-lg">콘서트</a> 
-						<a href="01.html" class="btn btn-default btn-lg">연극</a>
-						<a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#login-modal">로그인</a> 
-					</div>
+						<div class="btn-group btn-group-justified" id="nav">
+							<a href="./01.html" class="btn btn-default btn-lg">뮤지컬</a> 
+							<a href="./02.html" class="btn btn-default btn-lg">콘서트</a> 
+							<a href="./03.html" class="btn btn-default btn-lg">연극</a>
+							<div class="btn-group">
+								<a href="./01.html" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown">로그인</a>
+								<!-- 로그인 드롭다운창 -->
+								<ul class="dropdown-menu" role="menu" style="top:48px;left:-130px;margin:0;padding:0;">
+									<li>
+										<div class="loginmodal-container" style="margin:0;">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h1>로그인</h1><br>
+											<form action="main2.html">
+												<input type="text" name="#" placeholder="아이디">
+												<input type="password" name="#" placeholder="비밀번호">
+												<input type="submit" name="#" class="login loginmodal-submit" value="로그인">
+											</form>
+												
+											<div class="login-help">
+												<a href="../sign/01.html">회원가입</a> - <a href="../finidpw/01.html">비밀번호를 잊어버리셨나요?</a>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>  
+						</div>
 					</div>
 				</div>
 			</div>
 		</div> 
 	</div>
-			<div class="col-xs-12 col-xs-offset-3" style="margin-top:50px">
-				<form class="form-inline form-group-lg" id="searchlist" role="search" action="#">
-					<select class="form-control" id="sel" name="search">
-						<option value="all">통합검색</option>
-						<option value="date">날짜별</option>
-						<option value="cate">장르별</option>
-						<option value="local">지역벌</option>
-					</select>
-					<input type="text" class="form-control" id="search" name="searchDetail"/>
-					<button type="submit" id="search-btn" class="btn btn-default btn-lg">검색</button>
-					<a href="#"><button type="button" class="btn btn-default btn-lg" id="rank">순위별</button></a>
-				</form>
+	<div class="row" style="background-color: #fff;"> 
+        <div class="container">
+			<div class="header-btn-wrap">
+				<button type="button" class="btn_menu_all"><i class="fa fa-bars"></i>전체메뉴</button>
+				<div class="btn_social">
+				    <a class="film_society" href="#" title="지역 바로가기">지역</a>
+				    <i class="split"></i>
+				    <a class="classic_society" href="#" title="공연장 바로가기">공연장</a>
+				</div>
+				<div class="btn_theater">
+				    <span class="membership_link">
+				        <a class="membership_txt" title="로그인 바로가기" href="#">회원가입</a>
+				    </span>
+				    <button type="button" class="btn btn-default btn-xs" name="booking_popup">빠른예매</button>
+				</div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- 공연들 -->
+	<div class="container" id="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>연극</h2>
 			</div>
-	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-		<div class="modal-dialog">
-			<div class="loginmodal-container">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h1>로그인</h1><br>
-				<form action="main2.html">
-					<input type="text" name="#" placeholder="아이디">
-					<input type="password" name="#" placeholder="비밀번호">
-					<input type="submit" name="#" class="login loginmodal-submit" value="로그인">
-				</form>
-					
-				<div class="login-help">
-					<a href="./sign/01.html">회원가입</a> - <a href="./finidpw/01.html">비밀번호를 잊어버리셨나요?</a>
+		</div>
+		<div class="row">
+			<div class="col-md-12 frameDiv">
+				<div class="frame">
+					<div id="frame1">
+						<div class="card">
+							<img src="./img/에어리언.jpg" onerror="ImgError(this)" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/에어리언.jpg" onerror="ImgError(this)" />
+							<article id="movieInfo">
+								<input id="input-id" type="text" class="rating" data-size="xs" >
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본공연
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.25 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 공연 1
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame2">
+						<div class="card">
+							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
+							<article id="movieInfo">
+								<input id="input-id" type="text" class="rating" data-size="xs" >
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본공연
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.25 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 공연 2
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame3">
+						<div class="card">
+							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
+							<article id="movieInfo">
+								<input id="input-id" type="text" class="rating" data-size="xs" >
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본공연
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.25 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 공연 3
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame4">
+						<div class="card">
+							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
+							<article id="movieInfo">
+								<input id="input-id" type="text" class="rating" data-size="xs" >
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본공연
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.25 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 공연 4
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame5">
+						<div class="card">
+							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
+							<article id="movieInfo">
+								<input id="input-id" type="text" class="rating" data-size="xs" >
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본공연
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.25 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 공연 5
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-		  
-	<div class="container" id="container">
 		<div class="row">
-			<div class="col-md-12 frameDiv" style="margin-top:30px">
+			<div class="col-md-12 frameDiv">
+				<div class="frame">
+					<div id="frame1">
+						<div class="card">
+							<img src="./img/에어리언.jpg" onerror="ImgError(this)" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/에어리언.jpg" onerror="ImgError(this)" />
+							<article id="movieInfo">
+								<input id="input-id" type="text" class="rating" data-size="xs" >
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본공연
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.25 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 공연 1
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame2">
+						<div class="card">
+							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
+							<article id="movieInfo">
+								<input id="input-id" type="text" class="rating" data-size="xs" >
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본공연
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.25 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 공연 2
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame3">
+						<div class="card">
+							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
+							<article id="movieInfo">
+								<input id="input-id" type="text" class="rating" data-size="xs" >
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본공연
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.25 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 공연 3
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame4">
+						<div class="card">
+							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
+							<article id="movieInfo">
+								<input id="input-id" type="text" class="rating" data-size="xs" >
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본공연
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.25 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 공연 4
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+				<div class="frame">
+					<div id="frame5">
+						<div class="card">
+							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
+						</div>
+						<div class="card back">
+							<img class="backPost" src="../img/titanic.jpg" onerror="ImgError(this)">
+							<article id="movieInfo">
+								<input id="input-id" type="text" class="rating" data-size="xs" >
+								<div class="moveInfoBtn">
+									<div class="moveInfoBtn1">
+										<span class="glyphicon glyphicon-ok"></span><br> 본공연
+									</div>
+									<div class="moveInfoBtn2">
+										<span class="glyphicon glyphicon-heart"></span><br> 보고싶어요
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div class="movieInfo2">
+						2017.05.25 <span class="dDay">D-1</span>
+					</div>
+					<div class="movieInfo3">
+						<p>
+							<span class="age">12</span> 공연 5
+						</p>
+						<div class="movieInfo3Btn">상세정보</div>
+						<div class="movieInfo3Btn">예매하기</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 frameDiv">
 				<div class="frame">
 					<div id="frame1">
 						<div class="card">
@@ -652,18 +989,8 @@ function ImgError(source){
 			</div>
 		</div>
 	</div>
-	<div class="row">
-	<ul class="pagination pagination-lg" style="margin-left:35%">
-     	<li><a href="#">◀</a></li>
-       	<li><a href="#">1</a></li>
-       	<li><a href="#">2</a></li>
-       	<li><a href="#">3</a></li>
-       	<li><a href="#">4</a></li>
-       	<li><a href="#">5</a></li>
-       	<li><a href="#">▶</a></li>
-    </ul>
-    </div>
-<div class="container-fluid" id="footer">
+	
+	<div class="container-fluid" id="footer">
         <div class="row">
             <div class="container">
 	            <div id="footerDiv" class="col-sm-2">
@@ -685,7 +1012,7 @@ function ImgError(source){
         <div class="row">
             <div class="container">
                 <div class="col-sm-4">
-					<a href="../main.html" class="btn btn-link">
+					<a href="#" class="btn btn-link">
 						<span class="topLogo">T</span>
 						<span class="topLogo">I</span>
 						<span class="topLogo">C</span>
@@ -721,7 +1048,7 @@ function ImgError(source){
 	<script>
 	$(function() {
 	    $(window).scroll(function() {
-	        if ($(this).scrollTop() > 500) {
+	        if ($(this).scrollTop() > 200) {
 	            $('#MOVE_TOP_BTN').fadeIn();
 	        } else {
 	            $('#MOVE_TOP_BTN').fadeOut();
@@ -731,20 +1058,12 @@ function ImgError(source){
 	    $("#MOVE_TOP_BTN").click(function() {
 	        $('html, body').animate({
 	            scrollTop : 0
-	        }, 400);
+	        }, 100);
 	        return false;
 	    });
 	    
 	    $("#input-id").rating({'size':'xs'});
 	});
 	</script>
-    <script>
-	$(document).ready(function(){
-	   
-	    $("#topAdClose").click(function(){
-	        $("#topHeadAd").hide();
-	    }); 
-	});
-    </script>
 </body>
 </html>

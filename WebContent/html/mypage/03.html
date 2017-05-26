@@ -4,9 +4,14 @@
 <title>마이페이지</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="../star/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../star/js/star-rating.js" type="text/javascript"></script>
+<link href="../star/themes/krajee-svg/theme.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../star/themes/krajee-svg/theme.js"></script>
+<script src="../star/js/locales/kr.js"></script>
 <style type="text/css">
 /* 웹폰트 */
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -401,6 +406,15 @@ body {
 	margin-bottom:1rem;
 	text-decoration:none;
 }
+/*모달창에 쓰이는 style*/
+#poster-img{
+	float: left;
+	height: 20rem;
+	margin-right: 5rem;
+}
+.clear{
+	clear: both;
+}
 </style>
 <script type="text/javascript">
 function ImgError(source){
@@ -408,7 +422,10 @@ function ImgError(source){
     source.onerror = "";
     return true;
 }
-$(function() { $("#postcodify_search_button").postcodifyPopUp(); });
+$(function() { 
+	$("#postcodify_search_button").postcodifyPopUp(); 
+	$("#input-id").rating({'size':'xs'});
+	});
 </script>
 </head>
 <body>
@@ -493,11 +510,11 @@ $(function() { $("#postcodify_search_button").postcodifyPopUp(); });
         <td>1</td>
         <td>A00001</td>
         <td>
-        	<a href="#">시카고</a>
+        	<a href="#"><뮤지컬> 시카고</a>
         </td>
         <td>삼성전자 블루스퀘어 홀</td>
-        <td>17.06.30</td>
         <td>17.05.31</td>
+        <td>17.05.15</td>
         <td>
         	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">작성</button>
         </td>
@@ -513,14 +530,20 @@ $(function() { $("#postcodify_search_button").postcodifyPopUp(); });
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">후기 작성</h4>
+          <h3 class="modal-title">후기 작성</h3>
         </div>
         <div class="modal-body">
-          <p><img src="../img/musical/chicago.gif"/></p>
-          <form>
+          <p><img src="../img/musical/chicago.gif" id="poster-img"/></p>
+          <h3><뮤지컬> 시카고</h3>
+          <div>
+          <p style="font-size:1.5rem;">삼성전자 블루스퀘어 홀</p>
+          <p style="font-size:1.5rem;">17.05.31</p>
+          </div>
+          <form action="#" class="clear">
           <div class="form-group">
-            <label for="message-text" class="form-control-label">작성:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+          	<label for="message-text" class="form-control-label">평점:</label>
+          	<input id="input-id" type="text" class="rating" data-size="xs" >
+            <textarea class="form-control" rows="5" id="message-text"></textarea>
           </div>
         </form>
         </div>

@@ -20,6 +20,7 @@
  * {
     box-sizing: border-box;
  }
+ 
 body {
     font-family: 'NotoSansKR', 'Nanum Gothic', "Times New Roman", Times, sans-serif;
 }
@@ -59,7 +60,7 @@ body {
     display:inline-block; 
     width:2.6rem;
     padding:0.3rem;
-    margin:0 -0.1rem;
+    margin:0 -0.09rem;
     color: #fff;
     font-size:2rem;
     font-weight:bold;
@@ -67,7 +68,7 @@ body {
     background-color: #555;
 }
 
-#nav a:HOVER{
+.topLogoDiv a span:HOVER {
 	text-decoration: none;
 }
 
@@ -77,28 +78,27 @@ body {
     height: 61px;
     position: relative;
     margin: 0 auto;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     z-index: 20;
 }
 .btn_menu_all {
-    margin-top: 24px;
-    background-color: rgba(0,0,0,0.6);
-    border: 1px solid rgba(255,255,255,0.6);
-    color: rgba(255,255,255,0.75);
-    font-size: 12px;
-    width: 82px;
-    height: 30px;
-    letter-spacing: -0.5px;
+    margin-top: 18px;
+    height: 32px;
+    width: 98px;
+    font-size: 14px;
+    background-position: 0 0;
+    vertical-align: middle;
 }
 .btn_social {
     position: absolute;
-    top: 28px;
-    left: 102px;
+    top: 23px;
+    left: 117px;
 }
 .btn_social a.film_society, .btn_social a.classic_society {
     font-weight: bold;
     font-size: 14px;
-    color: #555;
+    color: #fff;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     line-height: 13px;
 }
 .btn_social a {
@@ -122,7 +122,8 @@ body {
 .btn_theater .membership_link .membership_txt {
     font-weight: bold;
     font-size: 14px;
-    color: #555;
+    color: #fff;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     line-height: 13px;
 }
 .btn_theater .membership_link>* {
@@ -138,9 +139,7 @@ body {
     float: left;
     height: 32px;
     width: 113px;
-    font-weight: bold;
     font-size: 14px;
-    color: #000;
     background-position: 0 0;
     vertical-align: middle;
 }
@@ -157,7 +156,7 @@ body {
 
 /* 메인 슬라이드 */
 #myCarousel {
-    margin-top:-8.7rem;
+    margin-top:-7.6rem;
 }
 
 /* 공연 포스트 */
@@ -176,7 +175,7 @@ body {
 	border: 1px solid #888;
 }
 
-#frame1 {
+.frame1 {
 	position: relative;
 	transform-style: preserve-3d;
 	transition: all 0.7s linear;
@@ -185,59 +184,7 @@ body {
 	perspactive: 300px;
 }
 
-#frame2 {
-	position: relative;
-	transform-style: preserve-3d;
-	transition: all 0.7s linear;
-	width: 100%;
-	height: 300px;
-	perspactive: 300px;
-}
-
-#frame3 {
-	position: relative;
-	transform-style: preserve-3d;
-	transition: all 0.7s linear;
-	width: 100%;
-	height: 300px;
-	perspactive: 300px;
-}
-
-#frame4 {
-	position: relative;
-	transform-style: preserve-3d;
-	transition: all 0.7s linear;
-	width: 100%;
-	height: 300px;
-	perspactive: 300px;
-}
-
-#frame5 {
-	position: relative;
-	transform-style: preserve-3d;
-	transition: all 0.7s linear;
-	width: 100%;
-	height: 300px;
-	perspactive: 300px;
-}
-
-#frame1:hover {
-	transform: rotateY(180deg);
-}
-
-#frame2:hover {
-	transform: rotateY(180deg);
-}
-
-#frame3:hover {
-	transform: rotateY(180deg);
-}
-
-#frame4:hover {
-	transform: rotateY(180deg);
-}
-
-#frame5:hover {
+.frame1:hover {
 	transform: rotateY(180deg);
 }
 
@@ -421,7 +368,11 @@ var booking_popup = function(){
 $(document).ready(function(){
 	$("[name='booking_popup'").click(function(){                
 		booking_popup();
-	})
+	});
+	
+	$("#topAdClose").click(function(){
+        $("#topHeadAd").hide();
+    });
 });
 function ImgError(source){
     source.src = "../img/noImg.png";
@@ -445,8 +396,8 @@ function ImgError(source){
 		<div class="row" id="top-btn-wrap"> 
 		    <div class="container">
 				<div class="row">
-				    <div class="col-sm-3 topLogoDiv]">
-					    <a href="#" class="btn btn-link" style="width:10%;">
+				    <div class="col-sm-3 topLogoDiv">
+					    <a href="#" class="btn">
 					    <span class="topLogo">T</span>
 					    <span class="topLogo">I</span>
 					    <span class="topLogo">C</span>
@@ -459,12 +410,32 @@ function ImgError(source){
 					    </a>
 					</div>
 					<div class="col-sm-9">
-					<div class="btn-group btn-group-justified" id="nav">
-						<a href="#" class="btn btn-default btn-lg">뮤지컬</a> 
-						<a href="#" class="btn btn-default btn-lg">콘서트</a> 
-						<a href="#" class="btn btn-default btn-lg">연극</a>
-						<a href="#" class="btn btn-default btn-lg" data-toggle="modal" data-target="#login-modal">로그인</a> 
-					</div>
+						<div class="btn-group btn-group-justified" id="nav">
+							<a href="./category/01.html" class="btn btn-default btn-lg">뮤지컬</a> 
+							<a href="./category/02.html" class="btn btn-default btn-lg">콘서트</a> 
+							<a href="./category/03.html" class="btn btn-default btn-lg">연극</a>
+							<div class="btn-group">
+								<a class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown">로그인</a>
+								<!-- 로그인 드롭다운창 -->
+								<ul class="dropdown-menu" role="menu" style="top:48px;left:-130px;margin:0;padding:0;">
+									<li>
+										<div class="loginmodal-container" style="margin:0;">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h1>로그인</h1><br>
+											<form action="main2.html">
+												<input type="text" name="#" placeholder="아이디">
+												<input type="password" name="#" placeholder="비밀번호">
+												<input type="submit" name="#" class="login loginmodal-submit" value="로그인">
+											</form>
+												
+											<div class="login-help">
+												<a href="./sign/01.html">회원가입</a> - <a href="./finidpw/01.html">비밀번호를 잊어버리셨나요?</a>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>  
+						</div>
 					</div>
 				</div>
 			</div>
@@ -473,7 +444,7 @@ function ImgError(source){
 	<div class="row" style="background-color: #fff;"> 
         <div class="container">
 			<div class="header-btn-wrap">
-				<button type="button" class="btn_menu_all"><i class="fa fa-bars"></i>전체메뉴</button>
+				<button type="button" class="btn btn-info btn-xs btn_menu_all"><i class="glyphicon glyphicon-menu-hamburger"></i> 전체메뉴</button>
 				<div class="btn_social">
 				    <a class="film_society" href="#" title="지역 바로가기">지역</a>
 				    <i class="split"></i>
@@ -481,13 +452,14 @@ function ImgError(source){
 				</div>
 				<div class="btn_theater">
 				    <span class="membership_link">
-				        <a class="membership_txt" title="로그인 바로가기" href="#">회원가입</a>
+				        <a class="membership_txt" title="회원가입 바로가기" href="./sign/01.html">회원가입</a>
 				    </span>
-				    <button type="button" class="btn btn-default btn-xs" name="booking_popup">빠른예매</button>
+				    <button type="button" class="btn btn-info btn-xs" name="booking_popup">빠른예매</button>
 				</div>
             </div>
         </div>
     </div>
+    
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
@@ -535,31 +507,12 @@ function ImgError(source){
             </div>
         </div>
     </div>
-	
-	<!-- 로그인 모달창 -->
-	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-		<div class="modal-dialog">
-			<div class="loginmodal-container">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h1>로그인</h1><br>
-				<form action="main2.html">
-					<input type="text" name="#" placeholder="아이디">
-					<input type="password" name="#" placeholder="비밀번호">
-					<input type="submit" name="#" class="login loginmodal-submit" value="로그인">
-				</form>
-					
-				<div class="login-help">
-					<a href="./sign/01.html">회원가입</a> - <a href="./finidpw/01.html">비밀번호를 잊어버리셨나요?</a>
-				</div>
-			</div>
-		</div>
-	</div>
 		  
 	<div class="container" id="container">
 		<div class="row">
 			<div class="col-md-12 frameDiv">
 				<div class="frame">
-					<div id="frame1">
+					<div class="frame1">
 						<div class="card">
 							<img src="./img/에어리언.jpg" onerror="ImgError(this)" />
 						</div>
@@ -590,7 +543,7 @@ function ImgError(source){
 					</div>
 				</div>
 				<div class="frame">
-					<div id="frame2">
+					<div class="frame1">
 						<div class="card">
 							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
 						</div>
@@ -621,7 +574,7 @@ function ImgError(source){
 					</div>
 				</div>
 				<div class="frame">
-					<div id="frame3">
+					<div class="frame1">
 						<div class="card">
 							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
 						</div>
@@ -652,7 +605,7 @@ function ImgError(source){
 					</div>
 				</div>
 				<div class="frame">
-					<div id="frame4">
+					<div class="frame1">
 						<div class="card">
 							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
 						</div>
@@ -683,7 +636,7 @@ function ImgError(source){
 					</div>
 				</div>
 				<div class="frame">
-					<div id="frame5">
+					<div class="frame1">
 						<div class="card">
 							<img src="./img/titanic.jpg" onerror="ImgError(this)" />
 						</div>
@@ -774,7 +727,7 @@ function ImgError(source){
 	<script>
 	$(function() {
 	    $(window).scroll(function() {
-	        if ($(this).scrollTop() > 500) {
+	        if ($(this).scrollTop() > 200) {
 	            $('#MOVE_TOP_BTN').fadeIn();
 	        } else {
 	            $('#MOVE_TOP_BTN').fadeOut();
@@ -784,20 +737,12 @@ function ImgError(source){
 	    $("#MOVE_TOP_BTN").click(function() {
 	        $('html, body').animate({
 	            scrollTop : 0
-	        }, 400);
+	        }, 100);
 	        return false;
 	    });
 	    
 	    $("#input-id").rating({'size':'xs'});
 	});
 	</script>
-    <script>
-	$(document).ready(function(){
-	   
-	    $("#topAdClose").click(function(){
-	        $("#topHeadAd").hide();
-	    }); 
-	});
-    </script>
 </body>
 </html>
