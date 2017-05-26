@@ -404,21 +404,39 @@ body {
 		</div> 
 	</div>
 
-<div class="row" style="background-color: #fff;"> 
+<div class="row header-btn-wrap"> 
         <div class="container">
         	<div class="row">
-				<div class="col-sm-3">
+				<div class="col-sm-2">
 					<button type="button" class="btn btn-info btn-xs btn_menu_all"><i class="glyphicon glyphicon-menu-hamburger"></i> 전체메뉴</button>
 					<div class="btn_social">
 					    <a class="film_society" href="#" title="지역 바로가기">지역</a>
-					    <i class="split"></i>
-					    <a class="classic_society" href="#" title="공연장 바로가기">공연장</a>
 					</div>
 				</div>
-				<div class="col-sm-offset-6 col-sm-3">
+				<!-- 검색창 -->
+				<div class="col-sm-6">
+					<div class="header_search text-center">
+						<form class="form-inline form-group-lg" id="searchlist" role="search" action="#">
+							<select class="form-control" id="sel" name="search">
+								<option value="all">통합검색</option>
+								<option value="date">날짜별</option>
+								<option value="cate">장르별</option>
+								<option value="local">지역벌</option>
+							</select>
+							<input type="text" class="form-control" id="search" name="searchDetail"/>
+							<button type="submit" id="search-btn" class="btn btn-default btn-lg">검색</button>
+							<a href="#"><button type="button" class="btn btn-default btn-lg" id="rank">순위별</button></a>
+						</form>
+					</div>
+				</div>
+				<div class="col-sm-4">
 					<div class="btn_theater">
 					    <span class="membership_link">
-					        <a class="membership_txt" title="회원가입 바로가기" href="../sign/01.html">회원가입</a>
+					        <a class="membership_txt" title="회원가입 바로가기" href="../mypage/01.html">마이페이지</a>
+							<i class="split"></i>
+							<a class="membership_txt" title="회원가입 바로가기" href="../seller/01.html">판매자</a>
+							<i class="split"></i>
+							<a class="membership_txt" title="회원가입 바로가기" href="../admin/01.html">관리자</a>
 					    </span>
 					    <button type="button" class="btn btn-info btn-xs" name="booking_popup">빠른예매</button>
 					</div>
