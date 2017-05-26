@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>티켓박스 메인</title>
+<title>티켓박스-뮤지컬</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -58,8 +58,8 @@ body {
 /* 상단로고 */
 .topLogo {
     display:inline-block; 
-    width:2.6rem;
-    padding:0.3rem;
+    width:2.3rem;
+    padding:0.3rem 0.1rem;
     margin:0 -0.09rem;
     color: #fff;
     font-size:2rem;
@@ -166,8 +166,36 @@ body {
     margin: 0 auto;
     margin-bottom: 15px;
     background-color: #f2f2f2; 
-    border-bottom:1px solid #ccc;
+    border-bottom:3px solid #503396;
     z-index: 20;
+}
+.middle-btn-wrap .nav-pills>li.title {
+	height: 47px;
+	color:#503396;
+	font-size:2.3rem;
+	font-weight:bold;
+	background-color:transparent;
+	vertical-align: middle;
+}
+.middle-btn-wrap .nav-justified li a{
+	height: 47px;
+	color:#111;
+	font-size:1.8rem;
+	font-weight:bold;
+	text-align:left;
+	background-color:transparent;
+	vertical-align: middle;
+}
+.middle-btn-wrap .nav-justified li a:hover{
+	color:#503396;
+	background-color:transparent;
+}
+.middle-btn-wrap .nav-pills>li.active>a {
+	height: 47px;
+	color:#503396;
+	font-size:1.9rem;
+	background-color:transparent;
+	vertical-align: middle;
 }
 
 /* 공연 포스트 */
@@ -473,7 +501,14 @@ function ImgError(source){
         <div class="container">
         	<div class="row">
 				<div class="col-sm-12">
-				ggg
+					<ul class="nav nav-pills nav-justified">
+						<li class="title">뮤지컬</li>
+						<li class="active"><a href="#">전체</a></li>
+						<li><a href="#">내한공연</a></li>
+						<li><a href="#">오리지널</a></li>
+						<li><a href="#">라이센스</a></li>
+						<li><a href="#">창작뮤지컬</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -481,11 +516,11 @@ function ImgError(source){
 	
 	<!-- 공연들 -->
 	<div class="container" id="container">
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-md-12">
 				<h2>뮤지컬</h2>
 			</div>
-		</div>
+		</div> -->
 		<div class="row">
 			<div class="col-md-12 frameDiv">
 				<div class="frame">
