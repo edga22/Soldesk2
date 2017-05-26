@@ -409,13 +409,28 @@ function ImgError(source){
     return true;
 }
 </script>
-<script src="/html/zabuto_calendar.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/html/zabuto_calendar.min.css">
+<script src="../zabuto_calendar.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../zabuto_calendar.min.css">
 <script type="application/javascript">
 	var eventData = [
         {"date":"2017-05-17","badge":false,"title":"Example 1"},
         {"date":"2017-05-29","badge":true,"title":"Example 2"}
     ];
+	
+	var booking_popup = function(){
+    	var popup_url = "../ticketing/01.html";
+    	var popup_name = "예매하기";
+    	cw=screen.availWidth;     //화면 넓이
+    	ch=screen.availHeight;    //화면 높이
+
+    	sw=1000;    //띄울 창의 넓이
+    	sh=600;    //띄울 창의 높이
+
+    	ml=(cw-sw)/2;        //가운데 띄우기위한 창의 x위치
+    	mt=(ch-sh)/2-100;         //가운데 띄우기위한 창의 y위치
+    	window.open( popup_url , popup_name, 
+    	'width='+sw+',height='+sh+',top='+mt+',left='+ml+'scrollbars=no, menubar=no, status=no, location=no, resizable=no');
+    }
 	
     $(document).ready(function () {
     	$(".question").click(function(e){
@@ -447,6 +462,10 @@ function ImgError(source){
 	            return myDateFunction(this.id, false);
 	        },
 	    });
+        
+        $("[name='booking_popup'").click(function(){                
+    		booking_popup();
+    	});
 	});
     
     function myDateFunction(id, fromModal) {
@@ -461,6 +480,12 @@ function ImgError(source){
         }
         $("#date-popover-content").html('You clicked on date ' + date);
         $("#date-popover").show();
+        return true;
+    }
+    
+    function ImgError(source){
+        source.src = "../img/noImg.png";
+        source.onerror = "";
         return true;
     }
 </script>
@@ -577,7 +602,7 @@ function ImgError(source){
   				</select>
 			</div> <!-- 셀렉트 박스 -->
 			
-			<button type="button" class="btn btn-primary btn-block">예매하기</button>
+			<button class="btn btn-primary btn-block" name="booking_popup">예매하기</button>
 		</div>
 	</div>
 </div> <!-- 끝 -->
