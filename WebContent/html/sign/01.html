@@ -74,39 +74,38 @@ body {
 .header-btn-wrap {
     width: 100%;
     height: 61px;
-    position: relative;
     margin: 0 auto;
     margin-bottom: 15px;
     z-index: 20;
 }
 .btn_menu_all {
-    margin-top: 24px;
-    background-color: rgba(0,0,0,0.6);
-    border: 1px solid rgba(255,255,255,0.6);
-    color: rgba(255,255,255,0.75);
-    font-size: 12px;
-    width: 82px;
-    height: 30px;
-    letter-spacing: -0.5px;
+    margin-top: 28px;
+    height: 32px;
+    width: 98px;
+    font-size: 14px;
+    background-position: 0 0;
+    vertical-align: middle;
 }
 .btn_social {
     position: absolute;
-    top: 28px;
-    left: 102px;
+    top: 33px;
+    left: 137px;
 }
 .btn_social a.film_society, .btn_social a.classic_society {
     font-weight: bold;
     font-size: 14px;
-    color: #555;
+    color: #000;
     line-height: 13px;
 }
 .btn_social a {
-    height: 13px;
+    height: 23px;
+}
+.header_search{
+	margin-top: 20px;
 }
 .btn_theater {
-    position: absolute;
-    top: 21px;
-    right: 0;
+    float: right;
+    margin-top: 28px;
 }
 .btn_social .split {
     margin: 0 12px;
@@ -121,7 +120,7 @@ body {
 .btn_theater .membership_link .membership_txt {
     font-weight: bold;
     font-size: 14px;
-    color: #555;
+    color: #000;
     line-height: 13px;
 }
 .btn_theater .membership_link>* {
@@ -134,12 +133,10 @@ body {
 }
 .btn_theater button {
     display: block;
-    float: left;
+    float: right;
     height: 32px;
     width: 113px;
-    font-weight: bold;
     font-size: 14px;
-    color: #000;
     background-position: 0 0;
     vertical-align: middle;
 }
@@ -211,7 +208,7 @@ body {
 	position: absolute;
 	margin: auto;
 	width: 100%;
-	top: 70px;
+	top: 100px;
 	color: #eee;
 	font-size: 15px;
 	text-align: center;
@@ -219,7 +216,7 @@ body {
 
 .moveInfoBtn {
 	width: 100%;
-	margin-top: 95px;
+	margin-top: 65px;
 	border-top: 1px solid #888;
 	font-size: 15px;
 }
@@ -347,7 +344,6 @@ body {
     cursor: pointer; 
     display: block;
 }
-
 #inline{
 	margin-top:10px;
 }
@@ -373,9 +369,9 @@ body {
 					</div>
 					<div class="col-sm-9">
 						<div class="btn-group btn-group-justified" id="nav">
-							<a href="./category/01.html" class="btn btn-default btn-lg">뮤지컬</a> 
-							<a href="./category/02.html" class="btn btn-default btn-lg">콘서트</a> 
-							<a href="./category/03.html" class="btn btn-default btn-lg">연극</a>
+							<a href="../category/01.html" class="btn btn-default btn-lg">뮤지컬</a> 
+							<a href="../category/02.html" class="btn btn-default btn-lg">콘서트</a> 
+							<a href="../category/03.html" class="btn btn-default btn-lg">연극</a>
 							<div class="btn-group">
 								<a class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown">로그인</a>
 								<!-- 로그인 드롭다운창 -->
@@ -391,7 +387,7 @@ body {
 											</form>
 												
 											<div class="login-help">
-												<a href="./01.html">회원가입</a> - <a href="../finidpw/01.html">비밀번호를 잊어버리셨나요?</a>
+												<a href="#">회원가입</a> - <a href="../finidpw/01.html">비밀번호를 잊어버리셨나요?</a>
 											</div>
 										</div>
 									</li>
@@ -405,18 +401,22 @@ body {
 	</div>
 	<div class="row" style="background-color: #fff;"> 
         <div class="container">
-			<div class="header-btn-wrap">
-				<button type="button" class="btn_menu_all"><i class="fa fa-bars"></i>전체메뉴</button>
-				<div class="btn_social">
-				    <a class="film_society" href="#" title="지역 바로가기">지역</a>
-				    <i class="split"></i>
-				    <a class="classic_society" href="#" title="공연장 바로가기">공연장</a>
+        	<div class="row">
+				<div class="col-sm-3">
+					<button type="button" class="btn btn-info btn-xs btn_menu_all"><i class="glyphicon glyphicon-menu-hamburger"></i> 전체메뉴</button>
+					<div class="btn_social">
+					    <a class="film_society" href="#" title="지역 바로가기">지역</a>
+					    <i class="split"></i>
+					    <a class="classic_society" href="#" title="공연장 바로가기">공연장</a>
+					</div>
 				</div>
-				<div class="btn_theater">
-				    <span class="membership_link">
-				        <a class="membership_txt" title="회원가입 바로가기" href="./01.html">회원가입</a>
-				    </span>
-				    <button type="button" class="btn btn-default btn-xs" name="booking_popup">빠른예매</button>
+				<div class="col-sm-offset-6 col-sm-3">
+					<div class="btn_theater">
+					    <span class="membership_link">
+					        <a class="membership_txt" title="회원가입 바로가기" href="../sign/01.html">회원가입</a>
+					    </span>
+					    <button type="button" class="btn btn-info btn-xs" name="booking_popup">빠른예매</button>
+					</div>
 				</div>
             </div>
         </div>
