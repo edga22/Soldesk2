@@ -42,6 +42,15 @@ background-size: 100%;
 }
 #table2{
 	text-align:center;
+
+}
+#resistForm {
+	border:none;
+		background: transparent;
+}
+#resistForm th{
+	text-align:center;
+
 }
 </style>
 </head>
@@ -88,25 +97,34 @@ $(document).ready(function(){
       }
 	
 	});
+	  //공연장 전체검색 버튼클릭시 나타남
+	  $("#menu3").click(function(){
+		$("#allsearchtable").show();	
+		  var allinfo ='<thead><tr><th>상영관명</th><th>공연장</th><th>공연명</th></tr></thead><tbody><tr><td>예술의전당</td><td>A1</td><td>맘마미아</td>'
+								   +'</tr><tr><td>세종문화회관</td><td>B1</td><td>캣츠</td></tr><tr><td>동숭아트홀</td><td>C1</td><td>슈렉</td></tr>'
+								   +'<tr><td>솔데스크센터</td><td>D2</td><td>어벤져스</td></tr>'
+								   +'<tr><td>인천문화예술관</td><td>H12</td><td>삼총사</td></tr>';
+		  $("#allsearchtable").empty();
+		  $("#allsearchtable").append('<table class="table table-striped" id="serchTable" style="background-color:white;">'+allinfo+'</tbody></table>');
+		   $('#resistForm').hide();
+		   $('#searchtable').hide();				   
+	  });
 	  //공연장 검색 버튼클릭시 나타남	
 	  $("#menu2").click(function(){
-		  $("#stable").toggle();
-		var moiveinfo = $('<thead>'+'<tr><th>상영관명</th><th>공연장</th><th>공연명</th></tr></thead><tbody><tr><td>세종문화회관</td><td>A1</td><td>대부</td>'
-								   +'</tr><tr><td>국립극장</td><td>B1</td><td>캣츠</td></tr><tr><td>동숭아트홀</td><td>C1</td><td>점프</td></tr></tbody>');
-		$('#stable').empty();
-		$('#stable').append(moiveinfo);
-		$("#stable").css({
-				"height":"30rem",
-				"border":"0.1rem",
-				"background-color":"white",
-				"margin":"0.5rem"
-			});
-
+		$("#resistForm").hide();
+		 $('#allsearchtable').hide();
+		 $("#searchtable").show();
+		var moiveinfo = '<thead><tr><th>상영관명</th><th>공연장</th><th>공연명</th></tr></thead><tbody><tr><td>세종문화회관</td><td>A1</td><td>대부</td>';
+		$('#searchtable').empty();
+		$('#searchtable').append('<table class="table table-striped" id="serchTable" style="background-color:white;">'+moiveinfo+'</tbody></table>');
+		 
 	  });
 	  //공연장 등록 버튼클릭시 나타남
 	  $("#resistForm").hide();
 	  $("#menu1").click(function(){
-		  $("#resistForm").toggle();
+		  $("#resistForm").show();
+		  $('#searchtable').hide();
+		  $('#allsearchtable').hide();
 	  });
 	  
 });
@@ -126,7 +144,7 @@ $(document).ready(function(){
        	   </button>
 			<a class="navbar-brand" href="01.html">공연 티켓 판매자</a>
 		</div>
-		<div id="navbar" class="navbar-collapse collapse"> <!-- nav 내용 시작 -->
+		<div id="navbar" class="navbar-collapse collapse" > <!-- nav 내용 시작 -->
 			<ul class="nav navbar-nav">
                 <li><a href="02.html">공연장관리</a></li>
                 <li><a href="03.html">공연관리</a></li>
@@ -142,31 +160,22 @@ $(document).ready(function(){
 <!-- 데이터 입력칸 -->
 <div class="container">
 	<div class="row">
-		<div class="col-sm-12">
+		<div class="col-sm-12" style="background-color:#1a1a1a; height:5rem; padding:1rem;	margin:0.5rem; border:0.1rem #4d4dff solid;" >
 			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-                 <button type="button" id="menu1">공연장 등록</button>
-				 <input type="text" id="search"></input>
-				 <button type="button" id="menu2">공연장 검색</button>
-				 <button type="button" id="menu2">공연장 전체검색</button>
-				</ul>
+                 <button type="button" class="btn btn-default btn-sm" id="menu1">공연장 등록</button>
+				 <input type="text" id="search" placeholder="공연장"></input>
+				 <button type="button" class="btn btn-default btn-sm" id="menu2">공연장 검색</button>
+				 <button type="button" class="btn btn-default btn-sm" id="menu3">공연장 전체검색</button>
 			</div>
 		</div>
-				<div class="row">
-					<div class="col-sm-12" id="searchtable">
-						<table class="table table-bordered" id="tablelist">
-						</table>
-					</div>
-				</div>		
-			<div class="row">
-				<div class="col-sm-12" id="searchtable">
-					<table class="table table-bordered" id="stable">
-					</table>
-				</div>
-			</div>
+
+		
+		<div class="row" id="searchtable"></div>
+		<div class="row" id="allsearchtable"></div>
+
 		<div class="row">
 			<div class="col-sm-12" id="resistForm">
-			<table class="table table-bordered">
+			<table class="table table-bordered" id="resisttable" style="width: 70%;height: 70%;margin: 40px auto; background-color:white; ">
 				<tr>
 					<th>공연장명</th><td><input type="text" class="table1" name="hallName"/></td>
 				</tr>
@@ -213,11 +222,13 @@ $(document).ready(function(){
 									<button type="button" class="btn btn-default" data-dismiss="modal" id="complete">등록완료</button>
 									<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel">취소</button>
 								</div>
-        			      </div>
- 					 </div>
-				 </div>
+							</div>
+						</div>	
+        			 </div>
+ 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
+</div>	
 </body>
 </html>
