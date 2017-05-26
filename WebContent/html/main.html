@@ -20,7 +20,6 @@
  * {
     box-sizing: border-box;
  }
- 
 body {
     font-family: 'NotoSansKR', 'Nanum Gothic', "Times New Roman", Times, sans-serif;
 }
@@ -106,7 +105,7 @@ body {
 }
 .btn_theater {
     position: absolute;
-    top: 21px;
+    top: 18px;
     right: 0;
 }
 .btn_social .split {
@@ -165,7 +164,6 @@ body {
 	width: 100%;
 	height: 450px;
 }
-
 .frame {
 	float: left;
 	position: relative;
@@ -174,7 +172,6 @@ body {
 	width: 19.13333%;
 	border: 1px solid #888;
 }
-
 .frame1 {
 	position: relative;
 	transform-style: preserve-3d;
@@ -183,51 +180,42 @@ body {
 	height: 300px;
 	perspactive: 300px;
 }
-
 .frame1:hover {
 	transform: rotateY(180deg);
 }
-
 .card {
 	position: absolute;
 	backface-visibility: hidden;
 }
-
 .backPost {
 	opacity: 0.3;
 }
-
 .card img {
 	width: 100%;
 	height: auto;
 }
-
 .card.back {
 	background-color: #333;
 	transform: rotateY(180deg);
 }
-
 #movieInfo {
 	position: absolute;
 	margin: auto;
 	width: 100%;
-	top: 70px;
+	top: 100px;
 	color: #eee;
 	font-size: 15px;
 	text-align: center;
 }
-
 .moveInfoBtn {
 	width: 100%;
-	margin-top: 95px;
+	margin-top: 65px;
 	border-top: 1px solid #888;
 	font-size: 15px;
 }
-
 .moveInfoBtn span {
 	font-size: 3rem;
 }
-
 .moveInfoBtn1 {
 	float: left;
 	width: 50%;
@@ -236,11 +224,9 @@ body {
 	background-color: #333;
 	border-right: 1px solid #222;
 }
-
 .moveInfoBtn1:HOVER {
 	background-color: #222;
 }
-
 .moveInfoBtn2 {
 	float: left;
 	width: 50%;
@@ -249,18 +235,15 @@ body {
 	background-color: #333;
 	border-left: 1px solid #888;
 }
-
 .moveInfoBtn2:HOVER {
 	background-color: #222;
 }
-
 .movieInfo2 {
 	text-align: center;
 	font-size: 17px;
 	padding: 10px;
 	border-bottom: 1px solid #555;
 }
-
 .movieInfo2 .dDay {
 	padding: 5px 25px;
 	margin-left: 10px;
@@ -270,14 +253,12 @@ body {
 	background-color: #00ace6;
 	border-radius: 5px;
 }
-
 .movieInfo3 {
 	text-align: center;
 	font-size: 19px;
 	font-weight: bold;
 	padding: 10px;
 }
-
 .movieInfo3 .age {
 	padding: 3px 2px;
 	margin-right: 10px;
@@ -288,7 +269,6 @@ body {
 	border-radius: 5px;
 	font-weight: normal;
 }
-
 .movieInfo3Btn {
 	float: left;
 	width: 43%;
@@ -299,11 +279,18 @@ body {
 	background-color: #eee;
 	border: 1px solid #eee;
 }
-
+.movieInfo3Btn a{
+	color: #555;
+	cursor:pointer;
+}
 .movieInfo3Btn:HOVER {
 	color: #00ace6;
 	background-color: #fff;
 	border: 1px solid #00ace6;
+}
+.movieInfo3Btn:HOVER a{
+	color: #00ace6;
+	text-decoration: none;
 }
 
 /* 공통하단 */
@@ -507,7 +494,8 @@ function ImgError(source){
             </div>
         </div>
     </div>
-		  
+	
+	<!-- 공연들 -->
 	<div class="container" id="container">
 		<div class="row">
 			<div class="col-md-12 frameDiv">
@@ -538,8 +526,8 @@ function ImgError(source){
 						<p>
 							<span class="age">12</span> 공연 1
 						</p>
-						<div class="movieInfo3Btn">상세정보</div>
-						<div class="movieInfo3Btn">예매하기</div>
+						<div class="movieInfo3Btn"><a href="./detail/01.html">상세정보</a></div>
+						<div class="movieInfo3Btn"><a name="booking_popup">예매하기</a></div>
 					</div>
 				</div>
 				<div class="frame">
@@ -569,8 +557,8 @@ function ImgError(source){
 						<p>
 							<span class="age">12</span> 공연 2
 						</p>
-						<div class="movieInfo3Btn">상세정보</div>
-						<div class="movieInfo3Btn">예매하기</div>
+						<div class="movieInfo3Btn"><a href="./detail/01.html">상세정보</a></div>
+						<div class="movieInfo3Btn"><a name="booking_popup">예매하기</a></div>
 					</div>
 				</div>
 				<div class="frame">
@@ -600,8 +588,8 @@ function ImgError(source){
 						<p>
 							<span class="age">12</span> 공연 3
 						</p>
-						<div class="movieInfo3Btn">상세정보</div>
-						<div class="movieInfo3Btn">예매하기</div>
+						<div class="movieInfo3Btn"><a href="./detail/01.html">상세정보</a></div>
+						<div class="movieInfo3Btn"><a name="booking_popup">예매하기</a></div>
 					</div>
 				</div>
 				<div class="frame">
@@ -631,8 +619,8 @@ function ImgError(source){
 						<p>
 							<span class="age">12</span> 공연 4
 						</p>
-						<div class="movieInfo3Btn">상세정보</div>
-						<div class="movieInfo3Btn">예매하기</div>
+						<div class="movieInfo3Btn"><a href="./detail/01.html">상세정보</a></div>
+						<div class="movieInfo3Btn"><a name="booking_popup">예매하기</a></div>
 					</div>
 				</div>
 				<div class="frame">
@@ -662,8 +650,8 @@ function ImgError(source){
 						<p>
 							<span class="age">12</span> 공연 5
 						</p>
-						<div class="movieInfo3Btn">상세정보</div>
-						<div class="movieInfo3Btn">예매하기</div>
+						<div class="movieInfo3Btn"><a href="./detail/01.html">상세정보</a></div>
+						<div class="movieInfo3Btn"><a name="booking_popup">예매하기</a></div>
 					</div>
 				</div>
 			</div>
