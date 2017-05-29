@@ -59,7 +59,7 @@ body {
 .topLogo {
     display:inline-block; 
     width:2.3rem;
-    padding:0.3rem 0.1rem;
+    padding:0.3rem;
     margin:0 -0.09rem;
     color: #fff;
     font-size:2rem;
@@ -70,6 +70,16 @@ body {
 
 .topLogoDiv a span:HOVER {
 	text-decoration: none;
+}
+
+/* 상단 고정메뉴 */
+.affix {
+      top: 0;
+      width: 100%;
+      z-index: 999 !important;
+}
+.affix + .container-fluid {
+      padding-top: 124px;
 }
 
 /* 상단 중간 메뉴 */
@@ -144,16 +154,6 @@ body {
     vertical-align: middle;
 }
 
-/* 상단 고정메뉴 */
-.affix {
-      top: 0;
-      width: 100%;
-      z-index: 999 !important;
-}
-.affix + .container-fluid {
-      padding-top: 124px;
-}
-
 /* 메인 슬라이드 */
 #myCarousel {
     margin-top:-7.6rem;
@@ -172,7 +172,7 @@ body {
 .middle-btn-wrap .nav-pills>li.title {
 	height: 47px;
 	color:#503396;
-	font-size:2.3rem;
+	font-size:2rem;
 	font-weight:bold;
 	background-color:transparent;
 	vertical-align: middle;
@@ -193,7 +193,7 @@ body {
 .middle-btn-wrap .nav-pills>li.active>a {
 	height: 47px;
 	color:#503396;
-	font-size:1.9rem;
+	font-size:1.8rem;
 	background-color:transparent;
 	vertical-align: middle;
 }
@@ -210,12 +210,13 @@ body {
 	margin-right: 0.8rem;
 	height: 450px;
 	width: 19.13333%;
-	border: 1px solid #888;
+	border: 1px solid #d9d9d9;
+	background-color:#fff;
 }
 .frame1 {
 	position: relative;
 	transform-style: preserve-3d;
-	transition: all 0.7s linear;
+	transition: all 0.5s linear;
 	width: 100%;
 	height: 300px;
 	perspactive: 300px;
@@ -235,7 +236,7 @@ body {
 	height: auto;
 }
 .card.back {
-	background-color: #333;
+	background-color: #000;
 	transform: rotateY(180deg);
 }
 #movieInfo {
@@ -254,7 +255,8 @@ body {
 	font-size: 15px;
 }
 .moveInfoBtn span {
-	font-size: 3rem;
+	font-size: 2.6rem;
+	margin-bottom:0.5rem;
 }
 .moveInfoBtn1 {
 	float: left;
@@ -282,7 +284,7 @@ body {
 	text-align: center;
 	font-size: 17px;
 	padding: 10px;
-	border-bottom: 1px solid #555;
+	border-bottom: 1px solid #d9d9d9;
 }
 .movieInfo2 .dDay {
 	padding: 5px 25px;
@@ -322,7 +324,6 @@ body {
 .movieInfo3Btn a{
 	color: #555;
 	cursor:pointer;
-}
 }
 .movieInfo3Btn:HOVER {
 	color: #00ace6;
@@ -376,6 +377,7 @@ body {
     display: block;
 }
 </style>
+
 <script type="text/javascript">
 var booking_popup = function(){
 	var popup_url = "../ticketing/01.html";
@@ -414,8 +416,8 @@ function ImgError(source){
 		<div class="row" id="top-btn-wrap"> 
 		    <div class="container">
 				<div class="row">
-				    <div class="col-sm-3 topLogoDiv]">
-					    <a href="../main.html" class="btn btn-link" style="width:10%;">
+				    <div class="col-sm-3 topLogoDiv">
+					    <a href="../main.html" class="btn" style="width:10%;">
 					    <span class="topLogo">T</span>
 					    <span class="topLogo">I</span>
 					    <span class="topLogo">C</span>
