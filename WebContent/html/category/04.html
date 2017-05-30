@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>티켓박스-연극</title>
+<title>티켓박스-지역</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -467,7 +467,7 @@ function ImgError(source){
 				<div class="col-sm-3">
 					<button type="button" class="btn btn-info btn-xs btn_menu_all"><i class="glyphicon glyphicon-menu-hamburger"></i> 전체메뉴</button>
 					<div class="btn_social">
-					    <a class="film_society" href="./04.html" title="지역 바로가기">지역</a>
+					    <a class="film_society" href="#" title="지역 바로가기">지역</a>
 					    <i class="split"></i>
 					    <a class="classic_society" href="./05.html" title="공연장 바로가기">공연장</a>
 					</div>
@@ -504,12 +504,49 @@ function ImgError(source){
         	<div class="row">
 				<div class="col-sm-12">
 					<ul class="nav nav-pills nav-justified">
-						<li class="title">연극</li>
+						<li class="title">지역</li>
 						<li class="active"><a href="#">전체</a></li>
-						<li><a href="#">멜로</a></li>
-						<li><a href="#">로맨스 코메디</a></li>
-						<li><a href="#">공포</a></li>
-						<li><a href="#">어린이</a></li>
+						<li><a href="#">서울</a></li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">수도권
+							<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+						      <li><a href="#">경기</a></li>
+						      <li><a href="#">인천</a></li>
+						    </ul>
+						</li>
+						<li><a href="#">강원</a></li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">경상권
+							<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+						      <li><a href="#">경북</a></li>
+						      <li><a href="#">경남</a></li>
+						      <li><a href="#">대구</a></li>
+						      <li><a href="#">부산</a></li>
+						      <li><a href="#">울산</a></li>
+						    </ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">전라권
+							<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+						      <li><a href="#">전북</a></li>
+						      <li><a href="#">전남</a></li>
+						      <li><a href="#">광주</a></li>
+						      <li><a href="#">제주도</a></li>
+						    </ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">충청권
+							<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+						      <li><a href="#">충북</a></li>
+						      <li><a href="#">충남</a></li>
+						      <li><a href="#">대전</a></li>
+						      <li><a href="#">세종</a></li>
+						    </ul>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -533,7 +570,7 @@ function ImgError(source){
 						<div class="card back">
 							<img class="backPost" src="../img/에어리언.jpg" onerror="ImgError(this)" />
 							<article id="movieInfo">
-								<input id="input-id" type="text" class="rating" data-size="xs" >
+								<input id="input-id" type="text" class="rating" data-size="sm" >
 								<div class="moveInfoBtn">
 									<div class="moveInfoBtn1">
 										<span class="glyphicon glyphicon-ok"></span><br> 본공연

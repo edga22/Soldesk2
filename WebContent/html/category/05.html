@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>티켓박스-연극</title>
+<title>티켓박스-공연장</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -172,7 +172,7 @@ body {
 .middle-btn-wrap .nav-pills>li.title {
 	height: 47px;
 	color:#503396;
-	font-size:2rem;
+	font-size:1.9rem;
 	font-weight:bold;
 	background-color:transparent;
 	vertical-align: middle;
@@ -183,6 +183,7 @@ body {
 	font-size:1.8rem;
 	font-weight:bold;
 	text-align:left;
+	letter-spacing: -2px;
 	background-color:transparent;
 	vertical-align: middle;
 }
@@ -469,7 +470,7 @@ function ImgError(source){
 					<div class="btn_social">
 					    <a class="film_society" href="./04.html" title="지역 바로가기">지역</a>
 					    <i class="split"></i>
-					    <a class="classic_society" href="./05.html" title="공연장 바로가기">공연장</a>
+					    <a class="classic_society" href="#" title="공연장 바로가기">공연장</a>
 					</div>
 				</div>
 				<!-- 검색창 -->
@@ -504,12 +505,13 @@ function ImgError(source){
         	<div class="row">
 				<div class="col-sm-12">
 					<ul class="nav nav-pills nav-justified">
-						<li class="title">연극</li>
-						<li class="active"><a href="#">전체</a></li>
-						<li><a href="#">멜로</a></li>
-						<li><a href="#">로맨스 코메디</a></li>
-						<li><a href="#">공포</a></li>
-						<li><a href="#">어린이</a></li>
+						<li class="title">공연장</li>
+						<li><a href="#">세종문화회관</a></li>
+						<li><a href="#">예술의전당</a></li>
+						<li><a href="#">충무아트센터</a></li>
+						<li><a href="#">성남아트센터</a></li>
+						<li><a href="#">경기도문화의전당</a></li>
+						<li><a href="#">안산문화예술의전당</a></li>
 					</ul>
 				</div>
 			</div>
@@ -533,7 +535,7 @@ function ImgError(source){
 						<div class="card back">
 							<img class="backPost" src="../img/에어리언.jpg" onerror="ImgError(this)" />
 							<article id="movieInfo">
-								<input id="input-id" type="text" class="rating" data-size="xs" >
+								<input id="input-id" type="text" class="rating" data-size="sm" >
 								<div class="moveInfoBtn">
 									<div class="moveInfoBtn1">
 										<span class="glyphicon glyphicon-ok"></span><br> 본공연
