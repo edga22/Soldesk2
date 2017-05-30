@@ -46,10 +46,16 @@ background-size: 100%;
 	margin: 2px auto; 
 	border: 0.2rem solid 
 	#4d4dff;background-color:#1a1a1a;
-	 color:#4d4dff;
+	 color:white;
 }
 #allsearchtable th,#searchtable th,#resisttable th{
 	text-align:center;
+}
+#searchtable{
+	border: none;
+}
+#resisttable td{
+	color:black;
 }
 
 </style>
@@ -109,28 +115,41 @@ $(document).ready(function(){
 	//공연장 검색 버튼클릭시 나타남	
 
 	  $("#menu2").click(function(){
+		  var moiveinfo = '<thead><tr><th>공연장</th><th>회관</th><th>지역</th><th>공연명</th><th>수정</th></tr></thead>'
+							+'<tbody><tr><td><input type="text" value="개나리홀" id="1"></td><td><input type="text" value="세종문화회관" id="2"></td><td><input type="text" value="서울 북부" id="3"><td><input type="text" value="캣츠" id="4"></td>'
+							+'<td><button type="button" class="btn btn-default btn-sm" id="modSearch1">수정</button></td>';
+
 			$("#resistForm").hide();
 			$('#allsearchtable').empty();
-			var moiveinfo = '<thead><tr><th>공연장</th><th>회관</th><th>지역</th><th>공연명</th><th>수정</th></tr></thead>'
-							+'<tbody><tr><td>개나리홀</td><td>세종문화회관</td><td>서울 북부</td><td>캣츠</td>'
-							+'<td><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal" id="c">수정</button></td>';
 			$('#searchtable').empty();
 			$('#searchtable').append('<table class="table">'+moiveinfo+'</tbody></table>');
 			$("#searchtable").css({
-								"border": "0.1rem solid #4d4dff",
+								"border": "none",
 								"background-color":"#1a1a1a",
 								"margin":"0.1rem",
 								"color":"white",
 								"text-align":"center"
 		   });
+		   $("#1,#2,#3,#4").css({
+			   "color":"black"
+		   })	
+		   $("#modSearch1").click(function(){
+			  var result = confirm("수정하시겠습니까?");
+			  if(result){
+				  alert("수정완료하였습니다.");
+			  }else{
+				  alert("취소되었습니다.");
+			  }
+		   })
 	  });
+
 	  //공연장 전체검색 버튼클릭시 나타남
 
 	  $("#menu3").click(function(){	
-		  var allinfo ='<thead><tr><th>공연장</th><th>회관</th><th>지역</th><th>공연명</th><th>수정</th></thead></tr><tbody><tr><td>장미홀</td><td>세종문화회관</td><td>서울 북부</td><td>캣츠</td>'
-						+'<td><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal" id="a">수정</button></td>'
-						+'</tr><tr><td>해바라기홀</td><td>인천문화예술관</td><td>인천</td><td>맘마미야</td>'
-						+'<td><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal" id="b">수정</button></td>'
+		  var allinfo ='<thead><tr><th>공연장</th><th>회관</th><th>지역</th><th>공연명</th><th>수정</th></thead></tr><tbody><tr><td><input type="text" value="장미홀" id="1"></td><td><input type="text" value="세종문화회관" id="2"></td><td><input type="text" value="서울 북부" id="3"></td><td><input type="text" value="캣츠" id="4"></td>'
+						+'<td><button type="button" class="btn btn-default btn-sm" id="a">수정</button></td>'
+						+'</tr><tr><td><input type="text" value="해바라기홀" id="5"></td><td><input type="text" value="인천문화예술관" id="6"></td><td><input type="text" value="인천" id="7"></td><td><input type="text" value="맘마미야" id="8"></td>'
+						+'<td><button type="button" class="btn btn-default btn-sm" id="b">수정</button></td>'
 						+'</tr>';
 						
 		  $('#resistForm').hide();
@@ -138,25 +157,26 @@ $(document).ready(function(){
 		  $("#allsearchtable").empty();
 		  $("#allsearchtable").append('<table class="table">'+allinfo+'</tbody></table>');   
 		  $("#allsearchtable").css({
-							"border": "0.1rem solid #4d4dff",
+							"border": "none",
 							"background-color":"#1a1a1a",
 							"margin":"0.1rem",
 							"color":"white",
 							"text-align":"center"
 				});
-		  var modalbody = '<table style="padding:1rem;margin:1rem;">'
-	  				+ '<tr><th>상영관명:</th><td><input type="text" value="세종문화회관" style="margin:0.5rem;"></td></tr>'
-					+ '<tr><th>공연장명:</th><td><input type="text" value="A1" style="margin:0.5rem;"></td></tr>'
-					+ '<tr><th>공연명:</th><td><input type="text" value="대부"style="margin:0.5rem;"></td></tr></table>';
-	  $("#a").click(function(){
-		  $("#modal-body").append(modalbody);
-	  });		
-				
+			$("#1,#2,#3,#4,#5,#6,#7,#8").css({
+				"color":"black"
+			})	
+			$("#a,#b").click(function(){
+				var result = confirm("수정하시겠습니까?");
+				if(result){
+					alert("수정완료하였습니다.");
+				}else{
+					alert("취소되었습니다.");
+				}
+			})		
 	  });
-	  
-	  //공연장 수정
-	
-});
+}); 
+	 
 
 		  
 </script>
@@ -206,30 +226,30 @@ $(document).ready(function(){
 		<div class="col-sm-12" id="resistForm">
 			<table class="table table-bordered" id="resisttable">
 				<tr>
-					<th>공연장명</th><td><input type="text" class="table1" name="hallName"/></td>
+					<th>공연장명</th><td><input type="text"  name="hallName"/></td>
 				</tr>
 				<tr>
-					<th>상영관명</th><td><input type="text" class="table1" name="TheaterName"/></td>
+					<th>상영관명</th><td><input type="text"  name="TheaterName"/></td>
 				</tr>
 				<tr>
-					<th>좌석수(가로)</th><td><input type="number" class="table2" name="SeatColName"/></td>
+					<th>좌석수(가로)</th><td><input type="number"  name="SeatColName"/></td>
 				</tr>
 				<tr>
-					<th>좌석수(세로)</th><td><input type="number" class="table2" name="SeatRowName"/></td>
+					<th>좌석수(세로)</th><td><input type="number" name="SeatRowName"/></td>
 				</tr>
 				<tr>
-					<th>우편번호</th><td><input type="number" class="table2 postcodify_postcode5" name="PostName"/>
+					<th>우편번호</th><td><input type="number" class="postcodify_postcode5" name="PostName"/>
 					<button type="button" id="postcodify_search_button" class="btn btn-default">우편번호찾기</button></td>
 				</tr>
 				<tr>
-					<th>주소</th><td><input type="text" class="table1 postcodify_address" name="AddressName"/></td>
+					<th>주소</th><td><input type="text"  name="AddressName"/></td>
 				</tr>
 			
 				<tr>
-					<th>세부 주소</th><td><input type="text" class="table1 postcodify_details" name="AddressDetailName"/></td>
+					<th>세부 주소</th><td><input type="text"  name="AddressDetailName"/></td>
 				</tr>
 				<tr>
-					<th>공연장 전화번호</th><td><input type="number" class="table1" name="hallNumberName" placeholder="(-)하이픈 금지"/></td>
+					<th>공연장 전화번호</th><td><input type="number"name="hallNumberName" placeholder="(-)하이픈 금지"/></td>
 				</tr>
 			</table>
 			<div id="buttons">
@@ -251,9 +271,8 @@ $(document).ready(function(){
 						</div>	
         			 </div>	
 		  </div>
-
 	  </div>
-	</div>	
-</div>	 
+	</div>
+</div>
 </body>
 </html>
